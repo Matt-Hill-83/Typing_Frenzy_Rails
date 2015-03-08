@@ -1,19 +1,23 @@
 .dialog-box {
   position: absolute;
-  padding-left: 16px;
-  font-size: 24px;
-  font-family: Avenir Next, Avenir, Verdana, sans-serif;
-  font-weight: 300;
-  color: white;
+  padding: 16px;
   border: 1px solid rgba(255,255,255,0.8);
   overflow: hidden;
   border-radius: 5px;
 
 }
 
+.my-dialog-font {
+  font-size: 24px;
+  font-family: Avenir Next, Avenir, Verdana, sans-serif;
+  font-weight: 300;
+  color: white;
+
+}
+
 .start-game-box {
   bottom: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50px);
   left: 50%;
   transform: translateX(-50%);
   height: 100px;
@@ -21,22 +25,23 @@
 
 }
 .new-user-box {
-  bottom: 50%;
+  bottom: 10%;
   transform: translateY(-50%);
-  left: 50%;
+  left: 20%;
   transform: translateX(-50%);
-  height: 100px;
+}
+.new-session-box {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 80%;
+  transform: translateX(-50%);
+}
+.user-session-box {
+  height: 200px;
   width: 200px;
-
 }
 
-.box-label {
-  position: absolute;
-  display: block;
-  left: 50%;
-  transform: translateX(-80%);
-  padding: 0;
-}
+
 
 /* add a tint layer to brighten (or darken) */
 .frosted::after {

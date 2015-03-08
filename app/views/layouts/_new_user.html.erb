@@ -1,8 +1,7 @@
 <%= render "shared/errors" %>
 
-<div class=' new-user-box dialog-box frosted' id=''>
-  <p class="box-label" id="start-game-message"><h1>New User</h1>
-</p>
+<div class='user-session-box new-user-box dialog-box frosted' id=''>
+  <p class="my-dialog-font" id="">New User</p>
 
 
   <form action="<%= users_url %>" method="post">
@@ -10,21 +9,6 @@
       type="hidden"
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
-
-    <div class='my_username'>
-      <label for="user_username">User Name--- </label>
-      <input type="text"
-             name="user[username]"
-             id="user_username">
-     </div>
-
-    <div class='my_password'>
-      <label for="user_password">Password</label>
-      <input type="password"
-             name="user[password]"
-             id="user_password" >
-    </div>
-
-    <input type="submit">
+      <%= render partial: "layouts/user_pass" %>
   </form>
 </div>
