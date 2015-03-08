@@ -33,5 +33,8 @@
       game.getWordList(event.target.name)
     }
     $('.dropdown-menu li').on("click", function() {updateWordList()})
+
+    $('.my-sign-in').on("click", function() {document.getElementById("new-user-box").style.display = "none";})
+
   })();
 </script>

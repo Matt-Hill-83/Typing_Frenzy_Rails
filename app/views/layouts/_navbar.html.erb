@@ -31,7 +31,8 @@
           </li> <!--dropdown -->
 
           <% if current_user.nil? %>
-            <li> <%= link_to "Sign in", new_session_url %> </li>
+            <li><a class='my-sign-in' href="#">Sign In</a></li>
+            <!-- <li> <%= link_to "Sign in", new_session_url %> </li> -->
             <li> <%= link_to "Sign up", new_user_url %> </li>
           <% else %>
             <li><%= current_user.username %></li>
