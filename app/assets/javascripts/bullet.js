@@ -32,11 +32,12 @@
           otherObject.removeChar();
 
           // Refactor this into a function.
-          var elementName = 'wpm-box';
-          var element = document.getElementById( elementName );
           this.game.points += 1;
-          element.innerHTML = this.game.points;
-        }
+          document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
+        };
+
+
+
         // If all the characters have been removed, remove the fish
         if (otherObject.text.length === 0){
           otherObject.remove();
@@ -93,6 +94,9 @@
       this.vel = [run,rise];
     } else {
       this.vel = [0, 10]
+      // Add key to wrongKey list
+      this.game.wrongLettersString += this.pressedKey;
+      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
     }
 
       var x = this.pos[0];
