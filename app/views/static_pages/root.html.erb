@@ -12,7 +12,7 @@
       <%= render partial: "layouts/new_user" %>
       <%= render partial: "layouts/new_session" %>
     </div> <!-- dialog-boxes-container -->
-    
+
     <%= render partial: "layouts/navbar" %>
   </div> <!-- canvas-div -->
 </div> <!-- master -->
@@ -34,7 +34,7 @@
     var updateWordList = function() {
       game.getWordList(event.target.name)
     }
-    $('.dropdown-menu li').on("click", function() {updateWordList()})
+    $('.dropdown-menu li').on("click", function() { updateWordList(); })
 
     // Show Sign In and Sign Up dialog boxes on click.
     $('.my-sign-up').on("click", function() {
@@ -45,7 +45,11 @@
     $('.my-sign-in').on("click", function(){
        document.getElementById("new-session-box").style.display = "block";
        document.getElementById("new-user-box").style.display = "none";
+       })
 
+    $('.my-sign-in').on("click", function(){
+       document.getElementById("new-session-box").style.display = "block";
+       document.getElementById("new-user-box").style.display = "none";
        })
 
   })();
