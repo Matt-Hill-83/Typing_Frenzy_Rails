@@ -1,0 +1,31 @@
+body{
+  background-color: rgb(176, 176,176) !important;
+}
+
+.master {
+    padding: 10px;
+    margin: 15px auto;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+}
+.canvas-div {
+    position: relative;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+    margin: 0px auto;
+    width: 900px;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+-moz-box-shadow:    3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+box-shadow:         3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+}
+
+canvas {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 900px;
+    height: auto;
+    border-radius: 10px;
+}
