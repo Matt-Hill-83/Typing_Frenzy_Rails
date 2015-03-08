@@ -1,5 +1,4 @@
 (function () {
-  // console.log('peter is the coolest!');
   if (typeof TypingFrenzy === "undefined") {
     window.TypingFrenzy = {};
   }
@@ -20,7 +19,6 @@
       key('shift+'+ chr, function(event, handler) { ship.processKeystroke(event, handler) } );
     }
     key("space", function(event, handler) { ship.processKeystroke(event, handler) } );
-    // key("space", function () { ship.fireBullet() });
     for (i = 91; i <= 126; i++) {
       var chr = String.fromCharCode(i);
       key(chr, function (event, handler) { ship.processKeystroke(event, handler) });
@@ -52,6 +50,8 @@
 
 
   // ################
+  // I think this is not working because it is loading before the page is built.
+  // Because I moved a bunch of stuff into the application.html.erb
   function countdown( elementName, minutes, seconds )
   {
       var element, endTime, hours, mins, msLeft, time;

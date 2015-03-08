@@ -8,6 +8,12 @@
     <div class='dialog-boxes-container'>
       <div class='start-game-box dialog-box frosted' id='start-game'>
         <p class="my-dialog-font" id="">Start Game</p>
+
+        <ul class="nav navbar-nav">
+          <li> <a id="countdown">[time] </a> </li>
+          <li> <a id="wpm-box">[score] </a> </li>
+        </ul>
+        
       </div>
       <%= render partial: "layouts/new_user" %>
       <%= render partial: "layouts/new_session" %>
@@ -16,7 +22,6 @@
     <%= render partial: "layouts/navbar" %>
   </div> <!-- canvas-div -->
 </div> <!-- master -->
-
 
 <!--########################################################################  -->
 

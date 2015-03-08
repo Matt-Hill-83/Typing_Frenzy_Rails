@@ -36,6 +36,19 @@
           var element = document.getElementById( elementName );
           this.game.points += 1;
           element.innerHTML = this.game.points;
+
+
+
+
+          // // Refactor this into a function.
+          // var elementName = 'countdown';
+          // var element = document.getElementById( elementName );
+          // this.game.points += 1;
+          // element.innerHTML = this.game.points;
+
+
+
+
         }
 
         // If all the characters have been removed, remove the fish
