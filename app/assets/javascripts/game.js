@@ -24,7 +24,7 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    this.gameTimeInSec = 5;
+    this.gameTimeInSec = 15;
     this.startTimer(); // Make this a global
 
   };
@@ -199,10 +199,9 @@ var SHIP_HEIGHT = 35;
   };
 
   Game.prototype.startTimer = function () {
-    function countdown( elementName, minutes, seconds )
+    function countdown( elementName, minutes, seconds, game )
     {
         var element, endTime, hours, mins, msLeft, time;
-
         function twoDigits( n )
         {
             return (n <= 9 ? "0" + n : n);
@@ -213,7 +212,9 @@ var SHIP_HEIGHT = 35;
             msLeft = endTime - (+new Date);
             if ( msLeft < 1000 ) {
                 element.innerHTML = "0:00";
+                // Send total points to game over screen.
                 document.getElementById("start-game").style.display = "block";
+                document.getElementById( 'result-string-1' ).innerHTML = "Your score was: " + game.points;
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
@@ -227,7 +228,7 @@ var SHIP_HEIGHT = 35;
         endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
         updateTimer();
     }
-    countdown( "countdown", 0, this.gameTimeInSec ); // Make this a global
+    countdown( "countdown", 0, this.gameTimeInSec, this ); // Make this a global
 
   };
 
