@@ -39,7 +39,6 @@
 
     );
 
-
     this.bindKeyHandlers();
   };
 
@@ -47,43 +46,6 @@
     clearInterval(this.timerId);
   };
 
-
-
-  // ################
-  // I think this is not working because it is loading before the page is built.
-  // Because I moved a bunch of stuff into the application.html.erb
-  // function countdown( elementName, minutes, seconds )
-  // {
-  //     var element, endTime, hours, mins, msLeft, time;
-  //
-  //     function twoDigits( n )
-  //     {
-  //         return (n <= 9 ? "0" + n : n);
-  //     }
-  //
-  //     function updateTimer()
-  //     {
-  //         msLeft = endTime - (+new Date);
-  //         if ( msLeft < 1000 ) {
-  //             element.innerHTML = "0:00";
-  //         } else {
-  //             time = new Date( msLeft );
-  //             hours = time.getUTCHours();
-  //             mins = time.getUTCMinutes();
-  //             element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
-  //             setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
-  //         }
-  //     }
-  //
-  //     element = document.getElementById( elementName );
-  //     endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
-  //     updateTimer();
-  // }
-  // var gameTimeInSec = 120;
-  // countdown( "countdown", 0, gameTimeInSec ); // Make this a global
-
-
-  // ################
 
 
 })();
