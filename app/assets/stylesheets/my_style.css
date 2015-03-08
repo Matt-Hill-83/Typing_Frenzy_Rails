@@ -163,7 +163,7 @@ canvas {
 .navbar .nav > li > a:hover {
     float: none;
     color: yellow;
-    background-color: green;
+    background-color: grey;
 }
 
 .glyphicon.glyphicon-cog {
