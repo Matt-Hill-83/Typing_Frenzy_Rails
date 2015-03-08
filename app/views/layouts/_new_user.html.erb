@@ -2,23 +2,32 @@
 
 <%= render "shared/errors" %>
 
-<form action="<%= users_url %>" method="post">
-  <input
-    type="hidden"
-    name="authenticity_token"
-    value="<%= form_authenticity_token %>">
+<div class='start-game-box frosted' id='start-game'>
+  <p class="box-label" id="start-game-message">Start Game</p>
 
-  <label for="user_username">User Name</label>
-  <input type="text"
-         name="user[username]"
-         id="user_username"
-  <br>
 
-  <label for="user_password">Password</label>
-  <input type="password"
-         name="user[password]"
-         id="user_password"
-  <br>
 
-  <input type="submit">
-</form>
+
+
+
+  <form action="<%= users_url %>" method="post">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <div class='username'>
+      <label for="user_username">User Name</label>
+      <input type="text"
+             name="user[username]"
+             id="user_username">
+
+    <label for="user_password">Password</label>
+    <input type="password"
+           name="user[password]"
+           id="user_password"
+    <br>
+
+    <input type="submit">
+  </form>
+</div>
