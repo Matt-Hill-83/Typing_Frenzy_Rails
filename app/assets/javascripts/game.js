@@ -24,7 +24,7 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    this.gameTimeInSec = 15;
+    this.gameTimeInSec = 30;
     this.startTimer(); // Make this a global
 
   };
@@ -214,7 +214,7 @@ var SHIP_HEIGHT = 35;
                 element.innerHTML = "0:00";
                 // Send total points to game over screen.
                 document.getElementById("start-game").style.display = "block";
-                document.getElementById( 'result-string-1' ).innerHTML = "Your score was: " + game.points;
+                document.getElementById( 'result-string-1' ).innerHTML = game.points;
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
