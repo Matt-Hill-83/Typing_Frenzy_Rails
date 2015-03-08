@@ -22,8 +22,8 @@
     if (otherObject instanceof TypingFrenzy.Fish) {
       var text = otherObject.text;
       var char_1 = text[0];
-      // Make sure the fish is the active fish
 
+      // Make sure the fish is the active fish
       if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
         // If the first character of the fish text matches the key pressed,
         // remove the bullet, and remove the first character
@@ -36,29 +36,15 @@
           var element = document.getElementById( elementName );
           this.game.points += 1;
           element.innerHTML = this.game.points;
-
-
-
-
-          // // Refactor this into a function.
-          // var elementName = 'countdown';
-          // var element = document.getElementById( elementName );
-          // this.game.points += 1;
-          // element.innerHTML = this.game.points;
-
-
-
-
         }
-
         // If all the characters have been removed, remove the fish
         if (otherObject.text.length === 0){
           otherObject.remove();
           this.game.activeFish = -1;
           this.game.addFish(1);
         }
-
       }
+
     }
   };
 
@@ -90,12 +76,10 @@
         if (firstChar === this.pressedKey && fishFullyOnScreen){
           // Set fish to active.
           this.game.fishes[i].active = true;
-          // Don't break here, you want to get the last matching fish because
-          // it will be the highest in z-order
           break;
         };
-      };
-    };
+      }; // end for loop
+    };  // end if
 
     // If a fish has been activated, shoot at it, otherwise shoot to the right.
     if (this.game.activeFish >= 0){
@@ -115,12 +99,6 @@
       var y = this.pos[1];
 
       ctx.drawImage(this.img, x -12, y -12);
-
-    // // Draw line
-    // ctx.beginPath();
-    // ctx.moveTo(octopusX,octopusY);
-    // ctx.lineTo(fishX,fishY);
-    // ctx.stroke();
 
   };
 })();

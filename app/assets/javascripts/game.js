@@ -26,6 +26,7 @@ var SHIP_HEIGHT = 35;
     this.points = 0;
     this.gameTimeInSec = 30;
     this.startTimer(); // Make this a global
+    this.wrongLettersString = '';
 
   };
 

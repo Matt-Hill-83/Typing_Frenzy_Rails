@@ -4,18 +4,15 @@
   }
 
   var Ship = TypingFrenzy.Ship = function (options) {
-    // options.radius = Ship.RADIUS;
-    options.vel = options.vel || [0, 0];
+    options.vel = [0, 0];
     TypingFrenzy.MovingObject.call(this, options)
     this.image=new Image();
     this.image.src= 'assets/octopus_02_100x100.png';
-
   };
 
   TypingFrenzy.Util.inherits(Ship, TypingFrenzy.MovingObject);
 
   Ship.prototype.processKeystroke = function (event, handler) {
-    // console.log('shortcut: ' + handler.shortcut);
     var pressedKey = '';
 
     if (handler.shortcut === 'space'){
@@ -44,16 +41,6 @@
     });
 
     this.game.add(bullet);
-  };
-
-  Ship.prototype.power = function (impulse) {
-    this.vel[0] += impulse[0];
-    this.vel[1] += impulse[1];
-  };
-
-  Ship.prototype.relocate = function () {
-    this.pos = [TypingFrenzy.Game.DIM_X/2 - SHIP_WIDTH/2, TypingFrenzy.Game.DIM_Y - SHIP_HEIGHT];
-    this.vel = [0, 0];
   };
 
   Ship.prototype.draw = function (ctx) {
