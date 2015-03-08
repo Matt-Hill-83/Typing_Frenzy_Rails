@@ -12,7 +12,8 @@ class SessionsController < ApplicationController
       render :new
     else
       login_user!(user)
-      redirect_to cats_url
+      redirect_to static_pages/root
+      # redirect_to cats_url
     end
   end
 
