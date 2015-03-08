@@ -13,13 +13,12 @@ class SessionsController < ApplicationController
     else
       login_user!(user)
       redirect_to static_pages/root
-      # redirect_to cats_url
     end
   end
 
   def destroy
     logout_user!
-    redirect_to new_session_url
+    redirect_to root_url
   end
 
   def new
