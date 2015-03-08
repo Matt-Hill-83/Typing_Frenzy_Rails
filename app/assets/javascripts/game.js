@@ -24,7 +24,8 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    this.startTimer( "countdown", 0, 120 ); // Make this a global
+    this.gameTimeInSec = 5;
+    this.startTimer(); // Make this a global
 
   };
 
@@ -226,8 +227,7 @@ var SHIP_HEIGHT = 35;
         endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
         updateTimer();
     }
-    var gameTimeInSec = 12;
-    countdown( "countdown", 0, gameTimeInSec ); // Make this a global
+    countdown( "countdown", 0, this.gameTimeInSec ); // Make this a global
 
   };
 
