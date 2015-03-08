@@ -7,8 +7,15 @@
 
     <div class='dialog-boxes-container'>
 
-      <div class='start-game-box dialog-box frosted' id='start-game'>
-        <p class="my-dialog-font" id="">Start Game</p>
+      <div class='start-game-box dialog-box' id='start-game'>
+        <p class="my-dialog-font" id="">
+          <button class='game-start-button'
+                  type="button">
+            Start Game
+          </button>
+
+        </p>
+
       </div>
       <%= render partial: "layouts/new_user" %>
       <%= render partial: "layouts/new_session" %>
@@ -27,8 +34,15 @@
     canvasEl.height = TypingFrenzy.Game.DIM_Y;
 
     var ctx = canvasEl.getContext("2d");
-    var game = new TypingFrenzy.Game(ctx);
-    new TypingFrenzy.GameView(game, ctx).start();
+
+    // Restart game.
+    var startGame = function() {
+      var game = new TypingFrenzy.Game(ctx);
+      this.currentGameView = new TypingFrenzy.GameView(game, ctx);
+      this.currentGameView.start();
+    }
+
+    startGame()
 
     // When an <li> is clicked, change the wordList to the corresponding list.
     var updateWordList = function() {
@@ -50,6 +64,11 @@
     $('.my-sign-in').on("click", function(){
        document.getElementById("new-session-box").style.display = "block";
        document.getElementById("new-user-box").style.display = "none";
+       })
+       that = this;
+    $('.game-start-button').on("click", function(){
+      that.currentGameView.stop();
+      startGame();
        })
 
   })();
