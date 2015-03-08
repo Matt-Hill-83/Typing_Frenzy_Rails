@@ -10,6 +10,7 @@
       <div class='start-game-box dialog-box' id='start-game'>
         <p class="my-dialog-font" id="">
           <button class='game-start-button'
+                  id='game-start-button'
                   type="button">
             Start Game
           </button>
@@ -65,8 +66,11 @@
        document.getElementById("new-session-box").style.display = "block";
        document.getElementById("new-user-box").style.display = "none";
        })
-       that = this;
+
+    // When you click the start button...
+    that = this;
     $('.game-start-button').on("click", function(){
+      document.getElementById("start-game").style.display = "none";
       that.currentGameView.stop();
       startGame();
        })

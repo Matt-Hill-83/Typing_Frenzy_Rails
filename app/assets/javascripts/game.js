@@ -212,6 +212,7 @@ var SHIP_HEIGHT = 35;
             msLeft = endTime - (+new Date);
             if ( msLeft < 1000 ) {
                 element.innerHTML = "0:00";
+                document.getElementById("start-game").style.display = "block";
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
@@ -225,7 +226,7 @@ var SHIP_HEIGHT = 35;
         endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
         updateTimer();
     }
-    var gameTimeInSec = 120;
+    var gameTimeInSec = 12;
     countdown( "countdown", 0, gameTimeInSec ); // Make this a global
 
   };

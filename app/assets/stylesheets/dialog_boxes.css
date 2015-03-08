@@ -34,3 +34,13 @@
   color: white;
   margin: 0 auto;
 }
+
+.game-start-button {
+  position: relative;
+  background-color: transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5%;
+  /*transform: translateY(50%);*/
+  /*margin: auto;*/
+}
