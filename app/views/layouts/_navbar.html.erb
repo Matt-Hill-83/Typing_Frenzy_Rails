@@ -1,14 +1,5 @@
 <nav class="navbar navbar-default my-navbar">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar">wtf is this?</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -39,20 +30,14 @@
         </li> <!--dropdown -->
 
         <% if current_user.nil? %>
-        <li>
-          <%= link_to "Sign in", new_session_url %>
-        </li>
-        <li>
-          <%= link_to "Sign up", new_user_url %>
-        </li>
+          <li> <%= link_to "Sign in", new_session_url %> </li>
+          <li> <%= link_to "Sign up", new_user_url %> </li>
         <% else %>
-          <%= current_user.username %>
-          <%= button_to "Logout", session_url, method: :delete %>
+          <li><%= current_user.username %></li>
+          <li><%= button_to "Logout", session_url, method: :delete %></li>
         <% end %>
-
-
-
       </ul>
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
