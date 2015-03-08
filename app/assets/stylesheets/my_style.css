@@ -1,0 +1,176 @@
+body{
+  background-color: rgb(176, 176,176) !important;
+}
+
+.master {
+    padding: 10px;
+    margin: 15px auto;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+}
+.canvas-div {
+    position: relative;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+    margin: 0px auto;
+    width: 900px;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+-moz-box-shadow:    3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+box-shadow:         3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+}
+.navbar-div {
+    /*display: none;*/
+    /*visibility: hidden;*/
+    position: absolute;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    background-color: transparent !important;
+    /*color: white !important;*/
+
+}
+.navbar-div:hover {
+    display: block;
+}
+
+.my-navbar {
+  padding: 0px !important;
+  margin: 0px !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: red !important;
+
+}
+.score-box {
+  padding-left: 16px;
+  bottom: 65px;
+  left: 15px;
+  height: 40px;
+  width: 200px;
+}
+.start-game-box {
+  position: absolute;
+  padding-left: 16px;
+  bottom: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+  transform: translateX(-50%);
+  height: 100px;
+  width: 200px;
+  font-size: 24px;
+  position: absolute;
+  font-family: Avenir Next, Avenir, Verdana, sans-serif;
+  font-weight: 300;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.8);
+  overflow: hidden;
+  border-radius: 5px;
+
+}
+
+.box-label {
+  position: absolute;
+  display: block;
+  /*margin: auto;*/
+  left: 50%;
+  transform: translateX(-80%);
+  /*margin-top: 2px;
+  margin: 2px auto;*/
+  padding: 0;
+}
+
+/* The content */
+.frosted {
+    /*margin: 0px;*/
+    /*box-shadow: 0 0 16px rgba(0,0,0,0.5);*/
+}
+/* add a tint layer to brighten (or darken) */
+.frosted::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    background: rgba(200,200,200, .4);
+    z-index: -1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+canvas {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 900px;
+    height: auto;
+    border-radius: 10px;
+}
+.setting-glyph-div {
+    /*background-color: coral;*/
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    z-index: 10 !important;
+    top: 0px;
+}
+
+.setting-glyph-div:hover ~ .navbar-div {
+  display: block;
+  z-index: 20 !important;
+}
+.setting-glyph-div:hover {
+  display: none;
+  z-index: -20 !important;
+}
+
+
+/*.navbar .nav > li > a {
+    float: none;
+    line-height: 19px;
+    padding: 9px 10px 11px;
+    text-decoration: none;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color:  red;
+}*/
+
+.navbar .nav > li > a {
+    float: none;
+    color: black !important;
+    background-color: transparent;
+}
+.navbar .nav > li > a:hover {
+    float: none;
+    color: yellow;
+    background-color: green;
+}
+
+.glyphicon.glyphicon-cog {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    margin: auto 10px;
+    font-size: 30px;
+    color: rgb(200,200,200);
+}

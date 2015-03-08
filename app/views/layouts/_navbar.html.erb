@@ -1,0 +1,53 @@
+
+<% if current_user.nil? %>
+  <%= link_to "Sign in", new_session_url %> or
+  <%= link_to "Sign up", new_user_url %>
+<% else %>
+  <%= current_user.username %>
+  <%= button_to "Logout", session_url, method: :delete %>
+<% end %>
+
+<nav class="navbar navbar-default my-navbar">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <a id="countdown">[time] </a> </li>
+        <li > <a id="wpm-box">[score] </a> </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Word Group <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a name='Home_Row_00' id='0' href="#">00-Home Row</a></li>
+            <li><a name='In_Position_01' id='1' href="#">01-In Position</a></li>
+            <li><a name='Out_Of_Position_02' id='2' href="#">02-Out of Position</a></li>
+            <li><a name='Stretchers_03' id='3' href="#">03-Small Stretches</a></li>
+            <li class="divider"></li>
+            <li><a name='Punctuation_04' id='4' href="#">04-Punctuation</a></li>
+            <li><a name='Numbers_05' id='5' href="#">05-Numbers</a></li>
+            <li><a name='Top_Punctuation_055' id='5.5' href="#">05.5-Top Punctuation</a></li>
+            <li class="divider"></li>
+            <li><a name='HTML_06' id='6' href="#">06-HTML</a></li>
+            <li><a name='CSS_07' id='7' href="#">07-CSS</a></li>
+            <li><a name='JavaScript_08' id='8' href="#">08-JavaScript</a></li>
+            <li><a name='Ruby_09' id='9' href="#">09-Ruby</a></li>
+            <li><a name='Rails_10' id='10' href="#">10-Rails</a></li>
+          </ul>
+        </li> <!--dropdown -->
+        <!-- <li><a href="#">Log In</a></li> -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
