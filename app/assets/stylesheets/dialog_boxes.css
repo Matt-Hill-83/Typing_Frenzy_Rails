@@ -41,11 +41,7 @@
   left: 50%;
   transform: translateX(-50%);
   margin-top: 5%;
-  /*transform: translateY(50%);*/
-  /*margin: auto;*/
 }
-
-/*<a href="#" class="myButton">dark grey</a>*/
 
 .myButton {
 	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
