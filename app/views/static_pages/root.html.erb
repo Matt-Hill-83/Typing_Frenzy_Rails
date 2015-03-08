@@ -1,39 +1,37 @@
-<body>
-  <div class='master'>
-    <div class='canvas-div' row>
-      <canvas class='my-canvas'></canvas>
-      <!-- <div class='setting-glyph-div'>
-        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-      </div> -->
+<div class='master'>
+  <div class='canvas-div' row>
+    <canvas class='my-canvas'></canvas>
+    <!-- <div class='setting-glyph-div'>
+      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+    </div> -->
 
-      <div class='start-game-box dialog-box frosted' id='start-game'>
-        <p class="my-dialog-font" id="">Start Game</p>
-      </div>
+    <div class='start-game-box dialog-box frosted' id='start-game'>
+      <p class="my-dialog-font" id="">Start Game</p>
+    </div>
 
-      <%= render partial: "layouts/new_user" %>
-      <%= render partial: "layouts/new_session" %>
-      <%= render partial: "layouts/navbar" %>
-    </div> <!-- canvas-div -->
-  </div> <!-- master -->
+    <%= render partial: "layouts/new_user" %>
+    <%= render partial: "layouts/new_session" %>
+    <%= render partial: "layouts/navbar" %>
+  </div> <!-- canvas-div -->
+</div> <!-- master -->
 
 
 <!--########################################################################  -->
 
-  <script type="application/javascript">
-    (function () {
-      var canvasEl = document.getElementsByTagName("canvas")[0];
-      canvasEl.width = TypingFrenzy.Game.DIM_X;
-      canvasEl.height = TypingFrenzy.Game.DIM_Y;
+<script type="application/javascript">
+  (function () {
+    var canvasEl = document.getElementsByTagName("canvas")[0];
+    canvasEl.width = TypingFrenzy.Game.DIM_X;
+    canvasEl.height = TypingFrenzy.Game.DIM_Y;
 
-      var ctx = canvasEl.getContext("2d");
-      var game = new TypingFrenzy.Game(ctx);
-      new TypingFrenzy.GameView(game, ctx).start();
+    var ctx = canvasEl.getContext("2d");
+    var game = new TypingFrenzy.Game(ctx);
+    new TypingFrenzy.GameView(game, ctx).start();
 
-      // When an <li> is clicked, change the wordList to the corresponding list.
-      var updateWordList = function() {
-        game.getWordList(event.target.name)
-      }
-      $('.dropdown-menu li').on("click", function() {updateWordList()})
-    })();
-  </script>
-</body>
+    // When an <li> is clicked, change the wordList to the corresponding list.
+    var updateWordList = function() {
+      game.getWordList(event.target.name)
+    }
+    $('.dropdown-menu li').on("click", function() {updateWordList()})
+  })();
+</script>
