@@ -1,14 +1,13 @@
 <%= render "shared/errors" %>
 
-<div class='user-session-box new-user-box dialog-box frosted' id='new-user-box'>
-  <p class="my-dialog-font" id="">New User</p>
-
+<div class='user-session-box new-session-box dialog-box frosted' id='new-session-box'>
+  <p class="my-dialog-font" id="">Sign In</p>
 
   <form action="<%= users_url %>" method="post">
     <input
       type="hidden"
       name="authenticity_token"
       value="<%= form_authenticity_token %>">
-      <%= render partial: "layouts/user_pass" %>
+    <%= render partial: "layouts/user_pass" %>
   </form>
 </div>

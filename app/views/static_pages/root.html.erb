@@ -5,12 +5,14 @@
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </div> -->
 
-    <div class='start-game-box dialog-box frosted' id='start-game'>
-      <p class="my-dialog-font" id="">Start Game</p>
-    </div>
-
-    <%= render partial: "layouts/new_user" %>
-    <%= render partial: "layouts/new_session" %>
+    <div class='dialog-boxes-container'>
+      <div class='start-game-box dialog-box frosted' id='start-game'>
+        <p class="my-dialog-font" id="">Start Game</p>
+      </div>
+      <%= render partial: "layouts/new_user" %>
+      <%= render partial: "layouts/new_session" %>
+    </div> <!-- dialog-boxes-container -->
+    
     <%= render partial: "layouts/navbar" %>
   </div> <!-- canvas-div -->
 </div> <!-- master -->
@@ -35,8 +37,16 @@
     $('.dropdown-menu li').on("click", function() {updateWordList()})
 
     // Show Sign In and Sign Up dialog boxes on click.
-    $('.my-sign-up').on("click", function() {document.getElementById("new-user-box").style.display = "block";})
-    $('.my-sign-in').on("click", function() {document.getElementById("new-session-box").style.display = "block";})
+    $('.my-sign-up').on("click", function() {
+      document.getElementById("new-user-box").style.display = "block";
+      document.getElementById("new-session-box").style.display = "none";
+      })
+
+    $('.my-sign-in').on("click", function(){
+       document.getElementById("new-session-box").style.display = "block";
+       document.getElementById("new-user-box").style.display = "none";
+
+       })
 
   })();
 </script>
