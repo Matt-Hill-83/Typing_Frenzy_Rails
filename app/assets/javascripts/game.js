@@ -10,9 +10,6 @@ var SHIP_HEIGHT = 35;
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
     this.demoMode = options.demoMode;
-    console.log(this.demoMode);
-
-
 
     this.backgroundLayers = [];
     this.fishes = [];
@@ -35,6 +32,8 @@ var SHIP_HEIGHT = 35;
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';
+    // This must be precalled here or the keyboard image wont load
+    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
 
   };
 
@@ -198,6 +197,16 @@ var SHIP_HEIGHT = 35;
     this.checkCollisions();
   };
 
+  Game.prototype.gameOverActions = function () {
+    // Send total points to game over screen.
+    document.getElementById("start-game").style.display = "block";
+    document.getElementById( 'result-string-1' ).innerHTML = this.points;
+    document.getElementById("my-canvas-keyboard").style.display = "block";
+    //Map result onto keyboard heat map
+    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+
+  };
+
   Game.prototype.startTimer = function () { // put this in utils
     function countdown( elementName, minutes, seconds, game )
     {
@@ -212,12 +221,9 @@ var SHIP_HEIGHT = 35;
             msLeft = endTime - (+new Date);
             if ( msLeft < 1000 ) {
                 element.innerHTML = "0:00";
-                // Send total points to game over screen.
-                document.getElementById("start-game").style.display = "block";
-                document.getElementById( 'result-string-1' ).innerHTML = game.points;
-                document.getElementById("my-canvas-keyboard").style.display = "block";
+                game.gameOverActions();
 
-                TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
+                // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
 
             } else {
                 time = new Date( msLeft );
