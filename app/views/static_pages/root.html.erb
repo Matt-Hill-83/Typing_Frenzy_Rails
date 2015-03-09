@@ -1,7 +1,8 @@
 <div class='master'>
   <div class='canvas-div' row>
     <canvas class='my-canvas' id='my-canvas'></canvas>
-    <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas>
+    <!-- <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas> -->
+
     <!-- <div class='setting-glyph-div'>
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </div> -->
@@ -26,12 +27,13 @@
         </p>
 
       </div>
+    <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas>
       <%= render partial: "layouts/new_user" %>
-      <%= render partial: "layouts/new_session" %>
+      <!-- <%= render partial: "layouts/new_session" %>
       <div class='keyboard-heatmap'>
         <img src="assets/keyboard/keyboad_mac_01_v02_600x278.png"
              alt="Your picture here!">
-      </div>
+      </div> -->
 
     </div> <!-- dialog-boxes-container -->
 
@@ -48,7 +50,7 @@
     canvasEl.height = TypingFrenzy.Game.DIM_Y;
     var ctx = canvasEl.getContext("2d");
 
-    var ctx_kbd = document.getElementById("my-canvas").getContext("2d");
+    var ctx_kbd = document.getElementById("my-canvas-keyboard").getContext("2d");
 
     // Restart game.
     var startGame = function() {
@@ -88,6 +90,10 @@
       that.currentGameView.stop();
       startGame();
        })
+
+      //  var image_kbd=new Image();
+      //  image_kbd.src= "assets/keyboard/keyboad_mac_01_v02_600x278.png";
+      //  ctx_kbd.drawImage(image_kbd, 0, 900);
 
   })();
 </script>

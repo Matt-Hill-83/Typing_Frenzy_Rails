@@ -8,6 +8,9 @@
     TypingFrenzy.MovingObject.call(this, options)
     this.image=new Image();
     this.image.src= 'assets/octopus_02_100x100.png';
+
+    this.image_kbd=new Image();
+    this.image_kbd.src= "assets/keyboard/keyboad_mac_01_v02_600x278.png";
   };
 
   TypingFrenzy.Util.inherits(Ship, TypingFrenzy.MovingObject);
@@ -51,7 +54,9 @@
     var octopusHeight = 100;
 
     ctx.drawImage(this.image, octopusX - octopusLength/2, octopusY - octopusHeight);
-
+    this.game.ctx_kbd.drawImage(this.image_kbd, 0, 0);
+    this.game.ctx_kbd.rect(20,20,150,0);
+    this.game.ctx_kbd.stroke();
   };
 
 })();
