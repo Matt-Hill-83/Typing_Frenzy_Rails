@@ -23,10 +23,10 @@
     this.keyboardRectangleWidths.push(row_5);
 
     row_1_chars = ['\`', '1', '2', '3','4', '5', '6', '7','8', '9', '0', '-', '='];
-    row_2_chars = ['47', '29', '29', '29','29', '29', '29', '29','29', '29', '29', '29', '29', 29];
-    row_3_chars = ['55', '29', '29', '29','29', '29', '29', '29','29', '29', '29', '29', 56];
-    row_4_chars = ['70', '29', '29', '29', '31', '29', '29', '29','29', '29', '29'];
-    row_5_chars = ['29', '29', '29', '38','165', '36'];
+    row_2_chars = ['tab', 'q', 'w', 'e','r', 't', 'y', 'u','i', 'o', 'p', '[',']'];
+    row_3_chars = ['caps', 'a', 's', 'd','f', 'g', 'h', 'j','k', 'l', ';', '\''];
+    row_4_chars = ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm',',', '.', '.', '/'];
+    row_5_chars = ['ctrl', 'option', 'cmd', 'space','cmd', 'option', 'ctrl'];
 
     this.keyboardChars = [];
     this.keyboardChars.push(row_1_chars);
