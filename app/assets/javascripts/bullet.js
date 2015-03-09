@@ -76,6 +76,7 @@
         if (firstChar === this.pressedKey && fishFullyOnScreen){
           // Set fish to active.
           this.game.fishes[i].active = true;
+          this.game.activeFish = i; //just added this
           break;
         };
       }; // end for loop
@@ -84,15 +85,18 @@
 
   Bullet.prototype.createTrajectory = function () {
     // If a fish has been activated, shoot at it, otherwise shoot to the right.
-    if (this.game.activeFish >= 0){
+    if (this.game.activeFish >= 0){ //When is this set?
       this.aimAtFish();
     } else {
-      this.vel = [0, 10]
+      this.aimAtWall();
       // Add key to wrongKey list
       this.game.wrongLettersString += this.pressedKey;
       document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-    }
+    };
+  };
 
+  Bullet.prototype.aimAtWall = function () {
+    this.vel = [0, 10]
   };
 
   Bullet.prototype.aimAtFish = function () {
