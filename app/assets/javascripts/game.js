@@ -231,6 +231,9 @@ var SHIP_HEIGHT = 35;
                 mins = time.getUTCMinutes();
                 element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
                 setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+                //test
+                // var e = $.Event("keydown", { keyCode: 35}); //"keydown" if that's what you're doing
+                // $("body").trigger(e);
             }
         }
 

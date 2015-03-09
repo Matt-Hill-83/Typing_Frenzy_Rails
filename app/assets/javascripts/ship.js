@@ -14,7 +14,7 @@
 
   Ship.prototype.processKeystroke = function (event, handler) {
     var pressedKey = '';
-
+    console.log('test');
     if (handler.shortcut === 'space'){
       pressedKey = " "
     } else {
