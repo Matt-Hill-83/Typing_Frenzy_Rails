@@ -69,7 +69,7 @@
         var x = rectangle[0]
         var y = rectangle[1]
         var width = rectangle[2]
-        var height = rectangle[1]
+        var height = rectangle[3]
 
         ctx_kbd.rect( x,y,width,height);
         ctx_kbd.stroke();
