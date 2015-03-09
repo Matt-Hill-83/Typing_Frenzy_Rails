@@ -8,20 +8,27 @@
     TypingFrenzy.MovingObject.call(this, options)
     this.image=new Image();
     this.image.src= 'assets/octopus_02_100x100.png';
+    this.game = options.game;
   };
 
   TypingFrenzy.Util.inherits(Ship, TypingFrenzy.MovingObject);
 
   Ship.prototype.processKeystroke = function (event, handler) {
     var pressedKey = '';
-    console.log('test');
     if (handler.shortcut === 'space'){
       pressedKey = " "
     } else {
       pressedKey = handler.shortcut.slice(-1)
       if (event.shiftKey ==+ true) { pressedKey = TypingFrenzy.Util.shiftedKeys(pressedKey) }
     };
-    this.fireBullet(pressedKey);
+    console.log('in ship: ' + this.game.demoMode);
+    debugger
+      this.fireBullet(pressedKey);
+    // fix this.  Ship thinks its in demo mode when everyone else thinks its not,
+    // if (this.game.demoMode === true) {
+    // // if (game.demoMode === false) {
+    //   this.fireBullet(pressedKey);
+    // };
   };
 
   Ship.prototype.fireBullet = function (pressedKey) {

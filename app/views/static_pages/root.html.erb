@@ -54,12 +54,13 @@
     // Restart game.
     var startGame = function(demoMode) {
       // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
-      var game = new TypingFrenzy.Game({
+      console.log('demo mode: ' + demoMode);
+      this.game = new TypingFrenzy.Game({
         "ctx": ctx,
         "ctx_kbd": ctx_kbd,
         "demoMode": demoMode
         });
-      this.currentGameView = new TypingFrenzy.GameView(game, ctx);
+      this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
       document.getElementById("my-canvas-keyboard").style.display = "none";
     }
@@ -68,7 +69,7 @@
 
     // When an <li> is clicked, change the wordList to the corresponding list.
     var updateWordList = function() {
-      game.getWordList(event.target.name)
+      this.game.getWordList(event.target.name)
     }
     $('.dropdown-menu li').on("click", function() { updateWordList(); })
 

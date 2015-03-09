@@ -7,9 +7,12 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
+    this.gameTimeInSec = 1000;
+
+
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
-    this.demoMode = options.demoMode;
+    this.demoMode = options.demoMode || false;
 
     this.backgroundLayers = [];
     this.fishes = [];
@@ -27,11 +30,12 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    this.gameTimeInSec = 5;
     if (this.demoMode === false){
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';
+
+    // console.log('in game init: ' + this.demoMode);
     // This must be precalled here or the keyboard image wont load
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
 
