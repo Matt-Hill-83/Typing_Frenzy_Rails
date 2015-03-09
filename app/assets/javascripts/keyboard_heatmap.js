@@ -3,12 +3,17 @@
     window.TypingFrenzy = {};
   }
 
-  var KeyboardHeatMap = TypingFrenzy.KeyboardHeatMap = function(){
 
+  var KeyboardHeatMap = TypingFrenzy.KeyboardHeatMap = function(){
   };
 
+
   var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(ctx){
-    var ctx_kbd = ctx;
+    ctx_kbd = ctx;
+
+    this.image_kbd=new Image();
+    this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
+    ctx_kbd.drawImage(this.image_kbd, 0, 0);
     row_1 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 49];
     row_2 = [47, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 29];
     row_3 = [55, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 56];
