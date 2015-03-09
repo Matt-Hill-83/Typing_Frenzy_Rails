@@ -22,9 +22,9 @@
     this.keyboardRectangleWidths.push(row_4);
     this.keyboardRectangleWidths.push(row_5);
 
-    row_1_chars = ['\`', '1', '2', '3','4', '5', '6', '7','8', '9', '0', '-', '='];
+    row_1_chars = ['backtick', '1', '2', '3','4', '5', '6', '7','8', '9', '0', '-', '='];
     row_2_chars = ['tab', 'q', 'w', 'e','r', 't', 'y', 'u','i', 'o', 'p', '[',']'];
-    row_3_chars = ['caps', 'a', 's', 'd','f', 'g', 'h', 'j','k', 'l', ';', '\''];
+    row_3_chars = ['caps', 'a', 's', 'd','f', 'g', 'h', 'j','k', 'l', ';', 'backslash'];
     row_4_chars = ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm',',', '.', '.', '/'];
     row_5_chars = ['ctrl', 'option', 'cmd', 'space','cmd', 'option', 'ctrl'];
 
@@ -64,13 +64,8 @@
       }; // for i
       totalY += yKeyPlusSpacing;
     }; // for j
-    console.log(rectanglesHash);
-
-
-    var test = _.pairs(rectanglesHash);
-    console.log('pairs: ' + test);
-
-
+    // console.log(rectanglesHash);
+    // console.log('pairs: ' + test);
     return rectanglesHash;
   };
 
@@ -81,16 +76,19 @@
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
     ctx_kbd.drawImage(image_kbd, 0, 0);
 
-    var rectanglesArray = this.createKeyboardRectangles();
-    console.log(rectanglesArray);
+    var rectanglesHash = this.createKeyboardRectangles();
+    var rectanglesArray = _.pairs(rectanglesHash);
+console.log('rectanglesArray: ' + rectanglesArray);
+    // console.log(rectanglesArray);
 
     for (j = 0; j < rectanglesArray.length; j++){
-        var rectangle = rectanglesArray[j];
+        var rectangle = rectanglesArray[j][1];
 
         var x = rectangle[0]
         var y = rectangle[1]
         var width = rectangle[2]
         var height = rectangle[3]
+        console.log('rect: ' + rectangle);
 
         ctx_kbd.rect( x,y,width,height);
         ctx_kbd.stroke();
