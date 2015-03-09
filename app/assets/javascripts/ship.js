@@ -21,8 +21,13 @@
       pressedKey = handler.shortcut.slice(-1)
       if (event.shiftKey ==+ true) { pressedKey = TypingFrenzy.Util.shiftedKeys(pressedKey) }
     };
+    console.log('-------------');
     console.log('in ship: ' + this.game.demoMode);
-    debugger
+    console.log('in ship: ' + this.game.timeSig);
+    // debugger
+
+    //For each bullet, there are two bullets fired, one with demoMode true
+    // and then one with demo mode false
       this.fireBullet(pressedKey);
     // fix this.  Ship thinks its in demo mode when everyone else thinks its not,
     // if (this.game.demoMode === true) {

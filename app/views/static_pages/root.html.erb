@@ -54,6 +54,20 @@
     // Restart game.
     var startGame = function(demoMode) {
       // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
+
+      // Trying to clear out phantom game that is creating to keystrokes for each one
+      if (this.game !== 'undefined'){
+        console.log('nulling game');
+        this.game = null;
+      };
+
+      // Trying to clear out phantom game that is creating to keystrokes for each one
+      if (this.currentGameView !== 'undefined'){
+        console.log('nulling gameview');
+        this.currentGameView = null;
+      };
+
+      console.log('game: ' + this.game);
       console.log('demo mode: ' + demoMode);
       this.game = new TypingFrenzy.Game({
         "ctx": ctx,

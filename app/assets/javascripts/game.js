@@ -34,6 +34,7 @@ var SHIP_HEIGHT = 35;
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';
+    this.timeSig = Date.now() / 1000
 
     // console.log('in game init: ' + this.demoMode);
     // This must be precalled here or the keyboard image wont load
