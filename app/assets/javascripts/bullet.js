@@ -48,6 +48,8 @@
     }
   };
 
+  Bullet.prototype.isWrappable = false
+
   Bullet.prototype.setActiveFishVariable = function () {
     // Check to see whether a fish has been made active and if so, set activeFish
     for (var i=0; i < this.game.fishes.length; i++){
@@ -57,14 +59,7 @@
 
   };
 
-  Bullet.prototype.isWrappable = false
-
-  Bullet.prototype.draw = function (ctx) {
-    var octopusX = this.game.ships[0].pos[0];
-    var octopusY = this.game.ships[0].pos[1];
-
-    this.setActiveFishVariable();
-
+  Bullet.prototype.activateFishIfMatch = function () {
     // If no fish are active, find the first fish, if any, that matches the
     // pressed key and activate it.
     if (this.game.activeFish < 0) {
@@ -85,9 +80,14 @@
         };
       }; // end for loop
     };  // end if
+  };
 
+  Bullet.prototype.fireBullet = function () {
     // If a fish has been activated, shoot at it, otherwise shoot to the right.
     if (this.game.activeFish >= 0){
+      var octopusX = this.game.ships[0].pos[0];
+      var octopusY = this.game.ships[0].pos[1];
+
       var fishX = this.game.fishes[this.game.activeFish].pos[0];
       var fishY = this.game.fishes[this.game.activeFish].pos[1];
 
@@ -103,10 +103,20 @@
       document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
     }
 
-      var x = this.pos[0];
-      var y = this.pos[1];
+  };
 
-      ctx.drawImage(this.img, x -12, y -12);
+  Bullet.prototype.drawImage = function (ctx) {
+    var x = this.pos[0];
+    var y = this.pos[1];
 
+    ctx.drawImage(this.img, x -12, y -12);
+  };
+
+  Bullet.prototype.draw = function (ctx) {
+
+    this.setActiveFishVariable();
+    this.activateFishIfMatch();
+    this.fireBullet();
+    this.drawImage(ctx);
   };
 })();

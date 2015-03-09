@@ -74,18 +74,11 @@
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
     ctx_kbd.drawImage(image_kbd, 0, 0);
 
-    // var badString = "abcdeaaa"
     var badString = game.wrongLettersString;
-
-    console.log('str length' + badString.length);
-
-
     var rectanglesHash = this.createKeyboardRectangles();
     var rectanglesArray = _.pairs(rectanglesHash);
 
     for (i = 0; i < badString.length; i++ ) {
-      console.log('bad rects' + rectanglesHash[badString[i]]);
-
         var rectangle = rectanglesHash[badString[i]];
 
         var x = rectangle[0]
@@ -102,8 +95,7 @@
         ctx_kbd.font="10px Georgia";
         ctx_kbd.fillStyle = "black";
         ctx_kbd.fillText(badString[i].toUpperCase(),x + 12,y + 17);
-
-    };
+    }; // end for loop
 
   };
 
