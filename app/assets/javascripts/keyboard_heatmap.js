@@ -89,6 +89,9 @@
         var width = rectangle[2]
         var height = rectangle[3]
 
+        var r_a = 0.3;
+        ctx_kbd.fillStyle = "rgba(32, 45, 21, " + r_a + ")";        
+        ctx_kbd.fillRect( x,y,width,height);
         ctx_kbd.rect( x,y,width,height);
         ctx_kbd.stroke();
         ctx_kbd.font="10px Georgia";
