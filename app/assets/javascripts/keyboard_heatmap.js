@@ -65,6 +65,8 @@
     return rectanglesHash;
   };
 
+  // Use the string of bad characters to create a heatmap on of problem areas
+  // on the keyboard image.
   var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(game){
     ctx_kbd = game.ctx_kbd;
 
@@ -72,7 +74,9 @@
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
     ctx_kbd.drawImage(image_kbd, 0, 0);
 
-    var badString = "abcde"
+    // var badString = "abcdeaaa"
+    var badString = game.wrongLettersString;
+
     console.log('str length' + badString.length);
 
 
@@ -90,12 +94,15 @@
         var height = rectangle[3]
 
         var r_a = 0.3;
-        ctx_kbd.fillStyle = "rgba(32, 45, 21, " + r_a + ")";        
+        ctx_kbd.fillStyle = "rgba(242, 105, 78, " + r_a + ")";
         ctx_kbd.fillRect( x,y,width,height);
-        ctx_kbd.rect( x,y,width,height);
+        TypingFrenzy.Util.roundRect(ctx_kbd, x, y, width, height, 5, true);
+
         ctx_kbd.stroke();
         ctx_kbd.font="10px Georgia";
+        ctx_kbd.fillStyle = "black";
         ctx_kbd.fillText(badString[i],x + 5,y + 10);
+
     };
 
   };

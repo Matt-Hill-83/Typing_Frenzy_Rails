@@ -98,10 +98,8 @@
     Surrogate.prototype = BaseClass.prototype;
     ChildClass.prototype = new Surrogate();
   };
-
+  // Draw a rectangle with rounded corners.
   var roundRect = Util.roundRect = function (ctx, x, y, width, height, radius, fill, stroke) {
-
-  // Fish.prototype.roundRect = function(ctx, x, y, width, height, radius, fill, stroke) {
     if (typeof stroke == "undefined" ) {
       stroke = true;
     }
