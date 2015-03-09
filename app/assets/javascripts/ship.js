@@ -55,16 +55,16 @@
     var octopusHeight = 100;
 
     this.keyboardRectangleWidths = [];
-    row_1 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
-    row_2 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
-    row_3 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
-    row_4 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
-    row_5 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    row_1 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 49];
+    row_2 = [47, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 29];
+    row_3 = [55, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 56];
+    row_4 = [70, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 75];
+    row_5 = [29, 29, 29, 38,165, 36, 29];
     this.keyboardRectangleWidths.push(row_1);
-    this.keyboardRectangleWidths.push(row_2);
     this.keyboardRectangleWidths.push(row_2);
     this.keyboardRectangleWidths.push(row_3);
     this.keyboardRectangleWidths.push(row_4);
+    this.keyboardRectangleWidths.push(row_5);
 
     ctx.drawImage(this.image, octopusX - octopusLength/2, octopusY - octopusHeight);
     this.game.ctx_kbd.drawImage(this.image_kbd, 0, 0);
@@ -82,7 +82,7 @@
     var keyHeight = 29;
 
     var xInterKeySpacing = 4.6;
-    var yInterKeySpacing = 0;
+    var yInterKeySpacing = 3.3;
     // console.log(this.keyboardRectangleWidths);
     // For each keyboard row:
     for (j = 0; j < this.keyboardRectangleWidths.length; j++){
