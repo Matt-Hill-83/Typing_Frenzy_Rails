@@ -101,7 +101,7 @@
         ctx_kbd.stroke();
         ctx_kbd.font="10px Georgia";
         ctx_kbd.fillStyle = "black";
-        ctx_kbd.fillText(badString[i],x + 5,y + 10);
+        ctx_kbd.fillText(badString[i].toUpperCase(),x + 12,y + 17);
 
     };
 

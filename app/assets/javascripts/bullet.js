@@ -48,17 +48,22 @@
     }
   };
 
+  Bullet.prototype.setActiveFishVariable = function () {
+    // Check to see whether a fish has been made active and if so, set activeFish
+    for (var i=0; i < this.game.fishes.length; i++){
+      var active = this.game.fishes[i].active
+      if (active) { this.game.activeFish = i };
+    };
+
+  };
+
   Bullet.prototype.isWrappable = false
 
   Bullet.prototype.draw = function (ctx) {
     var octopusX = this.game.ships[0].pos[0];
     var octopusY = this.game.ships[0].pos[1];
 
-    // Check to see whether a fish has been made active.
-    for (var i=0; i < this.game.fishes.length; i++){
-      var active = this.game.fishes[i].active
-      if (active) { this.game.activeFish = i };
-    };
+    this.setActiveFishVariable();
 
     // If no fish are active, find the first fish, if any, that matches the
     // pressed key and activate it.

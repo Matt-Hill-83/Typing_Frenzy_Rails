@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 15;
+    this.gameTimeInSec = 1;
 
 
     this.ctx = options.ctx;
@@ -34,7 +34,11 @@ var SHIP_HEIGHT = 35;
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';
+    // For testing the zombie instance of game
     this.timeSig = Date.now() / 1000
+    // Was the last letter typed correct?
+    this.lastCharGood
+
 
     // console.log('in game init: ' + this.demoMode);
     // This must be precalled here or the keyboard image wont load
