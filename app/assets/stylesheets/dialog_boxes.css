@@ -1,10 +1,15 @@
 .dialog-boxes-container {
   position: absolute;
-  top: 20%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   width: auto;
   height: auto;
+
+  /*border:1px solid white;*/
+
 }
 .dialog-box {
   position: relative;
@@ -12,7 +17,7 @@
   border: 1px solid rgba(255,255,255,1);
   overflow: hidden;
   border-radius: 5px;
-  margin: 20px;
+  margin: 20px auto;
   width: 200px;
   height: 100%;
   background: black;
@@ -33,4 +38,9 @@
   font-weight: 300;
   color: white;
   margin: 0 auto;
+}
+
+.keyboard-heatmap{
+  background-color: white;
+  border-radius: 10px;
 }
