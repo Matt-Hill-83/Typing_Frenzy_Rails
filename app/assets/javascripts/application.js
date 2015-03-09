@@ -20,4 +20,5 @@
 //= require game
 //= require gameView
 //= require backgroundLayer
+//= require keyboard_heatmap
 //= require_tree .
