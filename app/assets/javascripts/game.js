@@ -25,9 +25,13 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    this.gameTimeInSec = 30;
+    this.gameTimeInSec = 5;
     this.startTimer(); // Make this a global
     this.wrongLettersString = '';
+
+    // this.image_kbd=new Image();
+    // this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
+    // ctx_kbd.drawImage(this.image_kbd, 0, 0);
 
   };
 
@@ -122,26 +126,17 @@ var SHIP_HEIGHT = 35;
     var game = this;
 
     this.allObjects().forEach(function (obj1) {
-        // var debugString = '';
-        //   debugString += 'fish: ' +  game.fishes.indexOf(obj1);
-        //   debugString += obj1.active;
-        //   debugString += '|||||';
       game.allObjects().forEach(function (obj2) {
         if (obj1 == obj2) {
           // don't allow self-collision
           return;
         }
         if (obj1 instanceof TypingFrenzy.Fish){
-
-
-          // console.log(game.fishes.indexOf(obj1));
         };
         if (obj1.isCollidedWith(obj2)) {
           obj1.collideWith(obj2);
         }
       });
-          // console.log('---------------');
-          // console.log(debugString);
     });
   };
 
@@ -200,7 +195,7 @@ var SHIP_HEIGHT = 35;
     this.checkCollisions();
   };
 
-  Game.prototype.startTimer = function () {
+  Game.prototype.startTimer = function () { // put this in utils
     function countdown( elementName, minutes, seconds, game )
     {
         var element, endTime, hours, mins, msLeft, time;
@@ -217,6 +212,11 @@ var SHIP_HEIGHT = 35;
                 // Send total points to game over screen.
                 document.getElementById("start-game").style.display = "block";
                 document.getElementById( 'result-string-1' ).innerHTML = game.points;
+                document.getElementById("my-canvas-keyboard").style.display = "block";
+
+                TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
+                // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
+
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();

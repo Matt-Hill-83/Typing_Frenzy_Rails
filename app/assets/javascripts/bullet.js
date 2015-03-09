@@ -34,9 +34,8 @@
           // Refactor this into a function.
           this.game.points += 1;
           document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
+
         };
-
-
 
         // If all the characters have been removed, remove the fish
         if (otherObject.text.length === 0){
