@@ -82,9 +82,20 @@
     };  // end if
   };
 
-  Bullet.prototype.fireBullet = function () {
+  Bullet.prototype.createTrajectory = function () {
     // If a fish has been activated, shoot at it, otherwise shoot to the right.
     if (this.game.activeFish >= 0){
+      this.aimAtFish();
+    } else {
+      this.vel = [0, 10]
+      // Add key to wrongKey list
+      this.game.wrongLettersString += this.pressedKey;
+      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+    }
+
+  };
+
+  Bullet.prototype.aimAtFish = function () {
       var octopusX = this.game.ships[0].pos[0];
       var octopusY = this.game.ships[0].pos[1];
 
@@ -96,27 +107,18 @@
       var run = (fishX - octopusX)/10
 
       this.vel = [run,rise];
-    } else {
-      this.vel = [0, 10]
-      // Add key to wrongKey list
-      this.game.wrongLettersString += this.pressedKey;
-      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-    }
-
-  };
+  }
 
   Bullet.prototype.drawImage = function (ctx) {
     var x = this.pos[0];
     var y = this.pos[1];
-
     ctx.drawImage(this.img, x -12, y -12);
   };
 
   Bullet.prototype.draw = function (ctx) {
-
     this.setActiveFishVariable();
     this.activateFishIfMatch();
-    this.fireBullet();
+    this.createTrajectory();
     this.drawImage(ctx);
   };
 })();
