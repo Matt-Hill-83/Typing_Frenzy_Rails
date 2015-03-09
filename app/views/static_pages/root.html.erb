@@ -52,16 +52,19 @@
     var ctx_kbd = keyboardCanvasEl.getContext("2d");
 
     // Restart game.
-    var startGame = function() {
+    var startGame = function(demoMode) {
       // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
       var game = new TypingFrenzy.Game({
-        "ctx": ctx, "ctx_kbd": ctx_kbd});
+        "ctx": ctx,
+        "ctx_kbd": ctx_kbd,
+        "demoMode": demoMode
+        });
       this.currentGameView = new TypingFrenzy.GameView(game, ctx);
       this.currentGameView.start();
       document.getElementById("my-canvas-keyboard").style.display = "none";
     }
 
-    startGame()
+    startGame(true)
 
     // When an <li> is clicked, change the wordList to the corresponding list.
     var updateWordList = function() {
@@ -90,7 +93,7 @@
     $('.game-start-button').on("click", function(){
       document.getElementById("start-game").style.display = "none";
       that.currentGameView.stop();
-      startGame();
+      startGame(false);
        })
 
   })();

@@ -9,8 +9,11 @@ var SHIP_HEIGHT = 35;
   var Game = TypingFrenzy.Game = function (options) {
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
-    // this.ctx = ctx;
-    // this.ctx_kbd = ctx_kbd;
+    this.demoMode = options.demoMode;
+    console.log(this.demoMode);
+
+
+
     this.backgroundLayers = [];
     this.fishes = [];
     this.bullets = [];
@@ -28,7 +31,9 @@ var SHIP_HEIGHT = 35;
 
     this.points = 0;
     this.gameTimeInSec = 5;
-    this.startTimer(); // Make this a global
+    if (this.demoMode === false){
+      this.startTimer(); // Make this a global
+    };
     this.wrongLettersString = '';
 
   };
