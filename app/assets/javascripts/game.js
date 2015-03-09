@@ -6,9 +6,11 @@ var SHIP_HEIGHT = 35;
     window.TypingFrenzy = {};
   }
 
-  var Game = TypingFrenzy.Game = function (ctx, ctx_kbd) {
-    this.ctx = ctx;
-    this.ctx_kbd = ctx_kbd;
+  var Game = TypingFrenzy.Game = function (options) {
+    this.ctx = options.ctx;
+    this.ctx_kbd = options.ctx_kbd;
+    // this.ctx = ctx;
+    // this.ctx_kbd = ctx_kbd;
     this.backgroundLayers = [];
     this.fishes = [];
     this.bullets = [];
@@ -28,10 +30,6 @@ var SHIP_HEIGHT = 35;
     this.gameTimeInSec = 5;
     this.startTimer(); // Make this a global
     this.wrongLettersString = '';
-
-    // this.image_kbd=new Image();
-    // this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
-    // ctx_kbd.drawImage(this.image_kbd, 0, 0);
 
   };
 
@@ -215,7 +213,6 @@ var SHIP_HEIGHT = 35;
                 document.getElementById("my-canvas-keyboard").style.display = "block";
 
                 TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
-                // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
 
             } else {
                 time = new Date( msLeft );

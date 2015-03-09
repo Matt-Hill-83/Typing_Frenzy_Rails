@@ -53,20 +53,12 @@
 
     // Restart game.
     var startGame = function() {
-      var game = new TypingFrenzy.Game(ctx, ctx_kbd);
+      // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
+      var game = new TypingFrenzy.Game({
+        "ctx": ctx, "ctx_kbd": ctx_kbd});
       this.currentGameView = new TypingFrenzy.GameView(game, ctx);
       this.currentGameView.start();
       document.getElementById("my-canvas-keyboard").style.display = "none";
-
-
-      // For some strange reason I need to call this function twice
-      // to get the image to load.  Here, and at game over.
-
-      // var image_kbd=new Image();
-      // image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
-      // ctx_kbd.drawImage(image_kbd, 0, 0);
-      // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
-
     }
 
     startGame()
