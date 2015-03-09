@@ -10,7 +10,8 @@
     this.image.src= 'assets/octopus_02_100x100.png';
 
     this.image_kbd=new Image();
-    this.image_kbd.src= "assets/keyboard/keyboad_mac_01_v02_600x278.png";
+    this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
+    // this.image_kbd.src= "assets/keyboard/keyboad_mac_01_v03_500x176.png";
   };
 
   TypingFrenzy.Util.inherits(Ship, TypingFrenzy.MovingObject);
@@ -53,10 +54,55 @@
     var octopusLength = 100;
     var octopusHeight = 100;
 
+    this.keyboardRectangleWidths = [];
+    row_1 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    row_2 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    row_3 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    row_4 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    row_5 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 50];
+    this.keyboardRectangleWidths.push(row_1);
+    this.keyboardRectangleWidths.push(row_2);
+    this.keyboardRectangleWidths.push(row_2);
+    this.keyboardRectangleWidths.push(row_3);
+    this.keyboardRectangleWidths.push(row_4);
+
     ctx.drawImage(this.image, octopusX - octopusLength/2, octopusY - octopusHeight);
     this.game.ctx_kbd.drawImage(this.image_kbd, 0, 0);
-    this.game.ctx_kbd.rect(20,20,150,0);
-    this.game.ctx_kbd.stroke();
+
+    this.drawKeyboardRectangles();
+
+    // this.game.ctx_kbd.drawImage(this.image, -50, 0);
+  };
+
+
+  Ship.prototype.drawKeyboardRectangles = function(){
+    var xOffset = 8;
+    var yOffset = 4;
+    // var keyWidth = 30;
+    var keyHeight = 29;
+
+    var xInterKeySpacing = 4.6;
+    var yInterKeySpacing = 0;
+    // console.log(this.keyboardRectangleWidths);
+    // For each keyboard row:
+    for (j = 0; j < this.keyboardRectangleWidths.length; j++){
+      var keyboardRowArray = this.keyboardRectangleWidths[j];
+      var y = yOffset +
+              (keyHeight +
+              yInterKeySpacing) * j;
+
+      var totalX = xOffset;
+      for (i = 0; i < keyboardRowArray.length; i++){
+        keyWidth = keyboardRowArray[i]
+        var keyPlusSpacing = xInterKeySpacing + keyWidth;
+
+        this.game.ctx_kbd.rect( totalX ,y,keyWidth,keyHeight);
+        totalX += keyPlusSpacing;
+        // console.log('x: ' + totalX + 'y: ' + y);
+
+        this.game.ctx_kbd.stroke();
+      }; // for i
+    }; // for j
   };
 
 })();
