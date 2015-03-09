@@ -8,9 +8,6 @@
     TypingFrenzy.MovingObject.call(this, options)
     this.image=new Image();
     this.image.src= 'assets/octopus_02_100x100.png';
-
-    // this.image_kbd=new Image();
-    // this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
   };
 
   TypingFrenzy.Util.inherits(Ship, TypingFrenzy.MovingObject);
@@ -53,11 +50,8 @@
     var octopusLength = 100;
     var octopusHeight = 100;
 
-
     ctx.drawImage(this.image, octopusX - octopusLength/2, octopusY - octopusHeight);
-    // this.game.ctx_kbd.drawImage(this.image_kbd, 0, 0);
-
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this.game.ctx_kbd);
+    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this.game);
   };
 
 })();

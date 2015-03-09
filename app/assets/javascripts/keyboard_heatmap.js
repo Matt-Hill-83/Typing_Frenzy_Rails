@@ -8,8 +8,8 @@
   };
 
 
-  var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(ctx){
-    ctx_kbd = ctx;
+  var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(game){
+    ctx_kbd = game.ctx_kbd;
 
     this.image_kbd=new Image();
     this.image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
