@@ -6,8 +6,9 @@ var SHIP_HEIGHT = 35;
     window.TypingFrenzy = {};
   }
 
-  var Game = TypingFrenzy.Game = function (ctx) {
+  var Game = TypingFrenzy.Game = function (ctx, ctx_kbd) {
     this.ctx = ctx;
+    this.ctx_kbd = ctx_kbd;
     this.backgroundLayers = [];
     this.fishes = [];
     this.bullets = [];

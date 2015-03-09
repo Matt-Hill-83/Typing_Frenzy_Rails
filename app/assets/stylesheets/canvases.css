@@ -1,0 +1,36 @@
+.canvas-div {
+    position: relative;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+    margin: 0px auto;
+    width: 900px;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+    box-shadow:         3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+}
+
+.my-canvas {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 900px;
+    height: auto;
+    border-radius: 10px;
+}
+.my-canvas-keyboard {
+  position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 400px;
+    height: 200px;
+    /*height: auto;*/
+    border-radius: 10px;
+    background-color: red;
+}

@@ -1,6 +1,7 @@
 <div class='master'>
   <div class='canvas-div' row>
-    <canvas class='my-canvas'></canvas>
+    <canvas class='my-canvas' id='my-canvas'></canvas>
+    <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas>
     <!-- <div class='setting-glyph-div'>
       <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
     </div> -->
@@ -42,15 +43,16 @@
 
 <script type="application/javascript">
   (function () {
-    var canvasEl = document.getElementsByTagName("canvas")[0];
+    var canvasEl = document.getElementById("my-canvas");
     canvasEl.width = TypingFrenzy.Game.DIM_X;
     canvasEl.height = TypingFrenzy.Game.DIM_Y;
-
     var ctx = canvasEl.getContext("2d");
+
+    var ctx_kbd = document.getElementById("my-canvas").getContext("2d");
 
     // Restart game.
     var startGame = function() {
-      var game = new TypingFrenzy.Game(ctx);
+      var game = new TypingFrenzy.Game(ctx, ctx_kbd);
       this.currentGameView = new TypingFrenzy.GameView(game, ctx);
       this.currentGameView.start();
     }
