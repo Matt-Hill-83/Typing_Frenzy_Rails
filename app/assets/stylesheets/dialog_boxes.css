@@ -66,3 +66,7 @@
 .result-string-2 {
   text-align: center !important;
 }
+.instructions-text {
+  text-align: center !important;
+  font-size: 20;
+}

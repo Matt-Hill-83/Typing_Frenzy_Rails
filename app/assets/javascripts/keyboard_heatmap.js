@@ -87,7 +87,8 @@
         var height = rectangle[3]
 
         var r_a = 0.3;
-        ctx_kbd.fillStyle = "rgba(242, 105, 78, " + r_a + ")";
+        ctx_kbd.fillStyle = "red";
+        // ctx_kbd.fillStyle = "rgba(242, 105, 78, " + r_a + ")";
         ctx_kbd.fillRect( x,y,width,height);
         TypingFrenzy.Util.roundRect(ctx_kbd, x, y, width, height, 5, true);
 
