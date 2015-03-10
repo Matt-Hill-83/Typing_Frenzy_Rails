@@ -6,7 +6,7 @@
   var Bullet = TypingFrenzy.Bullet = function (options) {
     options.radius = Bullet.RADIUS;
     this.pressedKey = options.pressedKey;
-    this.img=new Image();
+    this.img=new Image(); // We should only do this once and make it a global
     this.img.src= "assets/bubble_24x24.png";
     this.deadBullet = false;
 
@@ -94,7 +94,8 @@
 
   Bullet.prototype.draw = function (ctx) {
 
-    // Check each bullet for a collision with a fish.
+    // If there is an active fish, check each non-dead bullet for a collision
+    // with the active fish.
     this.checkforCollisions();
 
     // A bullet is created by the ship object every time a key is pressed,
@@ -176,6 +177,9 @@
           otherObject.remove();
           this.game.activeFish = -1;
           this.game.addFish(1);
+          // Remove pressedkey, so that another fish isn't activated that
+          // starts with the same letter as the last letter of the dead fish.
+          this.pressedKey = 'none';
         }
       }
 
