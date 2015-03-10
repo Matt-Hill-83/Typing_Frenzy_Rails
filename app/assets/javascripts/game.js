@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 60;
+    this.gameTimeInSec = 10;
 
 
     this.ctx = options.ctx;
@@ -133,24 +133,6 @@ var SHIP_HEIGHT = 35;
       .concat(this.bullets);
   };
 
-  // Game.prototype.checkCollisions = function () {
-  //   var game = this;
-  //
-  //   this.allObjects().forEach(function (obj1) {
-  //     game.allObjects().forEach(function (obj2) {
-  //       if (obj1 == obj2) {
-  //         // don't allow self-collision
-  //         return;
-  //       }
-  //       if (obj1 instanceof TypingFrenzy.Fish){
-  //       };
-  //       if (obj1.isCollidedWith(obj2)) {
-  //         obj1.collideWith(obj2);
-  //       }
-  //     });
-  //   });
-  // };
-
   Game.prototype.draw = function (ctx) {
     ctx.clearRect ( 0 , 0 , TypingFrenzy.Game.DIM_X, TypingFrenzy.Game.DIM_Y );
     ctx.rect(0,0,TypingFrenzy.Game.DIM_X, TypingFrenzy.Game.DIM_Y);
@@ -203,15 +185,18 @@ var SHIP_HEIGHT = 35;
 
   Game.prototype.step = function () {
     this.moveObjects();
-    // this.checkCollisions();
   };
 
   Game.prototype.gameOverActions = function () {
     // Send total points to game over screen.
+    var wpm = parseInt((this.points/this.gameTimeInSec)*60/5);
     document.getElementById("start-game").style.display = "block";
-    document.getElementById( 'result-string-1' ).innerHTML = this.points;
-    document.getElementById( 'result-string-2' ).innerHTML = this.points;
+    document.getElementById( 'result-string-1' ).innerHTML = wpm;
+
+    // document.getElementById( 'result-string-2' ).innerHTML = wpm;
     document.getElementById("my-canvas-keyboard").style.display = "block";
+    document.getElementById("game-over-dialog-box").style.display = "block";
+
     //Map result onto keyboard heat map
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
 

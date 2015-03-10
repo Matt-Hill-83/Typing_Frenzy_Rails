@@ -27,6 +27,12 @@
 .start-game-box {
   height: auto;
 }
+.game-over-dialog-box {
+  margin: 0;
+  padding: 0;
+  display: none;
+  /*background-color: yellow;*/
+}
 .user-session-box {
   display: none;
   height: 200px;
@@ -50,6 +56,13 @@
   text-align: left !important;
 }
 
+.result-string-0 {
+  text-align: center !important;
+  color: black;
+}
 .result-string-1 {
+  text-align: center !important;
+}
+.result-string-2 {
   text-align: center !important;
 }

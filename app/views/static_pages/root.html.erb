@@ -9,13 +9,14 @@
     <div class='dialog-boxes-container'>
 
       <div class='start-game-box dialog-box' id='start-game'>
-        <p id='result-string-0'>
-          Game Over
-        </p>
-        <%= render partial: "layouts/result_table" %>
-        <!-- <p id='result-string-3'>
-          Move to the next level or drill weakness?
-        </p> -->
+
+        <div class='game-over-dialog-box' id='game-over-dialog-box'>
+          <p class='result-string-0'>
+            Game Over
+          </p>
+          <%= render partial: "layouts/result_table" %>
+        </div>
+
         <p class="my-dialog-font" id="">
           <button class='game-start-button myButton'
                   id='game-start-button'
