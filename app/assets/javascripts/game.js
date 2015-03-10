@@ -65,7 +65,7 @@ var SHIP_HEIGHT = 35;
     for (var i = 0; i < numFish; i++) {
       this.add(new TypingFrenzy.Fish({
          game: this,
-         text: TypingFrenzy.Util.newText(this.wordList)
+         text: TypingFrenzy.Util.newText(this.wordList, this)
          }));
     }
   };

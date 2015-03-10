@@ -125,22 +125,29 @@
     }
   };
 
-
-
-  // //Get new word list.
-  // var wordList = Util.wordList = function (listNum) {
-  //   return wordLists[listNum];
-  // };
   //Get word list from word list hash.
   var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName) {
     return wordListsHash[listName];
   };
   // Create new text for fish from current word list.
-  var newText = Util.newText = function (wordList) {
+  var newText = Util.newText = function (wordList, game) {
     TypingFrenzy.Game.TOTAL_FISH ++;
-    return wordList[parseInt(Math.random() * (wordList.length - 1))];
-    // return wordList[TypingFrenzy.Game.TOTAL_FISH % wordList.length];
+    var firstLettersOfExistingFish = '';
 
+    game.fishes.forEach(function (fish) {
+      firstLettersOfExistingFish += fish.text[0];
+    });
+      // console.log('first letters: ' + firstLettersOfExistingFish);
+
+      //put in a case for not enough unique words.
+      var firstLetterUnique = false;
+      while (!firstLetterUnique) {
+        var newWord = wordList[parseInt(Math.random() * (wordList.length - 1))];
+        console.log('new word: ' + newWord);
+        firstLetterUnique = firstLettersOfExistingFish.indexOf(newWord[0]) < 0;
+      };
+
+      return newWord;
   };
 
   var Home_Row_00 = ["smile",
@@ -186,15 +193,15 @@
                "believe",
                "value"
                ];
-  var In_Position_01 = ["yef",
-               "yef",
-               "yef",
-               "yef",
-               "funny",
-               "funny",
-               "funny",
-               "funny"
-               ];
+  // var In_Position_01 = ["yef",
+  //              "yef",
+  //              "yef",
+  //              "yef",
+  //              "funny",
+  //              "cat",
+  //              "funny",
+  //              "funny"
+  //              ];
  var Out_Of_Position_02 = ["respect",
               "thoughtful",
               "earnest",
