@@ -69,4 +69,16 @@
 .instructions-text {
   text-align: center !important;
   font-size: 20;
+  margin: 0px;
+  padding: 0px;
+}
+.instructions-box {
+  padding: 5px;
+  width: auto;
+  height: auto;
+  background-color: grey;
+  text-align: center !important;
+  font-size: 20;
+  border: 1px solid black;
+  border-radius: 4px;
 }
