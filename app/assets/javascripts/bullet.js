@@ -68,12 +68,13 @@
 
   Bullet.prototype.storeBadChars = function () {
     // For a string of bad characters, only add the first one.
-    if (this.game.lastCharGood & this.pressedKey !== '~dontadd~') {
+    if (this.game.lastCharGood && this.pressedKey !== '~dontadd~') {
       this.game.wrongLettersString += this.pressedKey;
       document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+      this.game.lastCharGood = false;
     }
     console.log('bad char pressed: ' + this.pressedKey);
-    this.game.lastCharGood = false;
+    console.log('last char good: ' + this.game.lastCharGood);
     this.deadBullet = true;
   }
 
@@ -164,27 +165,15 @@
         // If the first character of the fish text matches the key pressed,
         // remove the bullet, and remove the first character
         if (char_1 === this.pressedKey){
+          this.game.lastCharGood = true;
           this.remove();
           otherObject.removeChar();
-          this.game.lastCharGood = true;
           // Refactor this into a function.
           this.game.points += 1;
           document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
 
         }else{
           this.storeBadChars();
-          // If bullet collides with active fish, but the letter doesn't match,
-          // add letter to wrongLettersString.  Don't add dummy string.
-          // if (this.pressedKey !== '~dontadd~') {
-          //   this.game.wrongLettersString += this.pressedKey;
-          // };
-
-          // // For a string of bad characters, only add the first one.
-          // if (this.game.lastCharGood) {
-          //   document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-          // }
-          // this.game.lastCharGood = false;
-          // this.deadBullet = true;
         };
 
         // If all the characters have been removed, remove the fish
