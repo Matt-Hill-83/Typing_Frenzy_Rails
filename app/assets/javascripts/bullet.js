@@ -8,6 +8,7 @@
     this.pressedKey = options.pressedKey;
     this.img=new Image();
     this.img.src= "assets/bubble_24x24.png";
+    this.deadBullet = false;
 
     TypingFrenzy.MovingObject.call(this, options);
   };
@@ -18,44 +19,7 @@
 
   TypingFrenzy.Util.inherits(Bullet, TypingFrenzy.MovingObject);
 
-  Bullet.prototype.collideWith = function (otherObject) {
-    if (otherObject instanceof TypingFrenzy.Fish) {
-      var text = otherObject.text;
-      var char_1 = text[0];
 
-      // If the collided fish is the active fish,
-      // Check whether the letter matches the first letter of the fish.
-      // If so, remove the bullet and the first character of the word.
-      // Otherwise,
-      if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
-        // If the first character of the fish text matches the key pressed,
-        // remove the bullet, and remove the first character
-        if (char_1 === this.pressedKey){
-          this.remove();
-          otherObject.removeChar();
-
-          // Refactor this into a function.
-          this.game.points += 1;
-          document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
-
-        }else{
-          // If bullet collide with active fish, but the letter doesn't match,
-          // add letter to wrongLettersString
-          this.game.wrongLettersString += this.pressedKey;
-          document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-
-        };
-
-        // If all the characters have been removed, remove the fish
-        if (otherObject.text.length === 0){
-          otherObject.remove();
-          this.game.activeFish = -1;
-          this.game.addFish(1);
-        }
-      }
-
-    }
-  };
 
   Bullet.prototype.isWrappable = false
 
@@ -156,19 +120,77 @@
     var bullets = this.game.bullets;
     var fishes = this.game.fishes;
 
-    bullets.forEach(function (bullet) {
-      fishes.forEach(function (fish) {
-        if (bullet.isCollidedWith(fish)) {
-          bullet.collideWith(fish);
-        }
-      });
-    });
+    for (i = 0; i < bullets.length; i++) {
+      var bullet = bullets[i];
+      // If bullet is not dead:
+      var bulletNotDead = !bullet.deadBullet;
+      var activeFishNum = this.game.activeFish;
+      var activeFishExists = fishes[activeFishNum];
+      var checkForCollision = bulletNotDead && activeFishExists;
+
+console.log('active Fish exists: ' + activeFishExists);
+console.log('check for boolean: ' + checkForCollision );
+      if (checkForCollision) {
+        var activeFish = fishes[activeFishNum];
+        if (bullet.isCollidedWith(activeFish)) {
+          bullet.collideWith(activeFish);
+        };
+      }; // end if
+    }; // end for
+
+    // bullets.forEach(function (bullet) {
+    //   fishes.forEach(function (fish) {
+    //     if (bullet.isCollidedWith(fish)) {
+    //       bullet.collideWith(fish);
+    //     }
+    //   });
+    // });
   };
 
   Bullet.prototype.isCollidedWith = function (fish) {
     var centerDist = TypingFrenzy.Util.dist(this.pos, fish.pos);
     var collisionDistance = 60;
     return centerDist < collisionDistance;
+  };
+
+  Bullet.prototype.collideWith = function (otherObject) {
+    if (otherObject instanceof TypingFrenzy.Fish) {
+      var text = otherObject.text;
+      var char_1 = text[0];
+
+      // If the collided fish is the active fish,
+      // Check whether the letter matches the first letter of the fish.
+      // If so, remove the bullet and the first character of the word.
+      // Otherwise,
+      if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
+        // If the first character of the fish text matches the key pressed,
+        // remove the bullet, and remove the first character
+        if (char_1 === this.pressedKey){
+          this.remove();
+          otherObject.removeChar();
+
+          // Refactor this into a function.
+          this.game.points += 1;
+          document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
+
+        }else{
+          // If bullet collides with active fish, but the letter doesn't match,
+          // add letter to wrongLettersString
+          this.game.wrongLettersString += this.pressedKey;
+          document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+          this.deadBullet = true;
+
+        };
+
+        // If all the characters have been removed, remove the fish
+        if (otherObject.text.length === 0){
+          otherObject.remove();
+          this.game.activeFish = -1;
+          this.game.addFish(1);
+        }
+      }
+
+    }
   };
 
 })();

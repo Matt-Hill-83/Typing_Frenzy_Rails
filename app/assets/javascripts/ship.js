@@ -21,9 +21,9 @@
       pressedKey = handler.shortcut.slice(-1)
       if (event.shiftKey ==+ true) { pressedKey = TypingFrenzy.Util.shiftedKeys(pressedKey) }
     };
-    console.log('-------------');
-    console.log('in ship: ' + this.game.demoMode);
-    console.log('in ship: ' + this.game.timeSig);
+    // console.log('-------------');
+    // console.log('in ship: ' + this.game.demoMode);
+    // console.log('in ship: ' + this.game.timeSig);
     // debugger
 
     //For each bullet, there are two bullets fired, one with demoMode true
