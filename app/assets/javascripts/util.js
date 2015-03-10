@@ -186,15 +186,15 @@
                "believe",
                "value"
                ];
-  // var In_Position_01 = ["funny",
-  //              "funny",
-  //              "funny",
-  //              "funny",
-  //              "funny",
-  //              "funny",
-  //              "funny",
-  //              "funny"
-  //              ];
+  var In_Position_01 = ["yef",
+               "yef",
+               "yef",
+               "yef",
+               "funny",
+               "funny",
+               "funny",
+               "funny"
+               ];
  var Out_Of_Position_02 = ["respect",
               "thoughtful",
               "earnest",

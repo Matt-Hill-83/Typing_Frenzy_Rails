@@ -122,29 +122,18 @@
 
     for (i = 0; i < bullets.length; i++) {
       var bullet = bullets[i];
-      // If bullet is not dead:
       var bulletNotDead = !bullet.deadBullet;
       var activeFishNum = this.game.activeFish;
-      var activeFishExists = fishes[activeFishNum];
-      var checkForCollision = bulletNotDead && activeFishExists;
+      var activeFish = fishes[activeFishNum];
 
-console.log('active Fish exists: ' + activeFishExists);
-console.log('check for boolean: ' + checkForCollision );
+      var checkForCollision = bulletNotDead && activeFish;
+
       if (checkForCollision) {
-        var activeFish = fishes[activeFishNum];
         if (bullet.isCollidedWith(activeFish)) {
           bullet.collideWith(activeFish);
         };
       }; // end if
     }; // end for
-
-    // bullets.forEach(function (bullet) {
-    //   fishes.forEach(function (fish) {
-    //     if (bullet.isCollidedWith(fish)) {
-    //       bullet.collideWith(fish);
-    //     }
-    //   });
-    // });
   };
 
   Bullet.prototype.isCollidedWith = function (fish) {
