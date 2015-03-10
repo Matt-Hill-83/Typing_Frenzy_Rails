@@ -19,10 +19,10 @@
     // default do nothing
   };
 
-  MovingObject.prototype.isCollidedWith = function (otherObject) {
-    var centerDist = TypingFrenzy.Util.dist(this.pos, otherObject.pos);
-    return centerDist < (this.radius + otherObject.radius);
-  };
+  // MovingObject.prototype.isCollidedWith = function (otherObject) {
+  //   var centerDist = TypingFrenzy.Util.dist(this.pos, otherObject.pos);
+  //   return centerDist < (this.radius + otherObject.radius);
+  // };
 
   MovingObject.prototype.isWrappable = true;
 

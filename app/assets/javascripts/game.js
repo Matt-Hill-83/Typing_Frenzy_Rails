@@ -133,23 +133,23 @@ var SHIP_HEIGHT = 35;
       .concat(this.bullets);
   };
 
-  Game.prototype.checkCollisions = function () {
-    var game = this;
-
-    this.allObjects().forEach(function (obj1) {
-      game.allObjects().forEach(function (obj2) {
-        if (obj1 == obj2) {
-          // don't allow self-collision
-          return;
-        }
-        if (obj1 instanceof TypingFrenzy.Fish){
-        };
-        if (obj1.isCollidedWith(obj2)) {
-          obj1.collideWith(obj2);
-        }
-      });
-    });
-  };
+  // Game.prototype.checkCollisions = function () {
+  //   var game = this;
+  //
+  //   this.allObjects().forEach(function (obj1) {
+  //     game.allObjects().forEach(function (obj2) {
+  //       if (obj1 == obj2) {
+  //         // don't allow self-collision
+  //         return;
+  //       }
+  //       if (obj1 instanceof TypingFrenzy.Fish){
+  //       };
+  //       if (obj1.isCollidedWith(obj2)) {
+  //         obj1.collideWith(obj2);
+  //       }
+  //     });
+  //   });
+  // };
 
   Game.prototype.draw = function (ctx) {
     ctx.clearRect ( 0 , 0 , TypingFrenzy.Game.DIM_X, TypingFrenzy.Game.DIM_Y );
@@ -203,7 +203,7 @@ var SHIP_HEIGHT = 35;
 
   Game.prototype.step = function () {
     this.moveObjects();
-    this.checkCollisions();
+    // this.checkCollisions();
   };
 
   Game.prototype.gameOverActions = function () {

@@ -26,6 +26,7 @@
       // If the collided fish is the active fish,
       // Check whether the letter matches the first letter of the fish.
       // If so, remove the bullet and the first character of the word.
+      // Otherwise,
       if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
         // If the first character of the fish text matches the key pressed,
         // remove the bullet, and remove the first character
@@ -128,6 +129,10 @@
   };
 
   Bullet.prototype.draw = function (ctx) {
+
+    // Check each bullet for a collision with a fish.
+    this.checkCollisions();
+
     // A bullet is created by the ship object every time a key is pressed,
     // regardless of whether it is the right key.
 
@@ -146,4 +151,23 @@
     // Draw image
     this.drawImage(ctx);
   };
+
+  Bullet.prototype.checkCollisions = function () {
+    var bullets = this.game.bullets;
+    var fishes = this.game.fishes;
+
+    bullets.forEach(function (bullet) {
+      fishes.forEach(function (fish) {
+        if (bullet.isCollidedWith(fish)) {
+          bullet.collideWith(fish);
+        }
+      });
+    });
+  };
+
+  Bullet.prototype.isCollidedWith = function (otherObject) {
+    var centerDist = TypingFrenzy.Util.dist(this.pos, otherObject.pos);
+    return centerDist < (this.radius + otherObject.radius);
+  };
+
 })();
