@@ -13,13 +13,10 @@
     TypingFrenzy.MovingObject.call(this, options);
   };
 
-
   // Needed for collision detection.
   Bullet.RADIUS = 10;
 
   TypingFrenzy.Util.inherits(Bullet, TypingFrenzy.MovingObject);
-
-
 
   Bullet.prototype.isWrappable = false
 
@@ -73,8 +70,8 @@
       document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
       this.game.lastCharGood = false;
     }
-    console.log('bad char pressed: ' + this.pressedKey);
-    console.log('last char good: ' + this.game.lastCharGood);
+    // console.log('bad char pressed: ' + this.pressedKey);
+    // console.log('last char good: ' + this.game.lastCharGood);
     this.deadBullet = true;
   }
 

@@ -45,3 +45,11 @@
   background-color: white;
   border-radius: 10px;
 }
+
+.result-label-1 {
+  text-align: left !important;
+}
+
+.result-string-1 {
+  text-align: center !important;
+}

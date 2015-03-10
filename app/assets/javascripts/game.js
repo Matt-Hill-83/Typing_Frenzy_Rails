@@ -210,6 +210,7 @@ var SHIP_HEIGHT = 35;
     // Send total points to game over screen.
     document.getElementById("start-game").style.display = "block";
     document.getElementById( 'result-string-1' ).innerHTML = this.points;
+    document.getElementById( 'result-string-2' ).innerHTML = this.points;
     document.getElementById("my-canvas-keyboard").style.display = "block";
     //Map result onto keyboard heat map
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
