@@ -131,7 +131,7 @@
   Bullet.prototype.draw = function (ctx) {
 
     // Check each bullet for a collision with a fish.
-    this.checkCollisions();
+    this.checkforCollisions();
 
     // A bullet is created by the ship object every time a key is pressed,
     // regardless of whether it is the right key.
@@ -152,7 +152,7 @@
     this.drawImage(ctx);
   };
 
-  Bullet.prototype.checkCollisions = function () {
+  Bullet.prototype.checkforCollisions = function () {
     var bullets = this.game.bullets;
     var fishes = this.game.fishes;
 
@@ -165,9 +165,10 @@
     });
   };
 
-  Bullet.prototype.isCollidedWith = function (otherObject) {
-    var centerDist = TypingFrenzy.Util.dist(this.pos, otherObject.pos);
-    return centerDist < (this.radius + otherObject.radius);
+  Bullet.prototype.isCollidedWith = function (fish) {
+    var centerDist = TypingFrenzy.Util.dist(this.pos, fish.pos);
+    var collisionDistance = 60;
+    return centerDist < collisionDistance;
   };
 
 })();
