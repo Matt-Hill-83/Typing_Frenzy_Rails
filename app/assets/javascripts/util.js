@@ -139,10 +139,10 @@
     });
 
       //put in a case for not enough unique words.
+      // Prohibit new word that starts with the same letter as an existing word.
       var firstLetterUnique = false;
       while (!firstLetterUnique) {
         var newWord = wordList[parseInt(Math.random() * (wordList.length - 1))];
-        console.log('new word: ' + newWord);
         firstLetterUnique = firstLettersOfExistingFish.indexOf(newWord[0]) < 0;
       };
 

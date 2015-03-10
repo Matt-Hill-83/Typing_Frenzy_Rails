@@ -64,7 +64,12 @@
       this.aimAtWall();
       // Add key to wrongKey list if player shoots and there is no active fish
       this.game.wrongLettersString += this.pressedKey;
-      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+      // For a string of bad characters, only add the first one.      
+      if (this.game.lastCharGood) {
+        document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+      }
+      this.game.lastCharGood = false;
+
     };
   };
 
@@ -151,14 +156,13 @@
       // If the collided fish is the active fish,
       // Check whether the letter matches the first letter of the fish.
       // If so, remove the bullet and the first character of the word.
-      // Otherwise,
       if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
         // If the first character of the fish text matches the key pressed,
         // remove the bullet, and remove the first character
         if (char_1 === this.pressedKey){
           this.remove();
           otherObject.removeChar();
-
+          this.game.lastCharGood = true;
           // Refactor this into a function.
           this.game.points += 1;
           document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
@@ -167,9 +171,12 @@
           // If bullet collides with active fish, but the letter doesn't match,
           // add letter to wrongLettersString
           this.game.wrongLettersString += this.pressedKey;
-          document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+          // For a string of bad characters, only add the first one.
+          if (this.game.lastCharGood) {
+            document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+          }
+          this.game.lastCharGood = false;
           this.deadBullet = true;
-
         };
 
         // If all the characters have been removed, remove the fish
@@ -182,7 +189,7 @@
 
           // This is a work around.  Throw in a dummy character that can be easily removed
           // from the wrong keys string
-          this.pressedKey = '~z~';
+          this.pressedKey = '~remove_me~';
         }
       }
 
