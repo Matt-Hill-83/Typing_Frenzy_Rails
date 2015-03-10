@@ -23,7 +23,9 @@
       var text = otherObject.text;
       var char_1 = text[0];
 
-      // Make sure the fish is the active fish
+      // If the collided fish is the active fish,
+      // Check whether the letter matches the first letter of the fish.
+      // If so, remove the bullet and the first character of the word.
       if (this.game.activeFish === this.game.fishes.indexOf(otherObject)) {
         // If the first character of the fish text matches the key pressed,
         // remove the bullet, and remove the first character
@@ -34,6 +36,12 @@
           // Refactor this into a function.
           this.game.points += 1;
           document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
+
+        }else{
+          // If bullet collide with active fish, but the letter doesn't match,
+          // add letter to wrongLettersString
+          this.game.wrongLettersString += this.pressedKey;
+          document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
 
         };
 
@@ -59,7 +67,7 @@
 
   };
 
-  Bullet.prototype.activateFishIfMatch = function () {
+  Bullet.prototype.activateFishIfLetterMatches = function () {
     // If no fish are active, find the first fish, if any, that matches the
     // pressed key and activate it.
     if (this.game.activeFish < 0) {
@@ -85,11 +93,11 @@
 
   Bullet.prototype.createTrajectory = function () {
     // If a fish has been activated, shoot at it, otherwise shoot to the right.
-    if (this.game.activeFish >= 0){ //When is this set?
+    if (this.game.activeFish >= 0){
       this.aimAtFish();
     } else {
       this.aimAtWall();
-      // Add key to wrongKey list
+      // Add key to wrongKey list if player shoots and there is no active fish
       this.game.wrongLettersString += this.pressedKey;
       document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
     };
@@ -120,9 +128,22 @@
   };
 
   Bullet.prototype.draw = function (ctx) {
+    // A bullet is created by the ship object every time a key is pressed,
+    // regardless of whether it is the right key.
+
+    // Check whether a fish that was activated during a previous draw cycle
+    // still exists.  If so, set teh activeFish variable to its index.
     this.setActiveFishVariable();
-    this.activateFishIfMatch();
+
+    // If there is no active fish, look for a match between the keypress
+    // and the first letter of one of the fishes.  Activate that fish.
+    this.activateFishIfLetterMatches();
+
+    // If a fish has been activated, aim the bullet at it.
+    // Otherwise shoot to the right.
     this.createTrajectory();
+
+    // Draw image
     this.drawImage(ctx);
   };
 })();
