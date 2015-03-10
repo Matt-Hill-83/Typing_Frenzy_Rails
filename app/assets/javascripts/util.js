@@ -137,7 +137,6 @@
     game.fishes.forEach(function (fish) {
       firstLettersOfExistingFish += fish.text[0];
     });
-      // console.log('first letters: ' + firstLettersOfExistingFish);
 
       //put in a case for not enough unique words.
       var firstLetterUnique = false;
@@ -202,7 +201,7 @@
   //              "funny",
   //              "funny"
   //              ];
- var Out_Of_Position_02 = ["respect",
+  var Out_Of_Position_02 = ["respect",
               "thoughtful",
               "earnest",
               "sharp",
@@ -256,16 +255,16 @@
                "=equal=",
                "+plus+"
                ];
-  var HTML_06 = ["</div>",
-               "</link>",
-               "</form>",
-               "</a>",
-               "</li>",
-               "</img>",
-               "</ul>",
-               "</nav>",
-               "</span>",
-               "</head>"
+  var HTML_06 = ["a </div>",
+               "b </link>",
+               "c </form>",
+               "d </a>",
+               "e </li>",
+               "f </img>",
+               "g </ul>",
+               "h </nav>",
+               "i </span>",
+               "j </head>"
                ];
   var CSS_07 = ["margin: 15px auto;",
                "color: rgb(176,176,176);",

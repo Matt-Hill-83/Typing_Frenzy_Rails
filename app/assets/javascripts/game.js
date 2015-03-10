@@ -37,7 +37,7 @@ var SHIP_HEIGHT = 35;
     // For testing the zombie instance of game
     this.timeSig = Date.now() / 1000
     // Was the last letter typed correct?
-    this.lastCharGood
+    this.lastCharGood = true;
 
 
     // console.log('in game init: ' + this.demoMode);

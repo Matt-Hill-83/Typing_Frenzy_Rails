@@ -179,7 +179,10 @@
           this.game.addFish(1);
           // Remove pressedkey, so that another fish isn't activated that
           // starts with the same letter as the last letter of the dead fish.
-          this.pressedKey = 'none';
+
+          // This is a work around.  Throw in a dummy character that can be easily removed
+          // from the wrong keys string
+          this.pressedKey = '~z~';
         }
       }
 
