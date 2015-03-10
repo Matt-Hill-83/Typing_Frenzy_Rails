@@ -62,16 +62,20 @@
       this.aimAtFish();
     } else {
       this.aimAtWall();
-      // Add key to wrongKey list if player shoots and there is no active fish
-      this.game.wrongLettersString += this.pressedKey;
-      // For a string of bad characters, only add the first one.      
-      if (this.game.lastCharGood) {
-        document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-      }
-      this.game.lastCharGood = false;
-
+      this.storeBadChars();
     };
   };
+
+  Bullet.prototype.storeBadChars = function () {
+    // For a string of bad characters, only add the first one.
+    if (this.game.lastCharGood & this.pressedKey !== '~dontadd~') {
+      this.game.wrongLettersString += this.pressedKey;
+      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+    }
+    console.log('bad char pressed: ' + this.pressedKey);
+    this.game.lastCharGood = false;
+    this.deadBullet = true;
+  }
 
   Bullet.prototype.aimAtWall = function () {
     this.vel = [0, 10]
@@ -168,15 +172,19 @@
           document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
 
         }else{
+          this.storeBadChars();
           // If bullet collides with active fish, but the letter doesn't match,
-          // add letter to wrongLettersString
-          this.game.wrongLettersString += this.pressedKey;
-          // For a string of bad characters, only add the first one.
-          if (this.game.lastCharGood) {
-            document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
-          }
-          this.game.lastCharGood = false;
-          this.deadBullet = true;
+          // add letter to wrongLettersString.  Don't add dummy string.
+          // if (this.pressedKey !== '~dontadd~') {
+          //   this.game.wrongLettersString += this.pressedKey;
+          // };
+
+          // // For a string of bad characters, only add the first one.
+          // if (this.game.lastCharGood) {
+          //   document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+          // }
+          // this.game.lastCharGood = false;
+          // this.deadBullet = true;
         };
 
         // If all the characters have been removed, remove the fish
@@ -189,7 +197,7 @@
 
           // This is a work around.  Throw in a dummy character that can be easily removed
           // from the wrong keys string
-          this.pressedKey = '~remove_me~';
+          this.pressedKey = '~dontadd~';
         }
       }
 
