@@ -190,10 +190,11 @@ var SHIP_HEIGHT = 35;
   Game.prototype.gameOverActions = function () {
     // Send total points to game over screen.
     var wpm = parseInt((this.points/this.gameTimeInSec)*60/5);
+    var accuracy = parseInt((this.points - this.wrongLettersString.length)/this.points*100);
     document.getElementById("start-game").style.display = "block";
     document.getElementById( 'result-string-1' ).innerHTML = wpm;
 
-    // document.getElementById( 'result-string-2' ).innerHTML = wpm;
+    document.getElementById( 'result-string-2' ).innerHTML = accuracy;
     document.getElementById("my-canvas-keyboard").style.display = "block";
     document.getElementById("game-over-dialog-box").style.display = "block";
 
