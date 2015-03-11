@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 10;
+    this.gameTimeInSec = 30;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -179,7 +179,7 @@ var SHIP_HEIGHT = 35;
 
     } else if (object instanceof TypingFrenzy.Fish) {
       this.fishes.splice(this.fishes.indexOf(object), 1);
-    // 
+    //
     // } else if (object instanceof TypingFrenzy.Ship) {
     //   this.ships.splice(this.ships.indexOf(object), 1);
     } else {
