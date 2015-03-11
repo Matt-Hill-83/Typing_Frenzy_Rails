@@ -67,7 +67,7 @@
     // For a string of bad characters, only add the first one.
     if (this.game.lastCharGood && this.pressedKey !== '~dontadd~') {
       this.game.wrongLettersString += this.pressedKey;
-      document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+      // document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
       this.game.lastCharGood = false;
     }
     // console.log('bad char pressed: ' + this.pressedKey);
@@ -167,7 +167,7 @@
           otherObject.removeChar();
           // Refactor this into a function.
           this.game.points += 1;
-          document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
+          // document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
 
         }else{
           this.storeBadChars();

@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 120;
+    this.gameTimeInSec = 30;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -37,29 +37,24 @@ var SHIP_HEIGHT = 35;
     this.timeSig = Date.now() / 1000
     // Was the last letter typed correct?
     this.lastCharGood = true;
+    this.displayGameTime();
 
+    // This must be precalled here or the keyboard image wont load
+    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+
+  };
+
+  Game.prototype.displayGameTime = function () {
     var  n = this.gameTimeInSec;
     var twoDigits = (n <= 9 ? "0" + n : n);
     var time = new Date( this.gameTimeInSec *1000 );
     var hours = time.getUTCHours();
     var mins = time.getUTCMinutes();
     var element = document.getElementById( 'countdown' );
-    // element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
     element.innerHTML = (hours ? hours + ':' + this.twoDigitTimeFromSec( mins ) : mins) + ':' + this.twoDigitTimeFromSec( time.getUTCSeconds() );
-
-
-
-
-    // console.log('in game init: ' + this.demoMode);
-    // This must be precalled here or the keyboard image wont load
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
-
   };
 
-  Game.prototype.twoDigitTimeFromSec = function(n)
-  {
-      return (n <= 9 ? "0" + n : n);
-  }
+  Game.prototype.twoDigitTimeFromSec = function(n) { return (n <= 9 ? "0" + n : n); }
 
   Game.DIM_X = 1300;
   Game.DIM_Y = 870;
