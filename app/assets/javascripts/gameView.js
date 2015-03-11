@@ -13,17 +13,34 @@
   GameView.prototype.bindKeyHandlers = function () {
     var ship = this.ship;
 
+    var keyArray = [];
+
+    // Create list of keys to bind.
     for (i = 33; i <= 64; i++) {
       var chr = String.fromCharCode(i);
-      key(chr, function (event, handler) { ship.processKeystroke(event, handler) });
-      key('shift+'+ chr, function(event, handler) { ship.processKeystroke(event, handler) } );
+
+      keyArray.push(chr);
+      keyArray.push('shift+'+ chr);
+      // key(chr, function (event, handler) { ship.processKeystroke(event, handler) });
+      // key('shift+'+ chr, function(event, handler) { ship.processKeystroke(event, handler) } );
     }
-    key("space", function(event, handler) { ship.processKeystroke(event, handler) } );
+    // key("space", function(event, handler) { ship.processKeystroke(event, handler) } );
     for (i = 91; i <= 126; i++) {
       var chr = String.fromCharCode(i);
-      key(chr, function (event, handler) { ship.processKeystroke(event, handler) });
-      key('shift+'+ chr, function(event, handler) { ship.processKeystroke(event, handler) } );
+
+      keyArray.push(chr);
+      keyArray.push('shift+'+ chr);
     }
+    keyArray.push("space");
+
+    // Bind keys
+    for (i = 0 ; i < keyArray.length; i++) {
+      var this_key = keyArray[i];
+      key(this_key, function(event, handler) { ship.processKeystroke(event, handler) } );
+
+    };
+
+
 
   };
 
