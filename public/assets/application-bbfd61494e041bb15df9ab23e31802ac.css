@@ -1,0 +1,324 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+ */
+
+.canvas-div {
+    position: relative;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+    margin: 0px auto;
+    width: 900px;
+    -webkit-box-shadow: 3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+    -moz-box-shadow:    3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+    box-shadow:         3px 3px 16px 0px rgba(49, 50, 50, 0.75);
+}
+.my-canvas {
+    padding: 0;
+    margin: 0;
+    display: block;
+    width: 900px;
+    height: auto;
+    border-radius: 10px;
+}
+.my-canvas-keyboard {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    border-radius: 10px;
+    background-color: white;
+}
+.dialog-boxes-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+
+  /*border:1px solid white;*/
+
+}
+.dialog-box {
+  position: relative;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,1);
+  overflow: hidden;
+  border-radius: 5px;
+  margin: 20px auto;
+  width: 200px;
+  height: 100%;
+  background: black;
+  background: rgba(200,200,200, .4);
+}
+
+.start-game-box {
+  height: auto;
+}
+.game-over-dialog-box {
+  margin: 0;
+  padding: 0;
+  display: none;
+  /*background-color: yellow;*/
+}
+.user-session-box {
+  display: none;
+  height: 200px;
+}
+
+.my-dialog-font {
+  font-size: 24px;
+  font-family: Avenir Next, Avenir, Verdana, sans-serif;
+  font-weight: 300;
+  color: white;
+  margin: 0 auto;
+}
+
+.keyboard-heatmap{
+  display: none;
+  border-radius: 10px;
+}
+
+.result-label-1 {
+  text-align: left !important;
+}
+
+.result-string-0 {
+  text-align: center !important;
+  color: black;
+}
+.result-string-1 {
+  text-align: center !important;
+}
+.result-string-2 {
+  text-align: center !important;
+}
+.instructions-text {
+  text-align: center !important;
+  font-size: 20;
+  margin: 0px;
+  padding: 0px;
+}
+.instructions-box {
+  padding: 5px;
+  width: auto;
+  height: auto;
+  background-color: grey;
+  text-align: center !important;
+  font-size: 20;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+body{
+  background-color: rgb(176, 176,176) !important;
+}
+
+.master {
+    padding: 10px;
+    margin: 0px auto;
+    display: block;
+    background-color: rgb(176,176,176);
+    border-radius: 10px;
+}
+/*.setting-glyph-div {
+    position: absolute;
+    width: 100%;
+    height: 52px;
+    z-index: 10 !important;
+    top: 0px;
+}
+.setting-glyph-div:hover ~ .navbar-div {
+  display: block;
+  z-index: 20 !important;
+}
+.setting-glyph-div:hover {
+  display: none;
+  z-index: -20 !important;
+}*/
+/*.glyphicon.glyphicon-cog {
+    top: 50%;
+    transform: translateY(-50%);
+    position: relative;
+    margin: auto 10px;
+    font-size: 30px;
+    color: rgb(200,200,200);
+}*/
+
+
+
+.navbar .nav > li > a {
+    float: none;
+    color: black !important;
+    background-color: transparent;
+}
+.navbar .nav > li > a:hover {
+    float: none;
+    /*color: yellow !important;*/
+    background-color: transparent;
+    font-size: 16px;
+
+
+}
+.navbar-div {
+    position: absolute;
+    padding: 0;
+    top: 0;
+    width: 100%;
+    background-color: transparent !important;
+}
+.navbar-div:hover {
+    display: block;
+}
+.my-navbar {
+  padding: 0px !important;
+  margin: 0px !important;
+  background-image: none !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: red !important;
+}
+.CSSTableGenerator {
+	margin:0px;padding:0px;
+	width:100%;
+	border:1px solid #000000;
+
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:4px;
+	-webkit-border-bottom-right-radius:4px;
+	border-bottom-right-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:4px;
+	-webkit-border-top-left-radius:4px;
+	border-top-left-radius:4px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:4px;
+	-webkit-border-top-right-radius:4px;
+	border-top-right-radius:4px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:4px;
+	-webkit-border-bottom-left-radius:4px;
+	border-bottom-left-radius:4px;
+}.CSSTableGenerator tr:hover td{
+	background-color:#ffffff;
+
+
+}
+.CSSTableGenerator td{
+	vertical-align:middle;
+
+	background-color:#97c3ef;
+
+	border:1px solid #000000;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:7px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+	border:0px solid #000000;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+}
+.CSSTableGenerator tr:first-child td:first-child{
+	border-width:0px 0px 1px 0px;
+}
+.CSSTableGenerator tr:first-child td:last-child{
+	border-width:0px 0px 1px 1px;
+}
+.game-start-button {
+  position: relative;
+  background-color: transparent;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0;
+}
+
+.myButton {
+	-moz-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #768d87), color-stop(1, #6c7c7c));
+	background:-moz-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-webkit-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-o-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:-ms-linear-gradient(top, #768d87 5%, #6c7c7c 100%);
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#768d87', endColorstr='#6c7c7c',GradientType=0);
+	background-color:#768d87;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #6c7c7c), color-stop(1, #768d87));
+	background:-moz-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-webkit-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-o-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:-ms-linear-gradient(top, #6c7c7c 5%, #768d87 100%);
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#6c7c7c', endColorstr='#768d87',GradientType=0);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.CSSTableGenerator {
+  margin-bottom: 10px;
+}

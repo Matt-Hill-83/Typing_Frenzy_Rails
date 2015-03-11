@@ -4,7 +4,7 @@
   }
 
   var Util = TypingFrenzy.Util = function(){
-    // this.wordLists = "a";
+    this.wordLists = "a";
 
   };
 
