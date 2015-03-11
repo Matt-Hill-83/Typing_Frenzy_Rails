@@ -63,7 +63,7 @@ GameView.prototype.createKeyArray = function(){
     this.timerId2 = setInterval(
       function () {
         ship.fireBullet('a');
-      }, 1000 * 10
+      }, 1000
     );
 
   }

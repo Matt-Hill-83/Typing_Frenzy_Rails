@@ -51,7 +51,6 @@
     var octopusHeight = 100;
 
     ctx.drawImage(this.image, octopusX - octopusLength/2, octopusY - octopusHeight);
-    // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this.game);
   };
 
 })();
