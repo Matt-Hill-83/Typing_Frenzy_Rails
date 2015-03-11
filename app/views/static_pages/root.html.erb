@@ -58,32 +58,27 @@
     var ctx_kbd = keyboardCanvasEl.getContext("2d");
     // Restart game.
     var startGame = function(demoMode) {
-      // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
-
-      // Trying to clear out phantom game that is creating to keystrokes for each one
+      // Remove previous game
       if (this.game !== 'undefined'){
         console.log('nulling game');
         this.game = null;
       };
 
-      // Trying to clear out phantom game that is creating to keystrokes for each one
+      // Remove precvious gameView
       if (this.currentGameView !== 'undefined'){
         console.log('nulling gameview');
         this.currentGameView = null;
       };
 
-      console.log('game: ' + this.game);
-      console.log('demo mode: ' + demoMode);
       this.game = new TypingFrenzy.Game({
         "ctx": ctx,
         "ctx_kbd": ctx_kbd,
-        "demoMode": demoMode
+        "demoMode": demoMode  // Not used
         });
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
-      document.getElementById("my-canvas-keyboard").style.display = "none";
-// debugger
-    }
+      // document.getElementById("my-canvas-keyboard").style.display = "none";
+    };
 
     startGame(true)
 
@@ -98,11 +93,6 @@
       document.getElementById("new-user-box").style.display = "block";
       document.getElementById("new-session-box").style.display = "none";
       })
-
-    $('.my-sign-in').on("click", function(){
-       document.getElementById("new-session-box").style.display = "block";
-       document.getElementById("new-user-box").style.display = "none";
-       })
 
     $('.my-sign-in').on("click", function(){
        document.getElementById("new-session-box").style.display = "block";

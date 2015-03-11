@@ -29,7 +29,9 @@ var SHIP_HEIGHT = 35;
     this.addFish(this.desiredNumFish);
 
     this.points = 0;
-    if (this.demoMode === false){
+    if (this.demoMode){
+      // window.currentGameView.unbindKeys();
+    }else{
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';

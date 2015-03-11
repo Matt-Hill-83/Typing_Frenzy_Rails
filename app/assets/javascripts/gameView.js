@@ -9,6 +9,7 @@
     this.ship = this.game.addShip();
     this.timerId = null;
     this.keyArray = this.createKeyArray();
+    document.getElementById("my-canvas-keyboard").style.display = "none";
   };
 
 GameView.prototype.createKeyArray = function(){
