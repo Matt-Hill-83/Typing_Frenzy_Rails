@@ -8,6 +8,7 @@
     this.game = game;
     this.ship = this.game.addShip();
     this.timerId = null;
+    this.timerId2 = null;
     this.keyArray = this.createKeyArray();
     document.getElementById("my-canvas-keyboard").style.display = "none";
   };
@@ -34,7 +35,6 @@ GameView.prototype.createKeyArray = function(){
   return keyArray;
 }
 
-
   GameView.prototype.bindKeyHandlers = function () {
     var ship = this.ship;
 
@@ -55,7 +55,18 @@ GameView.prototype.createKeyArray = function(){
 
     );
     this.bindKeyHandlers();
+    this.testTimer();
   };
+
+  GameView.prototype.testTimer = function() {
+    ship = this.ship;
+    this.timerId2 = setInterval(
+      function () {
+        ship.fireBullet('a');
+      }, 1000 * 10
+    );
+
+  }
 
   GameView.prototype.unbindKeys = function() {
     this.keyArray.forEach(function (char) {
@@ -65,6 +76,7 @@ GameView.prototype.createKeyArray = function(){
 
   GameView.prototype.stop = function () {
     clearInterval(this.timerId);
+    clearInterval(this.timerId2);
     this.unbindKeys();
   };
 

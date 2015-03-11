@@ -30,7 +30,6 @@ var SHIP_HEIGHT = 35;
 
     this.points = 0;
     if (this.demoMode){
-      // window.currentGameView.unbindKeys();
     }else{
       this.startTimer(); // Make this a global
     };
@@ -203,10 +202,10 @@ var SHIP_HEIGHT = 35;
     // Send total points to game over screen.
     var wpm = parseInt((this.points/this.gameTimeInSec)*60/5);
     var accuracy = parseInt((this.points - this.wrongLettersString.length)/this.points*100);
-    document.getElementById("start-game").style.display = "block";
     document.getElementById( 'result-string-1' ).innerHTML = wpm;
-
     document.getElementById( 'result-string-2' ).innerHTML = accuracy;
+
+    document.getElementById("start-game").style.display = "block";
     document.getElementById("my-canvas-keyboard").style.display = "block";
     document.getElementById("game-over-dialog-box").style.display = "block";
     //If they've played once already, they don't need to keep seeing the instructions
