@@ -70,8 +70,6 @@
       // document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
       this.game.lastCharGood = false;
     }
-    // console.log('bad char pressed: ' + this.pressedKey);
-    // console.log('last char good: ' + this.game.lastCharGood);
     this.deadBullet = true;
   }
 

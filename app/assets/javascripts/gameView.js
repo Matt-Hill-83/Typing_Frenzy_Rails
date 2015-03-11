@@ -60,7 +60,11 @@ GameView.prototype.createKeyArray = function(){
   GameView.prototype.stop = function () {
     clearInterval(this.timerId);
     console.log('game stopped');
-    key.unbind('a');
+
+    this.keyArray.forEach(function (char) {
+      key.unbind(char);
+      console.log('unbinding: ' + char);
+    });
   };
 
 
