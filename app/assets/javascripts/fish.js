@@ -4,8 +4,7 @@
   }
 
   var Fish = TypingFrenzy.Fish = function (options) {
-    options.radius = Fish.RADIUS;
-    options.pos = options.pos || options.game.randomPosition();
+    options.pos = options.game.randomPosition();
 
     this.ctx = options.game.ctx
 
@@ -60,9 +59,6 @@
 
     TypingFrenzy.MovingObject.call(this, options);
   };
-
-  Fish.RADIUS = 50;
-  // Fish.SPEED = 10;
 
   TypingFrenzy.Util.inherits(Fish, TypingFrenzy.MovingObject);
   Fish.prototype.isWrappable = false;

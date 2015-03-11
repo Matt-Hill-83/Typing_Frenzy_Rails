@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 30;
+    this.gameTimeInSec = 10;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -34,10 +34,10 @@ var SHIP_HEIGHT = 35;
       this.startTimer(); // Make this a global
     };
     this.wrongLettersString = '';
-    // For testing the zombie instance of game
-    this.timeSig = Date.now() / 1000
+
     // Was the last letter typed correct?
     this.lastCharGood = true;
+    // Show starting time in upper left of screen.
     this.displayGameTime();
 
     // This must be precalled here or the keyboard image wont load
@@ -163,13 +163,6 @@ var SHIP_HEIGHT = 35;
     this.allObjects().forEach(function (object) {
       object.move();
     });
-  };
-
-  Game.prototype.randomPosition = function () {
-    return [
-      Game.DIM_X * Math.random(),
-      Game.DIM_Y * Math.random()
-    ];
   };
 
   Game.prototype.randomPosition = function () {

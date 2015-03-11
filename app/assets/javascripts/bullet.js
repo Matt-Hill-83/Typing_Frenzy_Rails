@@ -4,7 +4,6 @@
   }
 
   var Bullet = TypingFrenzy.Bullet = function (options) {
-    options.radius = Bullet.RADIUS;
     this.pressedKey = options.pressedKey;
     this.img=new Image(); // We should only do this once and make it a global
     this.img.src= "assets/bubble_24x24.png";
@@ -12,9 +11,6 @@
 
     TypingFrenzy.MovingObject.call(this, options);
   };
-
-  // Needed for collision detection.
-  Bullet.RADIUS = 10;
 
   TypingFrenzy.Util.inherits(Bullet, TypingFrenzy.MovingObject);
 
@@ -26,7 +22,6 @@
       var active = this.game.fishes[i].active
       if (active) { this.game.activeFish = i };
     };
-
   };
 
   Bullet.prototype.activateFishIfLetterMatches = function () {
