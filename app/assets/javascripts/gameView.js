@@ -53,18 +53,18 @@ GameView.prototype.createKeyArray = function(){
       }, 1000 / TypingFrenzy.Game.FPS
 
     );
-// debugger
     this.bindKeyHandlers();
+  };
+
+  GameView.prototype.unbindKeys = function() {
+    this.keyArray.forEach(function (char) {
+      key.unbind(char);
+    });
   };
 
   GameView.prototype.stop = function () {
     clearInterval(this.timerId);
-    console.log('game stopped');
-
-    this.keyArray.forEach(function (char) {
-      key.unbind(char);
-      console.log('unbinding: ' + char);
-    });
+    this.unbindKeys();
   };
 
 

@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 30;
+    this.gameTimeInSec = 10;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -210,8 +210,8 @@ var SHIP_HEIGHT = 35;
 
     //Map result onto keyboard heat map
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
-    // Kill everything
-    window.currentGameView.stop();
+    // Prevent ship from firing after game ends
+    window.currentGameView.unbindKeys();
   };
 
   Game.prototype.startTimer = function () { // put this in utils
