@@ -179,9 +179,9 @@ var SHIP_HEIGHT = 35;
 
     } else if (object instanceof TypingFrenzy.Fish) {
       this.fishes.splice(this.fishes.indexOf(object), 1);
-
-    } else if (object instanceof TypingFrenzy.Ship) {
-      this.ships.splice(this.ships.indexOf(object), 1);
+    // 
+    // } else if (object instanceof TypingFrenzy.Ship) {
+    //   this.ships.splice(this.ships.indexOf(object), 1);
     } else {
       throw "requested class not available.";
     }
