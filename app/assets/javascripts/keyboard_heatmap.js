@@ -26,7 +26,7 @@
     row_2_chars = ['tab', 'q', 'w', 'e','r', 't', 'y', 'u','i', 'o', 'p', 'br1','br2', 'bs'];
     row_3_chars = ['caps', 'a', 's', 'd','f', 'g', 'h', 'j','k', 'l', ';', 'bs', 'ret'];
     row_4_chars = ['shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm','com', 'per', '/', 'shift'];
-    row_5_chars = ['ctrl', 'option', 'cmd', ' ','cmd', 'option', 'ctrl'];
+    row_5_chars = ['fn','ctrl', 'option', 'cmd', ' ','cmd', 'option', 'ctrl'];
 
     this.keyboardChars = [];
     this.keyboardChars.push(row_1_chars);
