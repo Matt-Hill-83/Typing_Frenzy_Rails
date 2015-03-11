@@ -78,6 +78,11 @@
     var rectanglesHash = this.createKeyboardRectangles();
     var rectanglesArray = _.pairs(rectanglesHash);
 
+    // If there are no mistakes, show the 'no mistakes' message.
+    if (badString.length === 0) {
+      document.getElementById("no-mistakes-msg").style.display = "block";
+    };
+
     for (i = 0; i < badString.length; i++ ) {
         var rectangle = rectanglesHash[badString[i]];
 
