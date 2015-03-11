@@ -21,10 +21,10 @@
     );
   };
 
-  // Find the length of the vector.
-  var norm = Util.norm = function (vec) {
-    return Util.dist([0, 0], vec);
-  };
+  // // Find the length of the vector.
+  // var norm = Util.norm = function (vec) {
+  //   return Util.dist([0, 0], vec);
+  // };
 
   // Return a randomly oriented vector with the given length.
   var randomVec = Util.randomVec = function (length) {

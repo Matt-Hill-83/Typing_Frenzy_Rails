@@ -25,11 +25,11 @@
   };
 
   Ship.prototype.fireBullet = function (pressedKey) {
-    var norm = TypingFrenzy.Util.norm(this.vel);
-    var relVel = TypingFrenzy.Util.scale(
-      TypingFrenzy.Util.dir(this.vel),
-      TypingFrenzy.Bullet.SPEED
-    );
+    // var norm = TypingFrenzy.Util.norm(this.vel);
+    // var relVel = TypingFrenzy.Util.scale(
+    //   TypingFrenzy.Util.dir(this.vel),
+    //   TypingFrenzy.Bullet.SPEED
+    // );
 
     var bulletVel = [ 0, 0 ];
 
