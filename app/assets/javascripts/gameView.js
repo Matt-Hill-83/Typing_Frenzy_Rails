@@ -28,8 +28,6 @@
   };
 
   GameView.prototype.start = function () {
-    // document.getElementById("start-game").style.color = "white";
-
     var gameView = this;
     this.timerId = setInterval(
       function () {

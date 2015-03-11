@@ -48,7 +48,7 @@
 
 .keyboard-heatmap{
   display: none;
-  background-color: white;
+  /*background-color: red;*/
   border-radius: 10px;
 }
 
