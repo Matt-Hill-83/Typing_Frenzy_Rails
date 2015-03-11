@@ -7,8 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 5;
-
+    this.gameTimeInSec = 120;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -39,12 +38,28 @@ var SHIP_HEIGHT = 35;
     // Was the last letter typed correct?
     this.lastCharGood = true;
 
+    var  n = this.gameTimeInSec;
+    var twoDigits = (n <= 9 ? "0" + n : n);
+    var time = new Date( this.gameTimeInSec *1000 );
+    var hours = time.getUTCHours();
+    var mins = time.getUTCMinutes();
+    var element = document.getElementById( 'countdown' );
+    // element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+    element.innerHTML = (hours ? hours + ':' + this.twoDigitTimeFromSec( mins ) : mins) + ':' + this.twoDigitTimeFromSec( time.getUTCSeconds() );
+
+
+
 
     // console.log('in game init: ' + this.demoMode);
     // This must be precalled here or the keyboard image wont load
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
 
   };
+
+  Game.prototype.twoDigitTimeFromSec = function(n)
+  {
+      return (n <= 9 ? "0" + n : n);
+  }
 
   Game.DIM_X = 1300;
   Game.DIM_Y = 870;
@@ -218,9 +233,6 @@ var SHIP_HEIGHT = 35;
             if ( msLeft < 1000 ) {
                 element.innerHTML = "0:00";
                 game.gameOverActions();
-
-                // TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(game);
-
             } else {
                 time = new Date( msLeft );
                 hours = time.getUTCHours();
@@ -232,7 +244,6 @@ var SHIP_HEIGHT = 35;
                 // $("body").trigger(e);
             }
         }
-
         element = document.getElementById( elementName );
         endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
         updateTimer();
