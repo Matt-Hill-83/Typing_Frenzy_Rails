@@ -10,7 +10,8 @@
     this.timerId = null;
     this.timerId2 = null;
     this.keyArray = this.createKeyArray();
-    document.getElementById("my-canvas-keyboard").style.display = "none";
+    document.getElementById("keyboard-div").style.display = "none";
+    // document.getElementById("my-canvas-keyboard").style.display = "none";
   };
 
 GameView.prototype.createKeyArray = function(){

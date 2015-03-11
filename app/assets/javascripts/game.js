@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 30;
+    this.gameTimeInSec = 5;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -199,7 +199,8 @@ var SHIP_HEIGHT = 35;
     document.getElementById( 'result-string-2' ).innerHTML = accuracy;
 
     document.getElementById("start-game").style.display = "block";
-    document.getElementById("my-canvas-keyboard").style.display = "block";
+    document.getElementById("keyboard-div").style.display = "block";
+    // document.getElementById("my-canvas-keyboard").style.display = "block";
     document.getElementById("game-over-dialog-box").style.display = "block";
     //If they've played once already, they don't need to keep seeing the instructions
     document.getElementById("instructions-box").style.display = "none";

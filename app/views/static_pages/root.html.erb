@@ -3,9 +3,6 @@
   <div class='canvas-div' row>
     <canvas class='my-canvas' id='my-canvas'></canvas>
 
-    <!-- <div class='setting-glyph-div'>
-      <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-    </div> -->
     <div class='dialog-boxes-container'>
 
       <div class='start-game-box dialog-box' id='start-game'>
@@ -30,7 +27,11 @@
             </p>
           </div>
       </div>
-      <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas>
+      <div class='keyboard-div' id='keyboard-div'>
+        <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'> </canvas>
+        <span class='no-mistakes-msg'>No Mistakes</span>
+      </div>
+
       <%= render partial: "layouts/new_user" %>
       <%= render partial: "layouts/new_session" %>
 
