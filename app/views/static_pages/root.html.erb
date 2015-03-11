@@ -24,8 +24,7 @@
             Start Game
           </button>
         </p>
-        <br>
-          <div class='instructions-box'>
+          <div class='instructions-box' id='instructions-box'>
             <p class='instructions-text'>
               Type the words on each fish!
             </p>
@@ -93,7 +92,7 @@
        document.getElementById("new-session-box").style.display = "block";
        document.getElementById("new-user-box").style.display = "none";
        })
-
+       document.getElementById("instructions-box").style.display = "block";
     // When you click the start button...
     that = this;
     $('.game-start-button').on("click", function(){

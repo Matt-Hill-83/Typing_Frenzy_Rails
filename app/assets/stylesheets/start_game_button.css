@@ -3,7 +3,7 @@
   background-color: transparent;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 5%;
+  margin-top: 0;
 }
 
 .myButton {
@@ -45,4 +45,8 @@
 .myButton:active {
 	position:relative;
 	top:1px;
+}
+
+.CSSTableGenerator {
+  margin-bottom: 10px;
 }

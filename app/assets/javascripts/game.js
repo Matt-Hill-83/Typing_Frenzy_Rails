@@ -209,6 +209,8 @@ var SHIP_HEIGHT = 35;
     document.getElementById( 'result-string-2' ).innerHTML = accuracy;
     document.getElementById("my-canvas-keyboard").style.display = "block";
     document.getElementById("game-over-dialog-box").style.display = "block";
+    //If they've played once already, they don't need to keep seeing the instructions
+    document.getElementById("instructions-box").style.display = "none";
 
     //Map result onto keyboard heat map
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
