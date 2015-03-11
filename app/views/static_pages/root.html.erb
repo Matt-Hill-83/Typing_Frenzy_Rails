@@ -56,19 +56,14 @@
     keyboardCanvasEl.width = 500
     keyboardCanvasEl.height = 176;
     var ctx_kbd = keyboardCanvasEl.getContext("2d");
-    // Restart game.
+
+    // Start or restart game.
     var startGame = function(demoMode) {
       // Remove previous game
-      if (this.game !== 'undefined'){
-        console.log('nulling game');
-        this.game = null;
-      };
+      if (this.game !== 'undefined'){ this.game = null; };
 
-      // Remove precvious gameView
-      if (this.currentGameView !== 'undefined'){
-        console.log('nulling gameview');
-        this.currentGameView = null;
-      };
+      // Remove previous gameView
+      if (this.currentGameView !== 'undefined'){ this.currentGameView = null; };
 
       this.game = new TypingFrenzy.Game({
         "ctx": ctx,
@@ -77,7 +72,7 @@
         });
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
-      // document.getElementById("my-canvas-keyboard").style.display = "none";
+      if (demoMode){ this.currentGameView.unbindKeys();}
     };
 
     startGame(true)
