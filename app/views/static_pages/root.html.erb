@@ -56,7 +56,6 @@
     keyboardCanvasEl.width = 500
     keyboardCanvasEl.height = 176;
     var ctx_kbd = keyboardCanvasEl.getContext("2d");
-
     // Restart game.
     var startGame = function(demoMode) {
       // var game = new TypingFrenzy.Game(ctx, ctx_kbd);
@@ -83,6 +82,7 @@
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
       document.getElementById("my-canvas-keyboard").style.display = "none";
+// debugger
     }
 
     startGame(true)

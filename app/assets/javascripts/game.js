@@ -65,13 +65,13 @@ var SHIP_HEIGHT = 35;
 
   Game.prototype.getWordList = function (listName) {
     this.wordList = TypingFrenzy.Util.getWordListFromListsHash(listName);
-
     // Reset fish array.
     this.fishes = [];
     this.addFish(this.desiredNumFish);
   };
 
   Game.prototype.addFish = function (numFish) {
+// debugger
     for (var i = 0; i < numFish; i++) {
       this.add(new TypingFrenzy.Fish({
          game: this,
@@ -210,7 +210,8 @@ var SHIP_HEIGHT = 35;
 
     //Map result onto keyboard heat map
     TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
-
+    // Kill everything
+    window.currentGameView.stop();
   };
 
   Game.prototype.startTimer = function () { // put this in utils

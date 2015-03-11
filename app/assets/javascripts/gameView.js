@@ -8,40 +8,40 @@
     this.game = game;
     this.ship = this.game.addShip();
     this.timerId = null;
+    this.keyArray = this.createKeyArray();
   };
+
+GameView.prototype.createKeyArray = function(){
+  var keyArray = [];
+
+  // Create list of keys to bind.
+  for (i = 33; i <= 64; i++) {
+    var chr = String.fromCharCode(i);
+
+    keyArray.push(chr);
+    keyArray.push('shift+'+ chr);
+  };
+
+  for (i = 91; i <= 126; i++) {
+    var chr = String.fromCharCode(i);
+
+    keyArray.push(chr);
+    keyArray.push('shift+'+ chr);
+  };
+
+  keyArray.push("space");
+  return keyArray;
+}
+
 
   GameView.prototype.bindKeyHandlers = function () {
     var ship = this.ship;
 
-    var keyArray = [];
-
-    // Create list of keys to bind.
-    for (i = 33; i <= 64; i++) {
-      var chr = String.fromCharCode(i);
-
-      keyArray.push(chr);
-      keyArray.push('shift+'+ chr);
-      // key(chr, function (event, handler) { ship.processKeystroke(event, handler) });
-      // key('shift+'+ chr, function(event, handler) { ship.processKeystroke(event, handler) } );
-    }
-    // key("space", function(event, handler) { ship.processKeystroke(event, handler) } );
-    for (i = 91; i <= 126; i++) {
-      var chr = String.fromCharCode(i);
-
-      keyArray.push(chr);
-      keyArray.push('shift+'+ chr);
-    }
-    keyArray.push("space");
-
     // Bind keys
-    for (i = 0 ; i < keyArray.length; i++) {
-      var this_key = keyArray[i];
+    for (i = 0 ; i < this.keyArray.length; i++) {
+      var this_key = this.keyArray[i];
       key(this_key, function(event, handler) { ship.processKeystroke(event, handler) } );
-
     };
-
-
-
   };
 
   GameView.prototype.start = function () {
@@ -53,12 +53,13 @@
       }, 1000 / TypingFrenzy.Game.FPS
 
     );
-
+// debugger
     this.bindKeyHandlers();
   };
 
   GameView.prototype.stop = function () {
     clearInterval(this.timerId);
+    console.log('game stopped');
   };
 
 
