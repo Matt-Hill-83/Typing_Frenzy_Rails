@@ -6,7 +6,6 @@
     z-index: 10 !important;
     top: 0px;
 }
-
 .setting-glyph-div:hover ~ .navbar-div {
   display: block;
   z-index: 20 !important;
@@ -15,17 +14,6 @@
   display: none;
   z-index: -20 !important;
 }
-
-
-/*.navbar .nav > li > a {
-    float: none;
-    line-height: 19px;
-    padding: 9px 10px 11px;
-    text-decoration: none;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-    color:  red;
-}*/
-
 .navbar .nav > li > a {
     float: none;
     color: black !important;
@@ -45,23 +33,16 @@
     font-size: 30px;
     color: rgb(200,200,200);
 }
-
-
 .navbar-div {
-    /*display: none;*/
-    /*visibility: hidden;*/
     position: absolute;
     padding: 0;
     top: 0;
     width: 100%;
     background-color: transparent !important;
-    /*color: white !important;*/
-
 }
 .navbar-div:hover {
     display: block;
 }
-
 .my-navbar {
   padding: 0px !important;
   margin: 0px !important;
@@ -69,5 +50,4 @@
   background-color: transparent !important;
   border-color: transparent !important;
   color: red !important;
-
 }

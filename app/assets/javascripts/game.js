@@ -47,7 +47,7 @@ var SHIP_HEIGHT = 35;
   };
 
   Game.DIM_X = 1300;
-  Game.DIM_Y = 900;
+  Game.DIM_Y = 870;
   Game.FPS = 32;
   Game.NUM_FISH = 1;
   // Where should I put this?
