@@ -59,15 +59,23 @@
       this.aimAtFish();
     } else {
       this.aimAtWall();
-      this.storeBadChars();
+      // You can't store the bad character because you
+      // dont know which character it was, becuase you don't know which fish they
+      // were aiming for.  But you can log a bad character in the score.
+      this.storeBadChars('unknown');
     };
   };
 
-  Bullet.prototype.storeBadChars = function () {
+  Bullet.prototype.storeBadChars = function (missedChar) {
     // For a string of bad characters, only add the first one.
     if (this.game.lastCharGood && this.pressedKey !== '~dontadd~') {
-      this.game.wrongLettersString += this.pressedKey;
-      // document.getElementById( 'misses-box' ).innerHTML = this.game.wrongLettersString;
+
+      // If the correct character is known, store it.
+      if (missedChar !== 'unknown'){
+        this.game.wrongLettersString += missedChar;
+      }
+      // Record that the last character was bad, so a string of bad characters
+      // only records the first in the string.
       this.game.lastCharGood = false;
     }
     this.deadBullet = true;
@@ -168,7 +176,7 @@
           // document.getElementById( 'wpm-box' ).innerHTML = this.game.points;
 
         }else{
-          this.storeBadChars();
+          this.storeBadChars(char_1);
         };
 
         // If all the characters have been removed, remove the fish
