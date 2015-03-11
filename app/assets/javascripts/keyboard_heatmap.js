@@ -87,15 +87,20 @@
         var height = rectangle[3]
 
         var r_a = 0.3;
-        ctx_kbd.fillStyle = "red";
-        // ctx_kbd.fillStyle = "rgba(242, 105, 78, " + r_a + ")";
+        ctx_kbd.fillStyle = "#F57258";
         ctx_kbd.fillRect( x,y,width,height);
+        ctx_kbd.strokeStyle = "rgb(100,100,100)";
         TypingFrenzy.Util.roundRect(ctx_kbd, x, y, width, height, 5, true);
 
         ctx_kbd.stroke();
-        ctx_kbd.font="10px Georgia";
-        ctx_kbd.fillStyle = "black";
-        ctx_kbd.fillText(badString[i].toUpperCase(),x + 12,y + 17);
+        ctx_kbd.font="10px Futura";
+        // ctx_kbd.font="10px Georgia";
+        ctx_kbd.fillStyle = "rgb(100,100,100)";
+
+        var capitalizedLetter = badString[i].toUpperCase();
+        var wordWidth = ctx_kbd.measureText(capitalizedLetter).width;
+
+        ctx_kbd.fillText(capitalizedLetter,x + width/2 - wordWidth/2,y + 19);
     }; // end for loop
 
   };
