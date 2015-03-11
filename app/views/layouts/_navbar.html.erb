@@ -32,8 +32,8 @@
           </li> <!--dropdown -->
 
           <% if current_user.nil? %>
-            <li><a class='my-sign-in' href="#">Sign In</a></li>
-            <li><a class='my-sign-up' href="#">Sign Up</a></li>
+            <!-- <li><a class='my-sign-in' href="#">Sign In</a></li>
+            <li><a class='my-sign-up' href="#">Sign Up</a></li> -->
           <% else %>
             <li><%= current_user.username %></li>
             <li><%= button_to "Logout", session_url, method: :delete %></li>
