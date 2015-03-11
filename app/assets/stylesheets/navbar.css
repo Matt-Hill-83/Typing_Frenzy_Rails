@@ -1,26 +1,14 @@
-/*.setting-glyph-div {
-    position: absolute;
-    width: 100%;
-    height: 52px;
-    z-index: 10 !important;
-    top: 0px;
+.game-title {
+  color: black !important;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-shadow: rgba(255, 255, 255, .5) 0px 1px 0px;
 }
-.setting-glyph-div:hover ~ .navbar-div {
-  display: block;
-  z-index: 20 !important;
-}
-.setting-glyph-div:hover {
-  display: none;
-  z-index: -20 !important;
-}*/
-/*.glyphicon.glyphicon-cog {
-    top: 50%;
-    transform: translateY(-50%);
-    position: relative;
-    margin: auto 10px;
-    font-size: 30px;
-    color: rgb(200,200,200);
-}*/
 
 
 .navbar .nav > li > a {
@@ -33,8 +21,6 @@
     /*color: yellow !important;*/
     background-color: transparent;
     font-size: 16px;
-
-
 }
 .navbar-div {
     position: absolute;
