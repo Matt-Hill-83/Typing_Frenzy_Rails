@@ -1,4 +1,10 @@
-# w4d2: 99 Cats
+# Typing Frenzy
 
-* [Project Description](https://github.com/appacademy/rails-curriculum/blob/master/projects/w4d2-99cats.md)
-* [Live Demo](http://aa-99cats.herokuapp.com/)
+* [Project Description]
+- Typing tutor game.
+- Player must type the text on the fish in order to eliminate them and score points.
+- Features:
+  - custom parallax algorithm to create 3d effect
+  - custom keyboard heatmap visualization to show trouble keys
+
+* [Live Demo](http://typing-frenzy.herokuapp.com/)
