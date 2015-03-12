@@ -14,6 +14,7 @@
     document.getElementById("no-mistakes-msg").style.display = "none";
   };
 
+// Set up listeners on keypress events
 GameView.prototype.createKeyArray = function(){
   var keyArray = [];
 
@@ -56,18 +57,25 @@ GameView.prototype.createKeyArray = function(){
 
     );
     this.bindKeyHandlers();
-    // this.testTimer();
+    // Reload the page every minute to avery memory leak issue.
+    this.pageReloadTimer();
   };
 
-  GameView.prototype.testTimer = function() {
+  GameView.prototype.pageReloadTimer = function() {
     ship = this.ship;
+    that = this;
+
     this.timerId2 = setInterval(
       function () {
-        ship.fireBullet('a');
-      }, 1000
+        window.currentGameView.reloadPageToAvertMemoryLeak();
+      }, 1000 * 30
     );
 
   }
+
+  GameView.prototype.reloadPageToAvertMemoryLeak = function(){
+    if(!this.game.gameInProgress){ location.reload() };
+  };
 
   GameView.prototype.unbindKeys = function() {
     this.keyArray.forEach(function (char) {

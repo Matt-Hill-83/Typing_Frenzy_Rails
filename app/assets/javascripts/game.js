@@ -30,8 +30,10 @@ var SHIP_HEIGHT = 35;
 
     this.points = 0;
     if (this.demoMode){
+      this.gameInProgress = false;
     }else{
-      this.startTimer(); // Make this a global
+      this.gameInProgress = true; //This is used to avoid the page refresh that happens every minute to cure a momeory leak
+      this.startTimer();
     };
     this.wrongLettersString = '';
 
@@ -208,6 +210,7 @@ var SHIP_HEIGHT = 35;
     TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
     // Prevent ship from firing after game ends
     window.currentGameView.unbindKeys();
+    this.gameInProgress = false; // This allows the page to be refreshed every minute to avert a memory leak.    
   };
 
   Game.prototype.startTimer = function () { // put this in utils
