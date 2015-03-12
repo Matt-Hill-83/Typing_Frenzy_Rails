@@ -4,11 +4,10 @@
   }
 
   var Fish = TypingFrenzy.Fish = function (options) {
-    options.pos = options.game.randomPosition();
 
     this.ctx = options.game.ctx
 
-    this.pos = options.pos;
+    this.game = options.game;
     this.text = options.text;
     this.textOffset = 0;
     this.wordWidth = 0;
@@ -19,7 +18,6 @@
     this.strFontSize = String(this.fontSize);
     this.font = this.strFontSize.concat('px Arial');
     this.ctx.font= this.font;
-
 
     this.fishDirection = '';
     this.active = false;
@@ -35,7 +33,6 @@
     this.fishRightImagesHash = {};
     this.fishLeftImagesHash = {};
     for (var width = this.imageMinWidth; width <= this.imageMaxWidth; width += this.imageWidthIncrement) {
-      // var relativePath = 'assets/';
       var relativePath = 'assets/fish/';
 
       var imageName = "yellow_fish_right_" + width + "x50.png";
@@ -48,6 +45,12 @@
       newImageLeft.src= relativePath + imageName;
       this.fishLeftImagesHash[width] = newImageLeft;
     };
+
+    // this.pos = options.game.randomPosition();
+    this.pos = [0,0];
+    this.createFishStartPos();
+    options.pos = this.pos; // Why do I need to put this in options? Who reads it from options?  #move?
+    // options.pos = options.game.randomPosition();
 
     this.createFishStartPos();
     this.createFishStartDirection();
@@ -69,7 +72,28 @@
     this.fishBoundaryRight = TypingFrenzy.Game.DIM_X + this.imageWidth;
 
     var height = TypingFrenzy.Game.DIM_Y;
-    this.pos[1] = Math.random() * height * 0.75 + height * 0.05 ;
+
+    //  If fish is too close vertically to an existing fish, try again.
+    var fishTooClose = true;
+    var minYDistance = 100;
+
+    while (fishTooClose){
+      // Pick a new y position.
+      var fishList = this.game.fishes;
+      var newY = Math.random() * height * 0.75 + height * 0.05 ;
+      fishTooClose = false;
+
+      // Check new y position against existing y positions.
+      for (i = 0; i < fishList.length; i++) {
+        var existingFishY = this.game.fishes[i].pos[1]
+        if ( Math.abs(newY - existingFishY) < minYDistance) {
+          fishTooClose = true;
+          break;
+        };
+      };
+
+    };
+    this.pos[1] = newY;
   };
 
   Fish.prototype.createFishStartDirection = function () {
