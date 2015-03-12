@@ -68,7 +68,7 @@ GameView.prototype.createKeyArray = function(){
     this.timerId2 = setInterval(
       function () {
         window.currentGameView.reloadPageToAvertMemoryLeak();
-      }, 1000 * 30
+      }, 1000 * 27
     );
 
   }
