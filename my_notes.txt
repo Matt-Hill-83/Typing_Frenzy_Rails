@@ -1,0 +1,49 @@
+How stuff works:
+
+rake assets:precompile	--> precompiles assets before sending to heroku
+
+Main Program:
+
+- load index.html
+- in index.html:
+-- load all js files
+-- run a script that does the following:
+--- create Game
+--- put create a gameView and pass in the game and the canvas context
+--- start the gameView
+
+- gameView starts a timer that runs:
+-- game.step
+---move objects
+---check for collisions and respond
+-- game.draw
+
+Word List Pulldown:
+
+- game asks Util.wordList() for one of the wordlists
+- Game.addFish() sends this list back to utils and has it grab a single word.
+
+
+In the code below, I've successfully added an event handler that ties a DOM click to a function.
+My problem though, is that when I call the function, the function scope isn't in an instance of GameView, I seem to be in the scope of the GameView function.  I'm not able to access this.game.
+How can I call a function from my click event that is in scoped in my GameView instance?
+
+
+```(function () {
+  if (typeof TypingFrenzy === "undefined") {
+    window.TypingFrenzy = {};
+  }
+
+  var GameView = TypingFrenzy.GameView = function (game, ctx) {
+    this.ctx = ctx;
+    this.game = game;
+    this.ship = this.game.addShip();
+    this.timerId = null;
+    this.addFishRateMs = 400000;
+  };
+
+  $('.dropdown-menu li').on("click", function() {TypingFrenzy.GameView.prototype.testFunction()})
+
+  GameView.prototype.testFunction = function() {
+    console.log(this.game);
+  }```
