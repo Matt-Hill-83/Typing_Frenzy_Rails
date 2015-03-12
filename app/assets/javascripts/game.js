@@ -7,8 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 30;
-    this.desiredNumFish = 10;
+    this.gameTimeInSec = 5;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -19,6 +18,7 @@ var SHIP_HEIGHT = 35;
     this.bullets = [];
     this.ships = [];
     this.startWordList = 'In_Position_01';
+    this.desiredNumFish = 3;
 
     this.wordStarted = 0;
     this.fishNum = 0;
@@ -72,6 +72,7 @@ var SHIP_HEIGHT = 35;
   };
 
   Game.prototype.addFish = function (numFish) {
+// debugger
     for (var i = 0; i < numFish; i++) {
       this.add(new TypingFrenzy.Fish({
          game: this,
