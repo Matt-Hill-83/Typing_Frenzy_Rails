@@ -13,18 +13,20 @@
     this.ctx_kbd = this.game.ctx_kbd;
     this.badString = this.game.wrongLettersString;
 
-
     // Create the locations and dimensions of each rectangle to be overlaid on the keyboard.
     this.createKeyboardRectangles();
     // Create a has that maps each rectangle to its corresponding key.
     this.createRectanglesHash();
 
+    // Display screen objects.
+    this.drawKeyboardImage();
+    this.displayObjects(this.game);
+  };
+
+  var drawKeyboardImage = KeyboardHeatMap.drawKeyboardImage = function(){
     var image_kbd=new Image();
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
     this.ctx_kbd.drawImage(image_kbd, 0, 0);
-
-    // Display screen objects.
-    this.displayObjects(this.game);
   };
 
   var displayObjects = KeyboardHeatMap.displayObjects = function(){
@@ -39,18 +41,19 @@
       this. height = rectangle[3]
 
       this.drawRectangle();
-
-
-      this.ctx_kbd.stroke();
-      this.ctx_kbd.font="10px Futura";
-      this.ctx_kbd.fillStyle = "rgb(100,100,100)";
-
-      var capitalizedLetter = this.badString[i].toUpperCase();
-      var wordWidth = this.ctx_kbd.measureText(capitalizedLetter).width;
-
-      this.ctx_kbd.fillText(capitalizedLetter,this.x + this.width/2 - wordWidth/2,this.y + 19);
+      this.drawText();
     }; // end for loop
+  };
 
+  var drawText = KeyboardHeatMap.drawText = function() {
+    this.ctx_kbd.stroke();
+    this.ctx_kbd.font="10px Futura";
+    this.ctx_kbd.fillStyle = "rgb(100,100,100)";
+
+    var capitalizedLetter = this.badString[i].toUpperCase();
+    var wordWidth = this.ctx_kbd.measureText(capitalizedLetter).width;
+
+    this.ctx_kbd.fillText(capitalizedLetter,this.x + this.width/2 - wordWidth/2,this.y + 19);
   };
 
   var drawRectangle = KeyboardHeatMap.drawRectangle = function() {
@@ -125,9 +128,5 @@
       this.totalY += yKeyPlusSpacing;
     }; // for j
   }
-
-
-
-
 
 })();
