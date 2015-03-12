@@ -63,15 +63,6 @@
   TypingFrenzy.Util.inherits(Fish, TypingFrenzy.MovingObject);
   Fish.prototype.isWrappable = false;
 
-  // Fish.prototype.createFishStartPos = function () {
-  //   this.calcBestImageWidth();
-  //   this.fishBoundaryLeft = -this.imageWidth;
-  //   this.fishBoundaryRight = TypingFrenzy.Game.DIM_X + this.imageWidth;
-  //
-  //   var height = TypingFrenzy.Game.DIM_Y;
-  //   this.pos[1] = Math.random() * height * 0.75 + height * 0.05 ;
-  // };
-
   Fish.prototype.createFishStartPos = function () {
     this.calcBestImageWidth();
     this.fishBoundaryLeft = -this.imageWidth;

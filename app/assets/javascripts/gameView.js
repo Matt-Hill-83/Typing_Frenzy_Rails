@@ -56,7 +56,7 @@ GameView.prototype.createKeyArray = function(){
 
     );
     this.bindKeyHandlers();
-    this.testTimer();
+    // this.testTimer();
   };
 
   GameView.prototype.testTimer = function() {
