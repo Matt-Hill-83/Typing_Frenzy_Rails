@@ -29,7 +29,7 @@
       </div>
       <div class='keyboard-div' id='keyboard-div'>
         <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'> </canvas>
-        <span class='no-mistakes-msg' id='no-mistakes-msg'>No Mistakes</span>
+        <span class='no-mistakes-msg' id='no-mistakes-msg'>no mistakes</span>
       </div>
 
       <%= render partial: "layouts/new_user" %>
@@ -47,6 +47,7 @@
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
 <script type="application/javascript">
   (function () {
+    this.wordList = '';
     var canvasEl = document.getElementById("my-canvas");
     canvasEl.width = TypingFrenzy.Game.DIM_X;
     canvasEl.height = TypingFrenzy.Game.DIM_Y;
@@ -68,18 +69,21 @@
       this.game = new TypingFrenzy.Game({
         "ctx": ctx,
         "ctx_kbd": ctx_kbd,
-        "demoMode": demoMode  // Not used
+        "demoMode": demoMode,  // Not used
+        // 'startWordList': this.wordList || 'In_Position_01'
+        'startWordList': this.wordList || 'HTML_06'
         });
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
-      if (demoMode){ this.currentGameView.unbindKeys();}  //uncomment this to debug the slowdown issue
+      // if (demoMode){ this.currentGameView.unbindKeys();}  //uncomment this to debug the slowdown issue
     };
 
     startGame(true)
 
     // When an <li> is clicked, change the wordList to the corresponding list.
     var updateWordList = function() {
-      this.game.getWordList(event.target.name)
+      this.game.getWordList(event.target.name);
+      this.wordList = event.target.name;
     }
     $('.dropdown-menu li').on("click", function() { updateWordList(); })
 

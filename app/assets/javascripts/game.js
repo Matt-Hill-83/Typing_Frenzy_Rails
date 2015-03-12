@@ -8,7 +8,7 @@ var SHIP_HEIGHT = 35;
 
   var Game = TypingFrenzy.Game = function (options) {
     this.gameTimeInSec = 30;
-    this.desiredNumFish = 4;
+    this.desiredNumFish = 5;
 
     this.ctx = options.ctx;
     this.ctx_kbd = options.ctx_kbd;
@@ -18,7 +18,7 @@ var SHIP_HEIGHT = 35;
     this.fishes = [];
     this.bullets = [];
     this.ships = [];
-    this.startWordList = 'In_Position_01';
+    this.startWordList = options.startWordList || 'In_Position_01';
 
     this.wordStarted = 0;
     this.fishNum = 0;
@@ -97,7 +97,6 @@ var SHIP_HEIGHT = 35;
   Game.prototype.addBackgroundLayers = function () {
       this.add(new TypingFrenzy.BackgroundLayer({ game: this,
          file: "assets/dbl_background_2645x875.png",
-        //  file: "assets/dbl_background_3105x1027.png",
          bg_vel: [.8, 0],
          pos: [-1322, 0],
          maxX: 0
