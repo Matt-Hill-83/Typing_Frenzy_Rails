@@ -72,7 +72,6 @@ var SHIP_HEIGHT = 35;
   };
 
   Game.prototype.addFish = function (numFish) {
-// debugger
     for (var i = 0; i < numFish; i++) {
       this.add(new TypingFrenzy.Fish({
          game: this,
