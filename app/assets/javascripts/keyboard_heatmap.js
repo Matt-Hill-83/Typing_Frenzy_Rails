@@ -57,9 +57,12 @@
     var bandWidth = maxFreq/numColors;
     console.log('bandWidth: ' + bandWidth);
 
-    var colors = ['yellow', 'orange', 'red'];
-    var color = '';
+    var red = "#ED805F"
+    var orange = "#EDAF5F"
+    var yellow = "#EDED5F"
 
+    var colors = [yellow, orange, red];
+    var color = '';
     var freqArray = _.pairs(frequencyHash);
 
     // For each letter, select overlay color and draw it.
@@ -104,9 +107,8 @@
   var drawRectangle = KeyboardHeatMap.drawRectangle = function(color) {
     // Draw fill.
     this.ctx_kbd.fillStyle = color;
-    // this.ctx_kbd.fillStyle = "#F57258";
     this.ctx_kbd.fillRect( this.x,this.y,this.width,this.height);
-    // Draw grey border.ß
+    // Draw grey border.
     this.ctx_kbd.strokeStyle = "rgb(100,100,100)";
     TypingFrenzy.Util.roundRect(this.ctx_kbd, this.x, this.y, this.width, this.height, 5, true);
   };
