@@ -51,8 +51,6 @@
     console.log(frequencyHash);
 
     var numColors = 3;
-
-
     var maxFreq = Math.max.apply(Math, freqValues);
     var bandWidth = maxFreq/numColors;
     console.log('bandWidth: ' + bandWidth);
@@ -76,6 +74,8 @@
       this.width = rectangle[2]
       this.height = rectangle[3]
 
+      // Break frequency distribution into 3 bands and assign
+      // each bad key a color based on it's frequency.
       if (freq < bandWidth){
         color = colors[0]
       }else if (freq < 2* bandWidth){
@@ -85,12 +85,8 @@
       };
 
       this.drawRectangle(color);
-      // this.drawRectangle(colors[i]);
       this.drawText(letter);
-
-
     }; // for j
-
   };
 
   var drawText = KeyboardHeatMap.drawText = function(letter) {
