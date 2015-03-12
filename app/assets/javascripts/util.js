@@ -167,15 +167,15 @@
                "believe",
                "value"
                ];
-  // var In_Position_01 = ["a1234",
-  //              "b1234",
-  //              "c1234",
-  //              "d1234",
-  //              "e1234",
-  //              "f1234",
-  //              "g1234",
-  //              "h1234"
-  //              ];
+  var In_Position_01 = ["aaaa",
+               "bbbb",
+               "cccc",
+               "dddd",
+               "eeee",
+               "ffff",
+               "gggg",
+               "hhhh"
+               ];
   var Out_Of_Position_02 = ["respect",
               "thoughtful",
               "earnest",

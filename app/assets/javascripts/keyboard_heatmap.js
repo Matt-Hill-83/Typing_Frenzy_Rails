@@ -48,51 +48,45 @@
     }; // end for loop
 
     var freqValues = $.map(frequencyHash, function(v) { return v; });
-    console.log(freqValues);
     console.log(frequencyHash);
 
     var numColors = 3;
-    var bandWidth = freqValues.length/numColors;
-    var band1End = bandWidth;
-    var band2End = bandWidth * 2;
+
+
+    var maxFreq = Math.max.apply(Math, freqValues);
+    var bandWidth = maxFreq/numColors;
+    console.log('bandWidth: ' + bandWidth);
 
     var colors = ['yellow', 'orange', 'red'];
+    var color = '';
 
     var freqArray = _.pairs(frequencyHash);
 
     // For each letter, select overlay color and draw it.
     for (j = 0; j < freqArray.length; j++){
-        var letter = freqArray[j][0];
-        var freq = freqArray[j][1];
-        var rectangle = this.rectanglesHash[letter];
+      var letter = freqArray[j][0];
+      var freq = freqArray[j][1];
+      var rectangle = this.rectanglesHash[letter];
 
-        this.x = rectangle[0]
-        this.y = rectangle[1]
-        this.width = rectangle[2]
-        this.height = rectangle[3]
+      this.x = rectangle[0]
+      this.y = rectangle[1]
+      this.width = rectangle[2]
+      this.height = rectangle[3]
 
-        this.drawRectangle(colors[i]);
-        this.drawText(letter);
+      if (freq < bandWidth){
+        color = colors[0]
+      }else if (freq < 2* bandWidth){
+        color = colors[1]
+      }else{
+        color = colors[2]
+      };
+
+      this.drawRectangle(color);
+      // this.drawRectangle(colors[i]);
+      this.drawText(letter);
 
 
     }; // for j
-
-
-
-
-
-    // for (i = 0; i < badString.length; i++ ) {
-    //   var rectangle = this.rectanglesHash[badString[i]];
-    //
-    //   this.x = rectangle[0]
-    //   this.y = rectangle[1]
-    //   this.width = rectangle[2]
-    //   this.height = rectangle[3]
-    //
-    //   this.drawRectangle();
-    //   this.drawText();
-    // }; // end for loop
-
 
   };
 
@@ -107,9 +101,12 @@
     this.ctx_kbd.fillText(capitalizedLetter,this.x + this.width/2 - wordWidth/2,this.y + 19);
   };
 
-  var drawRectangle = KeyboardHeatMap.drawRectangle = function() {
-    this.ctx_kbd.fillStyle = "#F57258";
+  var drawRectangle = KeyboardHeatMap.drawRectangle = function(color) {
+    // Draw fill.
+    this.ctx_kbd.fillStyle = color;
+    // this.ctx_kbd.fillStyle = "#F57258";
     this.ctx_kbd.fillRect( this.x,this.y,this.width,this.height);
+    // Draw grey border.ß
     this.ctx_kbd.strokeStyle = "rgb(100,100,100)";
     TypingFrenzy.Util.roundRect(this.ctx_kbd, this.x, this.y, this.width, this.height, 5, true);
   };
