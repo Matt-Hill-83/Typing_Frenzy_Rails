@@ -10,7 +10,9 @@
   // on the keyboard image.
   var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(game){
     this.game = game;
-    ctx_kbd = this.game.ctx_kbd;
+    this.ctx_kbd = this.game.ctx_kbd;
+    this.badString = this.game.wrongLettersString;
+
 
     // Create the locations and dimensions of each rectangle to be overlaid on the keyboard.
     this.createKeyboardRectangles();
@@ -19,43 +21,50 @@
 
     var image_kbd=new Image();
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
-    ctx_kbd.drawImage(image_kbd, 0, 0);
+    this.ctx_kbd.drawImage(image_kbd, 0, 0);
 
     // Display screen objects.
     this.displayObjects(this.game);
   };
 
   var displayObjects = KeyboardHeatMap.displayObjects = function(){
-    var badString = this.game.wrongLettersString;
-    // If there are no mistakes, show the 'no mistakes' message.
-    if (badString.length === 0) {
-      document.getElementById("no-mistakes-msg").style.display = "block";
-    };
+    this.drawNoMistakesMessage();
 
-    for (i = 0; i < badString.length; i++ ) {
-        var rectangle = this.rectanglesHash[badString[i]];
+    for (i = 0; i < this.badString.length; i++ ) {
+      var rectangle = this.rectanglesHash[this.badString[i]];
 
-        var x = rectangle[0]
-        var y = rectangle[1]
-        var width = rectangle[2]
-        var height = rectangle[3]
+      this.x = rectangle[0]
+      this.y = rectangle[1]
+      this.width = rectangle[2]
+      this. height = rectangle[3]
 
-        var r_a = 0.3;
-        ctx_kbd.fillStyle = "#F57258";
-        ctx_kbd.fillRect( x,y,width,height);
-        ctx_kbd.strokeStyle = "rgb(100,100,100)";
-        TypingFrenzy.Util.roundRect(ctx_kbd, x, y, width, height, 5, true);
+      this.drawRectangle();
 
-        ctx_kbd.stroke();
-        ctx_kbd.font="10px Futura";
-        ctx_kbd.fillStyle = "rgb(100,100,100)";
 
-        var capitalizedLetter = badString[i].toUpperCase();
-        var wordWidth = ctx_kbd.measureText(capitalizedLetter).width;
+      this.ctx_kbd.stroke();
+      this.ctx_kbd.font="10px Futura";
+      this.ctx_kbd.fillStyle = "rgb(100,100,100)";
 
-        ctx_kbd.fillText(capitalizedLetter,x + width/2 - wordWidth/2,y + 19);
+      var capitalizedLetter = this.badString[i].toUpperCase();
+      var wordWidth = this.ctx_kbd.measureText(capitalizedLetter).width;
+
+      this.ctx_kbd.fillText(capitalizedLetter,this.x + this.width/2 - wordWidth/2,this.y + 19);
     }; // end for loop
 
+  };
+
+  var drawRectangle = KeyboardHeatMap.drawRectangle = function() {
+    this.ctx_kbd.fillStyle = "#F57258";
+    this.ctx_kbd.fillRect( this.x,this.y,this.width,this. height);
+    this.ctx_kbd.strokeStyle = "rgb(100,100,100)";
+    TypingFrenzy.Util.roundRect(this.ctx_kbd, this.x, this.y, this.width, this. height, 5, true);
+  };
+
+  var drawNoMistakesMessage = KeyboardHeatMap.drawNoMistakesMessage = function (){
+    // If there are no mistakes, show the 'no mistakes' message.
+    if (this.badString.length === 0) {
+      document.getElementById("no-mistakes-msg").style.display = "block";
+    };
   };
 
   var createKeyboardRectangles = KeyboardHeatMap.createKeyboardRectangles = function(){
