@@ -48,12 +48,10 @@
     }; // end for loop
 
     var freqValues = $.map(frequencyHash, function(v) { return v; });
-    console.log(frequencyHash);
 
     var numColors = 3;
     var maxFreq = Math.max.apply(Math, freqValues);
     var bandWidth = maxFreq/numColors;
-    console.log('bandWidth: ' + bandWidth);
 
     var red = "#ED805F"
     var orange = "#EDAF5F"
