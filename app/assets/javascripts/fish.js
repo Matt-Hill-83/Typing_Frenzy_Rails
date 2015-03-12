@@ -31,9 +31,27 @@
     this.fishWidthBuffer = 110;
     this.imageWidth = 0;
 
-    // Create a hash of images, using their file size parameters as seeds.
     this.fishRightImagesHash = {};
     this.fishLeftImagesHash = {};
+    this.populateImageHashes();
+
+    this.createFishStartPos();
+    this.createFishStartDirection();
+
+    options.vel = this.vel; // Why is this here?
+
+    this.x = 0;
+    this.y = 0;
+
+    TypingFrenzy.MovingObject.call(this, options);
+  };
+
+  TypingFrenzy.Util.inherits(Fish, TypingFrenzy.MovingObject);
+
+  Fish.prototype.isWrappable = false;
+
+  // Create a hash of images, using their file size parameters as seeds.
+  Fish.prototype.populateImageHashes = function (){
     for (var width = this.imageMinWidth; width <= this.imageMaxWidth; width += this.imageWidthIncrement) {
       // var relativePath = 'assets/';
       var relativePath = 'assets/fish/';
@@ -48,20 +66,8 @@
       newImageLeft.src= relativePath + imageName;
       this.fishLeftImagesHash[width] = newImageLeft;
     };
-
-    this.createFishStartPos();
-    this.createFishStartDirection();
-
-    options.vel = this.vel; // Why is this here?
-
-    this.x = 0;
-    this.y = 0;
-
-    TypingFrenzy.MovingObject.call(this, options);
   };
 
-  TypingFrenzy.Util.inherits(Fish, TypingFrenzy.MovingObject);
-  Fish.prototype.isWrappable = false;
 
   Fish.prototype.createFishStartPos = function () {
     this.calcBestImageWidth();
@@ -76,7 +82,7 @@
     while (fishTooClose){
       // Pick a new y position.
       var fishList = this.game.fishes;
-      var newY = Math.random() * height * 0.75 + height * 0.05 ;
+      var newY = Math.random() * height * 0.50 + height * 0.05 ;
       fishTooClose = false;
 
       // Check new y position against existing y positions.

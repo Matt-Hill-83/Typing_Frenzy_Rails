@@ -7,7 +7,7 @@ var SHIP_HEIGHT = 35;
   }
 
   var Game = TypingFrenzy.Game = function (options) {
-    this.gameTimeInSec = 15;
+    this.gameTimeInSec = 60;
     this.desiredNumFish = 4;
 
     this.ctx = options.ctx;
