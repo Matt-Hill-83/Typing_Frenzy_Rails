@@ -52,3 +52,5 @@ group :development do
 end
 
 gem 'newrelic_rpm'
+#reccommended by heroku
+gem 'rails_12factor'
