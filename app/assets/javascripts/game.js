@@ -41,7 +41,7 @@ var SHIP_HEIGHT = 35;
     this.displayGameTime();
 
     // This must be precalled here or the keyboard image wont load
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+    TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
 
   };
 
@@ -205,7 +205,7 @@ var SHIP_HEIGHT = 35;
     document.getElementById("instructions-box").style.display = "none";
 
     //Map result onto keyboard heat map
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+    TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
     // Prevent ship from firing after game ends
     window.currentGameView.unbindKeys();
   };

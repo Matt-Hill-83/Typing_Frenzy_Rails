@@ -11602,7 +11602,7 @@ var SHIP_HEIGHT = 35;
     this.displayGameTime();
 
     // This must be precalled here or the keyboard image wont load
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+    TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
 
   };
 
@@ -11773,7 +11773,7 @@ var SHIP_HEIGHT = 35;
     document.getElementById("instructions-box").style.display = "none";
 
     //Map result onto keyboard heat map
-    TypingFrenzy.KeyboardHeatMap.drawKeyboardRectangles(this);
+    TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
     // Prevent ship from firing after game ends
     window.currentGameView.unbindKeys();
   };
@@ -12021,7 +12021,7 @@ GameView.prototype.createKeyArray = function(){
 
   // Use the string of bad characters to create a heatmap on of problem areas
   // on the keyboard image.
-  var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(game){
+  var overlayColoredRectanglesOnBadKeys = KeyboardHeatMap.overlayColoredRectanglesOnBadKeys = function(game){
     ctx_kbd = game.ctx_kbd;
 
     var image_kbd=new Image();

@@ -8,14 +8,14 @@
 
   // Use the string of bad characters to create a heatmap on of problem areas
   // on the keyboard image.
-  var drawKeyboardRectangles = KeyboardHeatMap.drawKeyboardRectangles = function(game){
+  var overlayColoredRectanglesOnBadKeys = KeyboardHeatMap.overlayColoredRectanglesOnBadKeys = function(game){
     this.game = game;
     this.ctx_kbd = this.game.ctx_kbd;
     this.badString = this.game.wrongLettersString;
 
     // Create the locations and dimensions of each rectangle to be overlaid on the keyboard.
     this.createKeyboardRectangles();
-    // Create a has that maps each rectangle to its corresponding key.
+    // Create a hash that maps each rectangle to its corresponding key.
     this.createRectanglesHash();
 
     // Display screen objects.
