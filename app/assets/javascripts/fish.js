@@ -7,7 +7,7 @@
     options.pos = options.game.randomPosition();
 
     this.ctx = options.game.ctx
-
+    this.game = options.game;
     this.pos = options.pos;
     this.text = options.text;
     this.textOffset = 0;
@@ -63,13 +63,42 @@
   TypingFrenzy.Util.inherits(Fish, TypingFrenzy.MovingObject);
   Fish.prototype.isWrappable = false;
 
+  // Fish.prototype.createFishStartPos = function () {
+  //   this.calcBestImageWidth();
+  //   this.fishBoundaryLeft = -this.imageWidth;
+  //   this.fishBoundaryRight = TypingFrenzy.Game.DIM_X + this.imageWidth;
+  //
+  //   var height = TypingFrenzy.Game.DIM_Y;
+  //   this.pos[1] = Math.random() * height * 0.75 + height * 0.05 ;
+  // };
+
   Fish.prototype.createFishStartPos = function () {
     this.calcBestImageWidth();
     this.fishBoundaryLeft = -this.imageWidth;
     this.fishBoundaryRight = TypingFrenzy.Game.DIM_X + this.imageWidth;
-
     var height = TypingFrenzy.Game.DIM_Y;
-    this.pos[1] = Math.random() * height * 0.75 + height * 0.05 ;
+
+    //  If fish is too close vertically to an existing fish, try again.
+    var fishTooClose = true;
+    var minYDistance = 30;
+
+    while (fishTooClose){
+      // Pick a new y position.
+      var fishList = this.game.fishes;
+      var newY = Math.random() * height * 0.75 + height * 0.05 ;
+      fishTooClose = false;
+
+      // Check new y position against existing y positions.
+      for (i = 0; i < fishList.length; i++) {
+        var existingFishY = this.game.fishes[i].pos[1]
+        if ( Math.abs(newY - existingFishY) < minYDistance) {
+          fishTooClose = true;
+          break;
+        };
+      };
+
+    };
+    this.pos[1] = newY;
   };
 
   Fish.prototype.createFishStartDirection = function () {
