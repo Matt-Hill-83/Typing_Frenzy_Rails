@@ -52,6 +52,7 @@
     options.pos = this.pos; // Why do I need to put this in options? Who reads it from options?  #move?
     // options.pos = options.game.randomPosition();
 
+//fuck this shit
     this.createFishStartPos();
     this.createFishStartDirection();
 
