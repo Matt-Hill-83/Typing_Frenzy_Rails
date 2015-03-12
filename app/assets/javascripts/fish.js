@@ -20,7 +20,6 @@
     this.font = this.strFontSize.concat('px Arial');
     this.ctx.font= this.font;
 
-
     this.fishDirection = '';
     this.active = false;
 
@@ -38,7 +37,7 @@
     this.createFishStartPos();
     this.createFishStartDirection();
 
-    options.vel = this.vel; // Why is this here?
+    options.vel = this.vel; // Why is this here?  How uses this?  #move?
 
     this.x = 0;
     this.y = 0;
@@ -53,7 +52,6 @@
   // Create a hash of images, using their file size parameters as seeds.
   Fish.prototype.populateImageHashes = function (){
     for (var width = this.imageMinWidth; width <= this.imageMaxWidth; width += this.imageWidthIncrement) {
-      // var relativePath = 'assets/';
       var relativePath = 'assets/fish/';
 
       var imageName = "yellow_fish_right_" + width + "x50.png";
@@ -67,7 +65,6 @@
       this.fishLeftImagesHash[width] = newImageLeft;
     };
   };
-
 
   Fish.prototype.createFishStartPos = function () {
     this.calcBestImageWidth();
@@ -110,7 +107,6 @@
       this.vel = [-velX,0];
       this.fishDirection = 'left';
     };
-
   };
 
   Fish.prototype.removeChar = function () {

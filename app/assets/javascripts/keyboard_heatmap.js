@@ -7,7 +7,7 @@
   };
 
   var createKeyboardRectangles = KeyboardHeatMap.createKeyboardRectangles = function(){
-    var rectanglesHash = [];
+    this.rectanglesHash = [];
 
     row_1 = [29, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 49];
     row_2 = [47, 29, 29, 29,29, 29, 29, 29,29, 29, 29, 29, 29, 29];
@@ -37,33 +37,57 @@
 
     this.rowHeights = [29, 29, 29, 29,33];
 
-    var xOffset = 8;
-    var yOffset = 4;
+    this.xOffset = 8;
+    this.yOffset = 4;
 
-    var xInterKeySpacing = 4.6;
-    var yInterKeySpacing = 3.3;
-    var totalY = yOffset;
+    this.xInterKeySpacing = 4.6;
+    this.yInterKeySpacing = 3.3;
+    this.totalY = this.yOffset;
+
+    // for (j = 0; j < this.keyboardRectangleWidths.length; j++){
+    //   // Get the array of key widths
+    //   var keyboardRowArray = this.keyboardRectangleWidths[j];
+    //   keyHeight = this.rowHeights[j];
+    //   var yKeyPlusSpacing = this.yInterKeySpacing + keyHeight;
+    //
+    //   var totalX = this.xOffset;
+    //   for (i = 0; i < keyboardRowArray.length; i++){
+    //     keyWidth = keyboardRowArray[i]
+    //     var xKeyPlusSpacing = this.xInterKeySpacing + keyWidth;
+    //
+    //     var newRect = [totalX ,this.totalY,keyWidth,keyHeight];
+    //     this.rectanglesHash[this.keyboardChars[j][i]] = (newRect);
+    //     totalX += xKeyPlusSpacing;
+    //
+    //   }; // for i
+    //   this.totalY += yKeyPlusSpacing;
+    // }; // for j
+
+    this.createRectanglesHash();
+    return this.rectanglesHash;
+  };
+
+  var createRectanglesHash = KeyboardHeatMap.createRectanglesHash = function() {
 
     for (j = 0; j < this.keyboardRectangleWidths.length; j++){
       // Get the array of key widths
       var keyboardRowArray = this.keyboardRectangleWidths[j];
       keyHeight = this.rowHeights[j];
-      var yKeyPlusSpacing = yInterKeySpacing + keyHeight;
+      var yKeyPlusSpacing = this.yInterKeySpacing + keyHeight;
 
-      var totalX = xOffset;
+      var totalX = this.xOffset;
       for (i = 0; i < keyboardRowArray.length; i++){
         keyWidth = keyboardRowArray[i]
-        var xKeyPlusSpacing = xInterKeySpacing + keyWidth;
+        var xKeyPlusSpacing = this.xInterKeySpacing + keyWidth;
 
-        var newRect = [totalX ,totalY,keyWidth,keyHeight];
-        rectanglesHash[this.keyboardChars[j][i]] = (newRect);
+        var newRect = [totalX ,this.totalY,keyWidth,keyHeight];
+        this.rectanglesHash[this.keyboardChars[j][i]] = (newRect);
         totalX += xKeyPlusSpacing;
 
       }; // for i
-      totalY += yKeyPlusSpacing;
+      this.totalY += yKeyPlusSpacing;
     }; // for j
-    return rectanglesHash;
-  };
+  }
 
   // Use the string of bad characters to create a heatmap on of problem areas
   // on the keyboard image.
@@ -75,8 +99,8 @@
     ctx_kbd.drawImage(image_kbd, 0, 0);
 
     var badString = game.wrongLettersString;
-    var rectanglesHash = this.createKeyboardRectangles();
-    var rectanglesArray = _.pairs(rectanglesHash);
+    this.createKeyboardRectangles();
+    var rectanglesArray = _.pairs(this.rectanglesHash);
 
     // If there are no mistakes, show the 'no mistakes' message.
     if (badString.length === 0) {
@@ -84,7 +108,7 @@
     };
 
     for (i = 0; i < badString.length; i++ ) {
-        var rectangle = rectanglesHash[badString[i]];
+        var rectangle = this.rectanglesHash[badString[i]];
 
         var x = rectangle[0]
         var y = rectangle[1]
@@ -118,8 +142,8 @@
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
     ctx_kbd.drawImage(image_kbd, 0, 0);
 
-    var rectanglesHash = this.createKeyboardRectangles();
-    var rectanglesArray = _.pairs(rectanglesHash);
+    this.rectanglesHash = this.createKeyboardRectangles();
+    var rectanglesArray = _.pairs(this.rectanglesHash);
 
     for (j = 0; j < rectanglesArray.length; j++){
         var rectangle = rectanglesArray[j][1];
