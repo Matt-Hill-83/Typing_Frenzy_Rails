@@ -71,11 +71,13 @@
         "ctx_kbd": ctx_kbd,
         "demoMode": demoMode,  // Not used
         'startWordList': this.wordList || 'In_Position_01'
-        // 'startWordList': this.wordList || 'HTML_06'
         });
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);
       this.currentGameView.start();
       if (demoMode){ this.currentGameView.unbindKeys();}  //comment this to debug the slowdown issue
+      document.getElementById("start-game").style.display = "none";
+      document.getElementById("my-canvas-keyboard").style.display = "none";
+
     };
 
     startGame(true)
