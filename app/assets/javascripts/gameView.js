@@ -87,6 +87,7 @@ GameView.prototype.createKeyArray = function(){
     clearInterval(this.timerId);
     clearInterval(this.timerId2);
     this.unbindKeys();
+    console.log('stop executed');
   };
 
 

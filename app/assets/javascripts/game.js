@@ -202,6 +202,7 @@ var SHIP_HEIGHT = 35;
     document.getElementById("start-game").style.display = "block";
     document.getElementById("keyboard-div").style.display = "block";
     // document.getElementById("my-canvas-keyboard").style.display = "block";
+    // debugger
     document.getElementById("game-over-dialog-box").style.display = "block";
     //If they've played once already, they don't need to keep seeing the instructions
     document.getElementById("instructions-box").style.display = "none";
@@ -210,7 +211,7 @@ var SHIP_HEIGHT = 35;
     TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
     // Prevent ship from firing after game ends
     window.currentGameView.unbindKeys();
-    this.gameInProgress = false; // This allows the page to be refreshed every minute to avert a memory leak.    
+    this.gameInProgress = false; // This allows the page to be refreshed every minute to avert a memory leak.
   };
 
   Game.prototype.startTimer = function () { // put this in utils
