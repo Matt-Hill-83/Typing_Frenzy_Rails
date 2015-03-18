@@ -1,8 +1,6 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  has_many :cats
-
   after_initialize :ensure_session_token
 
   validates :password_digest, presence: true
@@ -26,9 +24,6 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-  def owns_cat?(cat)
-    cat.user_id == self.id
-  end
 
   def password=(password)
     @password = password

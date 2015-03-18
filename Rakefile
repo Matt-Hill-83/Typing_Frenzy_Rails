@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-NinetyNineCats::Application.load_tasks
+TypingFrenzy::Application.load_tasks
