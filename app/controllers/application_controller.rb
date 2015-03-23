@@ -3,9 +3,21 @@ class ApplicationController < ActionController::Base
 
   # Expose current_user method to the views
   helper_method :current_user
+  helper_method :text
   helper_method :logged_in?
 
   private
+
+
+  require 'csv'
+  def read_csv
+    csv_data = CSV.read 'robot_seed_data.csv'
+    headers = csv_data.shift.map {|i| i.to_s }
+    string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
+    array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
+  end
+
+
   def require_no_user!
     # redirect_to ??? unless current_user.nil?
   end
@@ -13,6 +25,12 @@ class ApplicationController < ActionController::Base
   def current_user
     return nil unless session[:session_token]
     @current_user ||= User.find_by_session_token(session[:session_token])
+  end
+
+  def text
+    @text_array = ['apple', 'banana', 'carrot', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+    # @text_array_json = @text_array.to_json
+    # @text_array.to_json
   end
 
   def logged_in?

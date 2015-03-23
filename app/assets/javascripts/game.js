@@ -24,7 +24,12 @@ var SHIP_HEIGHT = 35;
     this.fishNum = 0;
     this.activeFish = -1;
 
-    this.wordList = TypingFrenzy.Util.getWordListFromListsHash(this.startWordList);
+    this.test = JSON.parse(test_array);
+    for (var i = 0; i < this.test.length; i++ ){
+      console.log(this.test[i]);
+    }
+
+    this.wordList = TypingFrenzy.Util.getWordListFromListsHash(this.startWordList, this);
     this.addBackgroundLayers();
     this.addFish(this.desiredNumFish);
 
@@ -44,6 +49,9 @@ var SHIP_HEIGHT = 35;
 
     // This must be precalled here or the keyboard image wont load
     TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
+
+
+
 
   };
 

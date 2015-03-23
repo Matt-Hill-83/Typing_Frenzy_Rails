@@ -101,13 +101,16 @@
   };
 
   //Get word list from word list hash.
-  var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName) {
+  var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName, game) {
+    console.log(game.test);
+    return game.test;
     return wordListsHash[listName];
   };
   // Create new text for fish from current word list.
   var newText = Util.newText = function (wordList, game) {
     TypingFrenzy.Game.TOTAL_FISH ++;
     var firstLettersOfExistingFish = '';
+    console.log(game.test);
 
     game.fishes.forEach(function (fish) {
       firstLettersOfExistingFish += fish.text[0];
@@ -122,6 +125,10 @@
       };
 
       return newWord;
+  };
+
+  var getWordArrayFromRails = Util.getWordArrayFromRails = function () {
+
   };
 
   var Home_Row_00 = ["smile",
@@ -176,12 +183,18 @@
   //              "gggg",
   //              "hhhh"
   //              ];
+  if (window.game){
+    var In_Position_01 = window.game.test;
+    console.log('true');
+  };
+
   var Out_Of_Position_02 = ["respect",
               "thoughtful",
               "earnest",
               "sharp",
               "purpose",
               "squiggle",
+              "versatile",
               "versatile",
               "amenable",
               "construct",
@@ -287,7 +300,7 @@
                "Game.prototype.add",
                "pos: [-1556, 0],",
                "}else{",
-               "(i = 0; i < numFish; i++)",
+               "(var i = 0; i < numFish; i++)",
                "SHIP_WIDTH = 25;",
                "var game = this;",
                "if (obj1 == obj2)",

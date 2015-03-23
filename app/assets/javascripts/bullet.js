@@ -129,7 +129,7 @@
     var bullets = this.game.bullets;
     var fishes = this.game.fishes;
 
-    for (i = 0; i < bullets.length; i++) {
+    for (var i = 0; i < bullets.length; i++) {
       var bullet = bullets[i];
       var bulletNotDead = !bullet.deadBullet;
       var activeFishNum = this.game.activeFish;

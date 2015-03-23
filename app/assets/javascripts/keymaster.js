@@ -91,7 +91,7 @@
     scope = getScope();
 
     // for each potential shortcut
-    for (i = 0; i < _handlers[key].length; i++) {
+    for (var i = 0; i < _handlers[key].length; i++) {
       handler = _handlers[key][i];
 
       // see if it's in the current scope
@@ -187,7 +187,7 @@
       if (!_handlers[key]) {
         return;
       }
-      for (i = 0; i < _handlers[key].length; i++) {
+      for (var i = 0; i < _handlers[key].length; i++) {
         obj = _handlers[key][i];
         // only clear handlers if correct scope and mods match
         if (obj.scope === scope && compareArray(obj.mods, mods)) {
@@ -229,7 +229,7 @@
 
     for (key in _handlers) {
       handlers = _handlers[key];
-      for (i = 0; i < handlers.length; ) {
+      for (var i = 0; i < handlers.length; ) {
         if (handlers[i].scope === scope) handlers.splice(i, 1);
         else i++;
       }

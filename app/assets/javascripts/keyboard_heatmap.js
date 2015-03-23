@@ -37,7 +37,7 @@
     var frequencyHash = {};
     var badString = this.badString
 
-    for (i = 0; i < badString.length; i++ ) {
+    for (var i = 0; i < badString.length; i++ ) {
       // If the hash key doesn't exist, create it.
       if (frequencyHash[badString[i]]) {
         frequencyHash[badString[i]] += 1;
@@ -160,7 +160,7 @@
       var yKeyPlusSpacing = this.yInterKeySpacing + keyHeight;
 
       var totalX = this.xOffset;
-      for (i = 0; i < keyboardRowArray.length; i++){
+      for (var i = 0; i < keyboardRowArray.length; i++){
         keyWidth = keyboardRowArray[i]
         var xKeyPlusSpacing = this.xInterKeySpacing + keyWidth;
 

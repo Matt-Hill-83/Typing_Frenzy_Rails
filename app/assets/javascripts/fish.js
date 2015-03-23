@@ -83,7 +83,7 @@
       fishTooClose = false;
 
       // Check new y position against existing y positions.
-      for (i = 0; i < fishList.length; i++) {
+      for (var i = 0; i < fishList.length; i++) {
         var existingFishY = this.game.fishes[i].pos[1]
         if ( Math.abs(newY - existingFishY) < minYDistance) {
           fishTooClose = true;

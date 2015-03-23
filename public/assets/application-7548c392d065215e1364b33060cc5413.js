@@ -564,7 +564,7 @@ jQuery.extend({
 });
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(var i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -883,7 +883,7 @@ function Sizzle( selector, context, results, seed ) {
 /**
  * Create key-value caches of limited size
  * @returns {Function(string, Object)} Returns the Object data after storing it on itself with
- *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
+ *	property name the (space-suffixed) string and (var if the cache is larger than Expr.cacheLength)
  *	deleting the oldest entry
  */
 function createCache() {
@@ -1188,7 +1188,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// QSA and matchesSelector support
 
-	// matchesSelector(:active) reports false when true (IE9/Opera 11.5)
+	// matchesSelector(:active) reports false when true (var iE9/Opera 11.5)
 	rbuggyMatches = [];
 
 	// qSa(:focus) reports false when true (Chrome 21)
@@ -1264,7 +1264,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 		assert(function( div ) {
 			// Check to see if it's possible to do matchesSelector
-			// on a disconnected node (IE 9)
+			// on a disconnected node (var iE 9)
 			support.disconnectedMatch = matches.call( div, "div" );
 
 			// This should fail with an exception
@@ -1712,7 +1712,7 @@ Expr = Sizzle.selectors = {
 										return false;
 									}
 								}
-								// Reverse direction for :only-* (if we haven't yet done so)
+								// Reverse direction for :only-* (var if we haven't yet done so)
 								start = dir = type === "only" && !start && "nextSibling";
 							}
 							return true;
@@ -2319,7 +2319,7 @@ function matcherFromTokens( tokens ) {
 
 			// Return special upon seeing a positional matcher
 			if ( matcher[ expando ] ) {
-				// Find the next relative operator (if any) for proper handling
+				// Find the next relative operator (var if any) for proper handling
 				j = ++i;
 				for ( ; j < len; j++ ) {
 					if ( Expr.relative[ tokens[j].type ] ) {
@@ -2368,7 +2368,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			// Add elements passing elementMatchers directly to results
 			// Keep `i` a string if there are no elements so `matchedCount` will be "00" below
 			// Support: IE<9, Safari
-			// Tolerate NodeList properties (IE: "length"; Safari: <number>) matching elements by id
+			// Tolerate NodeList properties (var iE: "length"; Safari: <number>) matching elements by id
 			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
@@ -4183,7 +4183,7 @@ var rcheckableType = (/^(?:checkbox|radio)$/i);
 		document.createElement( "nav" ).cloneNode( true ).outerHTML !== "<:nav></:nav>";
 
 	// Check if a disconnected checkbox will retain its checked
-	// value of true after appended to the DOM (IE6/7)
+	// value of true after appended to the DOM (var iE6/7)
 	input.type = "checkbox";
 	input.checked = true;
 	fragment.appendChild( input );
@@ -6038,7 +6038,7 @@ function defaultDisplay( nodeName ) {
 		if ( display === "none" || !display ) {
 
 			// Use the already-created iframe if possible
-			iframe = (iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
+			iframe = (var iframe || jQuery( "<iframe frameborder='0' width='0' height='0'/>" )).appendTo( doc.documentElement );
 
 			// Always write a new HTML skeleton so Webkit and Firefox don't choke on reuse
 			doc = ( iframe[ 0 ].contentWindow || iframe[ 0 ].contentDocument ).document;
@@ -6270,7 +6270,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 	support.opacity = style.opacity === "0.5";
 
 	// Verify style float existence
-	// (IE uses styleFloat instead of cssFloat)
+	// (var iE uses styleFloat instead of cssFloat)
 	support.cssFloat = !!style.cssFloat;
 
 	div.style.backgroundClip = "content-box";
@@ -6371,7 +6371,7 @@ function addGetHookIf( conditionFn, hookFn ) {
 		// to display:none and there are still other visible table cells in a
 		// table row; if so, offsetWidth/Height are not reliable for use when
 		// determining if an element has been hidden directly using
-		// display:none (it is still safe to use offsets if a parent element is
+		// display:none (var it is still safe to use offsets if a parent element is
 		// hidden; don safety goggles and see bug #4512 for more information).
 		div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
 		contents = div.getElementsByTagName( "td" );
@@ -7672,15 +7672,15 @@ jQuery.fn.delay = function( time, type ) {
 
 	a.style.cssText = "top:1px";
 
-	// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (ie6/7)
+	// Test setAttribute on camelCase class. If it works, we need attrFixes when doing get/setAttribute (var ie6/7)
 	support.getSetAttribute = div.className !== "t";
 
 	// Get the style information from getAttribute
-	// (IE uses .cssText instead)
+	// (var iE uses .cssText instead)
 	support.style = /top/.test( a.getAttribute("style") );
 
 	// Make sure that URLs aren't manipulated
-	// (IE normalizes it by default)
+	// (var iE normalizes it by default)
 	support.hrefNormalized = a.getAttribute("href") === "/a";
 
 	// Check the default checkbox/radio value ("" on WebKit; "on" elsewhere)
@@ -7967,7 +7967,7 @@ jQuery.extend({
 					if ( getSetInput && getSetAttribute || !ruseDefault.test( name ) ) {
 						elem[ propName ] = false;
 					// Support: IE<9
-					// Also clear defaultChecked/defaultSelected (if appropriate)
+					// Also clear defaultChecked/defaultSelected (var if appropriate)
 					} else {
 						elem[ jQuery.camelCase( "default-" + name ) ] =
 							elem[ propName ] = false;
@@ -8405,8 +8405,8 @@ jQuery.fn.extend({
 				}
 
 				// If the element has a class name or if we're passed "false",
-				// then remove the whole classname (if there was one, the above saved it).
-				// Otherwise bring back whatever was previously saved (if anything),
+				// then remove the whole classname (var if there was one, the above saved it).
+				// Otherwise bring back whatever was previously saved (var if anything),
 				// falling back to the empty string if nothing was stored.
 				this.className = this.className || value === false ? "" : jQuery._data( this, "__className__" ) || "";
 			}
@@ -8505,7 +8505,7 @@ jQuery.parseJSON = function( data ) {
 		requireNonComma = open || comma;
 
 		// Determine new depth
-		// array/object open ("[" or "{"): depth += true - false (increment)
+		// array/object open ("[" or "{"): depth += true - false (var increment)
 		// array/object close ("]" or "}"): depth += false - true (decrement)
 		// other cases ("," or primitive): depth += true - true (numeric cast)
 		depth += !close - !open;
@@ -8798,7 +8798,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 					}
 				}
 
-				// Apply converter (if not an equivalence)
+				// Apply converter (var if not an equivalence)
 				if ( conv !== true ) {
 
 					// Unless errors are allowed to bubble, catch and return them
@@ -9353,7 +9353,7 @@ jQuery._evalUrl = function( url ) {
 jQuery.fn.extend({
 	wrapAll: function( html ) {
 		if ( jQuery.isFunction( html ) ) {
-			return this.each(function(i) {
+			return this.each(function(var i) {
 				jQuery(this).wrapAll( html.call(this, i) );
 			});
 		}
@@ -9382,7 +9382,7 @@ jQuery.fn.extend({
 
 	wrapInner: function( html ) {
 		if ( jQuery.isFunction( html ) ) {
-			return this.each(function(i) {
+			return this.each(function(var i) {
 				jQuery(this).wrapInner( html.call(this, i) );
 			});
 		}
@@ -9403,7 +9403,7 @@ jQuery.fn.extend({
 	wrap: function( html ) {
 		var isFunction = jQuery.isFunction( html );
 
-		return this.each(function(i) {
+		return this.each(function(var i) {
 			jQuery( this ).wrapAll( isFunction ? html.call(this, i) : html );
 		});
 	},
@@ -9607,7 +9607,7 @@ if ( xhrSupported ) {
 					// X-Requested-With header
 					// For cross-domain requests, seeing as conditions for a preflight are
 					// akin to a jigsaw puzzle, we simply never set it to be sure.
-					// (it can always be set on a per-request basis or even using ajaxSetup)
+					// (var it can always be set on a per-request basis or even using ajaxSetup)
 					// For same-domain requests, won't change header if already provided.
 					if ( !options.crossDomain && !headers["X-Requested-With"] ) {
 						headers["X-Requested-With"] = "XMLHttpRequest";
@@ -9691,7 +9691,7 @@ if ( xhrSupported ) {
 						// if we're in sync mode we fire the callback
 						callback();
 					} else if ( xhr.readyState === 4 ) {
-						// (IE6 & IE7) if it's in cache and has been
+						// (var iE6 & IE7) if it's in cache and has been
 						// retrieved directly we need to fire the callback
 						setTimeout( callback );
 					} else {
@@ -10580,11 +10580,11 @@ return jQuery;
         if (!valueToCheck === !nonBlank) {
 
           // Don't count unchecked required radio if other radio with same name is checked
-          if (input.is('input[type=radio]') && allInputs.filter('input[type=radio]:checked[name="' + input.attr('name') + '"]').length) {
+          if (var input.is('input[type=radio]') && allInputs.filter('input[type=radio]:checked[name="' + input.attr('name') + '"]').length) {
             return true; // Skip to next input
           }
 
-          inputs = inputs.add(input);
+          inputs = inputs.add(var input);
         }
       });
       return inputs.length ? inputs : false;
@@ -11169,7 +11169,7 @@ return jQuery;
       fishTooClose = false;
 
       // Check new y position against existing y positions.
-      for (i = 0; i < fishList.length; i++) {
+      for (var i = 0; i < fishList.length; i++) {
         var existingFishY = this.game.fishes[i].pos[1]
         if ( Math.abs(newY - existingFishY) < minYDistance) {
           fishTooClose = true;
@@ -11477,7 +11477,7 @@ return jQuery;
     var bullets = this.game.bullets;
     var fishes = this.game.fishes;
 
-    for (i = 0; i < bullets.length; i++) {
+    for (var i = 0; i < bullets.length; i++) {
       var bullet = bullets[i];
       var bulletNotDead = !bullet.deadBullet;
       var activeFishNum = this.game.activeFish;
@@ -11823,15 +11823,15 @@ GameView.prototype.createKeyArray = function(){
   var keyArray = [];
 
   // Create list of keys to bind.
-  for (i = 33; i <= 64; i++) {
-    var chr = String.fromCharCode(i);
+  for (var i = 33; i <= 64; i++) {
+    var chr = String.fromCharCode(var i);
 
     keyArray.push(chr);
     keyArray.push('shift+'+ chr);
   };
 
-  for (i = 91; i <= 126; i++) {
-    var chr = String.fromCharCode(i);
+  for (var i = 91; i <= 126; i++) {
+    var chr = String.fromCharCode(var i);
 
     keyArray.push(chr);
     keyArray.push('shift+'+ chr);
@@ -11845,7 +11845,7 @@ GameView.prototype.createKeyArray = function(){
     var ship = this.ship;
 
     // Bind keys
-    for (i = 0 ; i < this.keyArray.length; i++) {
+    for (var i = 0 ; i < this.keyArray.length; i++) {
       var this_key = this.keyArray[i];
       key(this_key, function(event, handler) { ship.processKeystroke(event, handler) } );
     };
@@ -11981,7 +11981,7 @@ GameView.prototype.createKeyArray = function(){
       var yKeyPlusSpacing = yInterKeySpacing + keyHeight;
 
       var totalX = xOffset;
-      for (i = 0; i < keyboardRowArray.length; i++){
+      for (var i = 0; i < keyboardRowArray.length; i++){
         keyWidth = keyboardRowArray[i]
         var xKeyPlusSpacing = xInterKeySpacing + keyWidth;
 
@@ -12002,7 +12002,7 @@ GameView.prototype.createKeyArray = function(){
 
     var image_kbd=new Image();
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
-    ctx_kbd.drawImage(image_kbd, 0, 0);
+    ctx_kbd.drawImage(var image_kbd, 0, 0);
 
     var badString = game.wrongLettersString;
     var rectanglesHash = this.createKeyboardRectangles();
@@ -12013,7 +12013,7 @@ GameView.prototype.createKeyArray = function(){
       document.getElementById("no-mistakes-msg").style.display = "block";
     };
 
-    for (i = 0; i < badString.length; i++ ) {
+    for (var i = 0; i < badString.length; i++ ) {
         var rectangle = rectanglesHash[badString[i]];
 
         var x = rectangle[0]
@@ -12046,7 +12046,7 @@ GameView.prototype.createKeyArray = function(){
 
     var image_kbd=new Image();
     image_kbd.src= "assets/keyboard/QWERTY_500x176.png";
-    ctx_kbd.drawImage(image_kbd, 0, 0);
+    ctx_kbd.drawImage(var image_kbd, 0, 0);
 
     var rectanglesHash = this.createKeyboardRectangles();
     var rectanglesArray = _.pairs(rectanglesHash);
@@ -12108,7 +12108,7 @@ GameView.prototype.createKeyArray = function(){
   // IE doesn't support Array#indexOf, so have a simple replacement
   function index(array, item){
     var i = array.length;
-    while(i--) if(array[i]===item) return i;
+    while(var i--) if(array[i]===item) return i;
     return -1;
   }
 
@@ -12136,7 +12136,7 @@ GameView.prototype.createKeyArray = function(){
     var key, handler, k, i, modifiersMatch, scope;
     key = event.keyCode;
 
-    if (index(_downKeys, key) == -1) {
+    if (var index(_downKeys, key) == -1) {
         _downKeys.push(key);
     }
 
@@ -12160,7 +12160,7 @@ GameView.prototype.createKeyArray = function(){
     scope = getScope();
 
     // for each potential shortcut
-    for (i = 0; i < _handlers[key].length; i++) {
+    for (var i = 0; i < _handlers[key].length; i++) {
       handler = _handlers[key][i];
 
       // see if it's in the current scope
@@ -12189,8 +12189,8 @@ GameView.prototype.createKeyArray = function(){
         i = index(_downKeys, key);
 
     // remove key from _downKeys
-    if (i >= 0) {
-        _downKeys.splice(i, 1);
+    if (var i >= 0) {
+        _downKeys.splice(var i, 1);
     }
 
     if(key == 93 || key == 224) key = 91;
@@ -12256,7 +12256,7 @@ GameView.prototype.createKeyArray = function(){
       if (!_handlers[key]) {
         return;
       }
-      for (i = 0; i < _handlers[key].length; i++) {
+      for (var i = 0; i < _handlers[key].length; i++) {
         obj = _handlers[key][i];
         // only clear handlers if correct scope and mods match
         if (obj.scope === scope && compareArray(obj.mods, mods)) {
@@ -12298,8 +12298,8 @@ GameView.prototype.createKeyArray = function(){
 
     for (key in _handlers) {
       handlers = _handlers[key];
-      for (i = 0; i < handlers.length; ) {
-        if (handlers[i].scope === scope) handlers.splice(i, 1);
+      for (var i = 0; i < handlers.length; ) {
+        if (handlers[i].scope === scope) handlers.splice(var i, 1);
         else i++;
       }
     }

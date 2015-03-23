@@ -19,14 +19,14 @@ GameView.prototype.createKeyArray = function(){
   var keyArray = [];
 
   // Create list of keys to bind.
-  for (i = 33; i <= 64; i++) {
+  for (var i = 33; i <= 64; i++) {
     var chr = String.fromCharCode(i);
 
     keyArray.push(chr);
     keyArray.push('shift+'+ chr);
   };
 
-  for (i = 91; i <= 126; i++) {
+  for (var i = 91; i <= 126; i++) {
     var chr = String.fromCharCode(i);
 
     keyArray.push(chr);
@@ -41,7 +41,7 @@ GameView.prototype.createKeyArray = function(){
     var ship = this.ship;
 
     // Bind keys
-    for (i = 0 ; i < this.keyArray.length; i++) {
+    for (var i = 0 ; i < this.keyArray.length; i++) {
       var this_key = this.keyArray[i];
       key(this_key, function(event, handler) { ship.processKeystroke(event, handler) } );
     };
@@ -87,7 +87,6 @@ GameView.prototype.createKeyArray = function(){
     clearInterval(this.timerId);
     clearInterval(this.timerId2);
     this.unbindKeys();
-    console.log('stop executed');
   };
 
 
