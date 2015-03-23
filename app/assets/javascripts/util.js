@@ -112,7 +112,7 @@
   var newText = Util.newText = function (wordList, game) {
     TypingFrenzy.Game.TOTAL_FISH ++;
     var firstLettersOfExistingFish = '';
-    console.log(game.test);
+    console.log(game.testWordList);
 
     game.fishes.forEach(function (fish) {
       firstLettersOfExistingFish += fish.text[0];
@@ -127,10 +127,6 @@
       };
 
       return newWord;
-  };
-
-  var getWordArrayFromRails = Util.getWordArrayFromRails = function () {
-
   };
 
   var Home_Row_00 = ["smile",
@@ -343,6 +339,9 @@
                ];
 
   var wordListsHash = {};
+
+  var populateWordArrayFromRails = Util.populateWordArrayFromRails = function (game) {
+
   wordListsHash['Home_Row_00'] = Home_Row_00;
   wordListsHash['In_Position_01'] = In_Position_01;
   wordListsHash['Out_Of_Position_02'] = Out_Of_Position_02;
@@ -355,5 +354,6 @@
   wordListsHash['JavaScript_08'] = JavaScript_08;
   wordListsHash['Ruby_09'] = Ruby_09;
   wordListsHash['Rails_10'] = Rails_10;
+  };  
 
 })();

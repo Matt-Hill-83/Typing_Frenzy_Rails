@@ -28,7 +28,7 @@ var SHIP_HEIGHT = 35;
     // for (var i = 0; i < this.testWordList.length; i++ ){
     //   console.log(this.testWordList[i]);
     // }
-
+    TypingFrenzy.Util.populateWordArrayFromRails(this);
     this.wordList = TypingFrenzy.Util.getWordListFromListsHash(this.startWordList, this);
     this.addBackgroundLayers();
     this.addFish(this.desiredNumFish);
