@@ -104,15 +104,18 @@
   var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName, game) {
     // Get wordList from array passed to root.html.erb from application.html.erb
     // Very hacky.  Replace with AJAX call.
-    wordListsHash['In_Position_01'] = game.testWordList;
+    if (game){
+      wordListsHash['Rails_10'] = game.testWordList;
+    }
 
+// debugger
     return wordListsHash[listName];
   };
   // Create new text for fish from current word list.
   var newText = Util.newText = function (wordList, game) {
     TypingFrenzy.Game.TOTAL_FISH ++;
     var firstLettersOfExistingFish = '';
-    console.log(game.testWordList);
+    // console.log(game.testWordList);
 
     game.fishes.forEach(function (fish) {
       firstLettersOfExistingFish += fish.text[0];

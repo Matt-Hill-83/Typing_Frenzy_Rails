@@ -11,13 +11,7 @@ class ApplicationController < ActionController::Base
   require 'csv'
 
   def read_csv
-    # debugger
-    csv_data = CSV.read 'test_words2.csv'
-
-    # headers = csv_data.shift.map {|i| i.to_s }
-    # string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
-    # array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
-    puts 'test---------------'
+    csv_data = CSV.read 'test_words.csv'
     csv_data.to_a.flatten
   end
 
@@ -32,7 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def text
-    @text_array = ['apple', 'banana', 'carrot', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
     @text_array = read_csv()
   end
 
