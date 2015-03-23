@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     # string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
     # array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
     puts 'test---------------'
-    csv_data.to_a
+    csv_data.to_a.flatten
   end
 
 
