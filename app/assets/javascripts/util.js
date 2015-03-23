@@ -102,9 +102,10 @@
 
   //Get word list from word list hash.
   var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName, game) {
-    console.log(game.test);
-    wordListsHash['In_Position_01'] = game.test;
-    // return game.test;
+    // Get wordList from array passed to root.html.erb from application.html.erb
+    // Very hacky.  Replace with AJAX call.
+    wordListsHash['In_Position_01'] = game.testWordList;
+
     return wordListsHash[listName];
   };
   // Create new text for fish from current word list.

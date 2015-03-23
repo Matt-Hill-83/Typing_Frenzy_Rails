@@ -24,10 +24,10 @@ var SHIP_HEIGHT = 35;
     this.fishNum = 0;
     this.activeFish = -1;
 
-    this.test = JSON.parse(test_array);
-    for (var i = 0; i < this.test.length; i++ ){
-      console.log(this.test[i]);
-    }
+    this.testWordList = JSON.parse(test_array);
+    // for (var i = 0; i < this.testWordList.length; i++ ){
+    //   console.log(this.testWordList[i]);
+    // }
 
     this.wordList = TypingFrenzy.Util.getWordListFromListsHash(this.startWordList, this);
     this.addBackgroundLayers();
