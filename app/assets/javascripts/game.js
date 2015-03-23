@@ -25,10 +25,8 @@ var SHIP_HEIGHT = 35;
     this.activeFish = -1;
 
     this.testWordList = JSON.parse(test_array);
-    // for (var i = 0; i < this.testWordList.length; i++ ){
-    //   console.log(this.testWordList[i]);
-    // }
-    TypingFrenzy.Util.populateWordArrayFromRails(this);
+    // Tell Util to populate its local word list Object
+    TypingFrenzy.Util.populateWordsArrayObjectFromRails(this);
     this.wordList = TypingFrenzy.Util.getWordListFromListsHash(this.startWordList, this);
     this.addBackgroundLayers();
     this.addFish(this.desiredNumFish);
@@ -49,10 +47,6 @@ var SHIP_HEIGHT = 35;
 
     // This must be precalled here or the keyboard image wont load
     TypingFrenzy.KeyboardHeatMap.overlayColoredRectanglesOnBadKeys(this);
-
-
-
-
   };
 
   Game.prototype.displayGameTime = function () {

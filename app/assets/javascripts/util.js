@@ -340,20 +340,19 @@
 
   var wordListsHash = {};
 
-  var populateWordArrayFromRails = Util.populateWordArrayFromRails = function (game) {
-
-  wordListsHash['Home_Row_00'] = Home_Row_00;
-  wordListsHash['In_Position_01'] = In_Position_01;
-  wordListsHash['Out_Of_Position_02'] = Out_Of_Position_02;
-  wordListsHash['Stretchers_03'] = Stretchers_03;
-  wordListsHash['Punctuation_04'] = Punctuation_04;
-  wordListsHash['Numbers_05'] = Numbers_05;
-  wordListsHash['Top_Punctuation_055'] = Top_Punctuation_055;
-  wordListsHash['HTML_06'] = HTML_06;
-  wordListsHash['CSS_07'] = CSS_07;
-  wordListsHash['JavaScript_08'] = JavaScript_08;
-  wordListsHash['Ruby_09'] = Ruby_09;
-  wordListsHash['Rails_10'] = Rails_10;
-  };  
+  var populateWordsArrayObjectFromRails = Util.populateWordsArrayObjectFromRails = function (game) {
+    wordListsHash['Home_Row_00'] = Home_Row_00;
+    wordListsHash['In_Position_01'] = In_Position_01;
+    wordListsHash['Out_Of_Position_02'] = Out_Of_Position_02;
+    wordListsHash['Stretchers_03'] = Stretchers_03;
+    wordListsHash['Punctuation_04'] = Punctuation_04;
+    wordListsHash['Numbers_05'] = Numbers_05;
+    wordListsHash['Top_Punctuation_055'] = Top_Punctuation_055;
+    wordListsHash['HTML_06'] = HTML_06;
+    wordListsHash['CSS_07'] = CSS_07;
+    wordListsHash['JavaScript_08'] = JavaScript_08;
+    wordListsHash['Ruby_09'] = Ruby_09;
+    wordListsHash['Rails_10'] = Rails_10;
+  };
 
 })();
