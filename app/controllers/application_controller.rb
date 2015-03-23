@@ -8,13 +8,17 @@ class ApplicationController < ActionController::Base
 
   private
 
-
   require 'csv'
+
   def read_csv
-    csv_data = CSV.read 'robot_seed_data.csv'
-    headers = csv_data.shift.map {|i| i.to_s }
-    string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
-    array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
+    # debugger
+    csv_data = CSV.read 'test_words2.csv'
+
+    # headers = csv_data.shift.map {|i| i.to_s }
+    # string_data = csv_data.map {|row| row.map {|cell| cell.to_s } }
+    # array_of_hashes = string_data.map {|row| Hash[*headers.zip(row).flatten] }
+    puts 'test---------------'
+    csv_data.to_a
   end
 
 
@@ -29,8 +33,7 @@ class ApplicationController < ActionController::Base
 
   def text
     @text_array = ['apple', 'banana', 'carrot', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
-    # @text_array_json = @text_array.to_json
-    # @text_array.to_json
+    @text_array = read_csv()
   end
 
   def logged_in?
