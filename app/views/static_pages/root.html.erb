@@ -1,4 +1,3 @@
-    <!-- <canvas class='my-canvas-keyboard' id='my-canvas-keyboard'></canvas> -->
 <div class='master'>
   <div class='canvas-div' row>
     <canvas class='my-canvas' id='my-canvas'></canvas>
@@ -69,7 +68,7 @@
       this.game = new TypingFrenzy.Game({
         "ctx": ctx,
         "ctx_kbd": ctx_kbd,
-        "demoMode": demoMode,  // Not used
+        "demoMode": demoMode,  // Not used?
         'startWordList': this.wordList || 'In_Position_01'
         });
       this.currentGameView = new TypingFrenzy.GameView(this.game, ctx);

@@ -103,7 +103,8 @@
   //Get word list from word list hash.
   var getWordListFromListsHash = Util.getWordListFromListsHash = function (listName, game) {
     console.log(game.test);
-    return game.test;
+    wordListsHash['In_Position_01'] = game.test;
+    // return game.test;
     return wordListsHash[listName];
   };
   // Create new text for fish from current word list.
@@ -183,10 +184,10 @@
   //              "gggg",
   //              "hhhh"
   //              ];
-  if (window.game){
-    var In_Position_01 = window.game.test;
-    console.log('true');
-  };
+    if (window.game){
+      var In_Position_01 = window.game.test;
+      console.log('true');
+    };
 
   var Out_Of_Position_02 = ["respect",
               "thoughtful",
